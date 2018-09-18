@@ -13,18 +13,24 @@ using MD_SW_ConnectSW;
 using System.Configuration;
 using System.Diagnostics;
 using System.Threading;
-
+using System.Text.RegularExpressions;
 
 namespace BatchExportDrawings
 {
     public partial class FrmMain : Form
     {
+
+        #region   全局变量
+        private static string openfolderpath = string.Empty;
+        #endregion
+
         /// <summary>
         /// 构造函数（初始化）
         /// </summary>
         public FrmMain()
         {
             InitializeComponent();
+
             this.loadTempToolStripMenuItem.Enabled = false;
             this.chkBom.Enabled = false;
             this.chkIsometric.Enabled = false;
@@ -105,6 +111,7 @@ namespace BatchExportDrawings
         /// <returns></returns>
         private void GetDrawPathByDir(string direct)
         {
+            if (direct.Equals("")) return;
             DirectoryInfo dir = new DirectoryInfo(direct);
             FileInfo[] file = dir.GetFiles();//获取到文件夹中所有文件            
             foreach (FileInfo fi in file)
@@ -115,6 +122,7 @@ namespace BatchExportDrawings
                     drawPaths.Add(fullPath);
                 }
             }
+            /*不再获取子目录下文件
             DirectoryInfo[] diInfo = dir.GetDirectories();//获取到子目录文件夹名
             if (diInfo != null)
             {
@@ -123,7 +131,7 @@ namespace BatchExportDrawings
                     string path = a.FullName;//子目录路径
                     GetDrawPathByDir(path);
                 }
-            }
+            }*/
         }
         /// <summary>
         /// 获取用户所选择文件夹下的所有文件（prt,asm）
@@ -135,10 +143,15 @@ namespace BatchExportDrawings
             string sPath = null;
             FolderBrowserDialog folderDialog = new FolderBrowserDialog();
             folderDialog.Description = description;
+            if ( !openfolderpath.Equals(string.Empty))
+            {
+                folderDialog.SelectedPath = openfolderpath;
+            }
             if (folderDialog.ShowDialog() == DialogResult.OK)
             {
                 sPath = folderDialog.SelectedPath;
-                //递归找到所有相关文件
+                openfolderpath = sPath;
+                //递归找到所有相关文件//找同级
                 fileLists = GetFileByDir(sPath);
             }
             else
@@ -213,13 +226,13 @@ namespace BatchExportDrawings
         /// 字典排序方法
         /// </summary>
         /// <param name="dic">排序对象</param>
-        private void pairArry(Dictionary<string, string> dic,int num)
+        private void pairArry(Dictionary<string, string> dic, int num)
         {
             pbAssem.Maximum = dic.Count;
             pbAssem.Value = 0;
             if (dic.Count == 0)
             {
-                pbAssem.Maximum = 1;               
+                pbAssem.Maximum = 1;
                 pbAssem.Value = 1;
                 lblBar.Text = (pbAssem.Value * 100 / pbAssem.Maximum).ToString() + "%";
             }
@@ -243,7 +256,7 @@ namespace BatchExportDrawings
             for (int j = 0; j < dic.Count; j++)
             {
                 this.dgvFileList.Rows.Add(list[j]);//第一列文件列表数据绑定
-               //进度条显示
+                                                   //进度条显示
                 pbAssem.Value += 1;
                 lblBar.Text = (pbAssem.Value * 100 / pbAssem.Maximum).ToString() + "%";
             }
@@ -258,14 +271,14 @@ namespace BatchExportDrawings
                 if (extension == "sldprt")
                 {
                     //绑定默认模板文件到模板选择第一栏   
-                    dgvFileList.Rows[num+i].Cells["TempColum"].Value = tempPath1;
+                    dgvFileList.Rows[num + i].Cells["TempColum"].Value = tempPath1;
                     DataGridViewComboBoxCell cell = dgvFileList.Rows[num + i].Cells["TempColum"] as DataGridViewComboBoxCell;
-                    cell.Value = dgvFileList.Rows[num+i].Cells["TempColum"].Value.ToString();
+                    cell.Value = dgvFileList.Rows[num + i].Cells["TempColum"].Value.ToString();
                     dgvFileList.UpdateCellValue(cell.ColumnIndex, cell.RowIndex);
                 }
                 else
                 {
-                    dgvFileList.Rows[num + i].Cells["TempColum"].Value = tempPath2;//                      
+                    dgvFileList.Rows[num + i].Cells["TempColum"].Value = tempPath2;//                     
                     DataGridViewComboBoxCell cell = dgvFileList.Rows[num + i].Cells["TempColum"] as DataGridViewComboBoxCell;
                     cell.Value = dgvFileList.Rows[num + i].Cells["TempColum"].Value.ToString();
                     dgvFileList.UpdateCellValue(cell.ColumnIndex, cell.RowIndex);
@@ -319,15 +332,23 @@ namespace BatchExportDrawings
         /// <param name="e"></param>
         private void openDocToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            string[] fileList = GetFiles("请选择要出图的零件或装配体文件", "零部件 (*.SLDASM;*.SLDPRT)|*.SLDASM;*.SLDPRT", "files");
+            AddFileInfo(fileList);
+        }
+        /// <summary>
+        /// 添加文件信息
+        /// </summary>
+        private void AddFileInfo(string[] fileList, params string[] originalFiles)
+        {
             this.PicShiJiaoColum.Items.Clear();
             this.DimesionColum.Items.Clear();
             this.ViewType.Items.Clear();
             dicCompare.Clear();//清理掉字典里的文件
             drawPaths.Clear();//清理掉图纸集合中的数据
             fileNames.Clear();//清理掉临时文件名集合
-            int filenums=this.dgvFileList.Rows.Count;
             Dictionary<string, string> dicIsSame = new Dictionary<string, string>();
-            string[] fileList = GetFiles("请选择要出图的零件或装配体文件", "零部件 (*.SLDASM;*.SLDPRT)|*.SLDASM;*.SLDPRT", "files");
+            int filenums = this.dgvFileList.Rows.Count;
+
             this.dgvFileList.AutoGenerateColumns = false;
             if (this.dgvFileList.Rows.Count > 0) this.dgvFileList.ClearSelection();//取消单元格的选择
             if (fileList != null)
@@ -335,16 +356,19 @@ namespace BatchExportDrawings
                 if (this.txtSavePath.Text.Trim() == string.Empty)
                 {
                     string drawPath = SubLastString(fileList[0], "\\");//【1】获取文件夹路径
-                    this.txtSavePath.Text = drawPath;//把图纸保存路径显示出来                                                     
+                    this.txtSavePath.Text = drawPath;//把图纸保存路径显示出来
                     GetDrawPathByDir(drawPath);//【2】获取该路径下所有图纸文件
                 }
                 for (int i = 0; i < fileList.Length; i++)
                 {
                     //先分割字符串再放到dictionary<k,v>中
                     string splitEx = fileList[i].Substring(fileList[i].LastIndexOf("D") + 1, 3);//截取到后缀的三个字母
-                    dicCompare.Add(fileList[i], splitEx);
                     string newName = fileList[i].Substring(fileList[i].LastIndexOf("\\") + 1);//获取到文件名
-                    dicIsSame.Add(fileList[i], newName);//把用户选取的文件名加到集合里
+                    if ((originalFiles.Count() > 0 && !originalFiles.Contains(fileList[i]))|| originalFiles.Count() == 0)
+                    {
+                        dicCompare.Add(fileList[i], splitEx);
+                        dicIsSame.Add(fileList[i], newName);//把用户选取的文件名加到集合里
+                    }
                 }
                 //调用元素是否重复方法
                 Dictionary<string, string> newFil = isRepeat(dicIsSame);
@@ -399,7 +423,7 @@ namespace BatchExportDrawings
             List<string> fileList = GetAllFiles("请选择一个包含零件或装配体的文件夹");
             this.dgvFileList.AutoGenerateColumns = false;
             if (this.dgvFileList.Rows.Count > 0) this.dgvFileList.ClearSelection();//取消单元格的选择
-            if (fileList != null)
+            if (fileList != null&&fileList.Count()>0)
             {
 
                 if (this.txtSavePath.Text.Trim() == string.Empty)
@@ -432,8 +456,11 @@ namespace BatchExportDrawings
         /// </summary>      
         private void openCurrentToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (swApp == null)
-                swApp = (SldWorks)ConnectSW.iSwApp;
+           
+            try
+            {
+                if (swApp == null)
+                    swApp = (SldWorks)ConnectSW.iSwApp;
             object[] modelFile;
             pathName.Clear();
             drawPaths.Clear();
@@ -444,14 +471,19 @@ namespace BatchExportDrawings
             int files = this.dgvFileList.Rows.Count;
             Dictionary<string, string> dicIsSame = new Dictionary<string, string>();
             if (this.dgvFileList.Rows.Count > 0) this.dgvFileList.ClearSelection();
-            if (swApp == null) return;
             int fileCount = swApp.GetDocumentCount();
             modelFile = (object[])swApp.GetDocuments();
             for (int i = 0; i < fileCount; i++)
             {
                 swModel = modelFile[i] as ModelDoc2;
-                string path = swModel.GetPathName();
-                pathName.Add(path);
+                    int type = swModel.GetType();
+                    bool isVisible = swModel.Visible;
+                    if ((type != 3 && isVisible))//当非图纸文件且界面可见时
+                    {
+                        string path = swModel.GetPathName();
+                        pathName.Add(path);
+                    }
+                   
             }
             if (pathName.Count != 0)
             {
@@ -481,6 +513,11 @@ namespace BatchExportDrawings
                 addCombox();
             }
             else { return; }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         /// <summary>
         /// 点击单元格立即选择下拉框事件
@@ -522,8 +559,6 @@ namespace BatchExportDrawings
                 for (int i = rowCount; i > 0; i--)
                 {
                     this.dgvFileList.Rows.RemoveAt(dgvFileList.SelectedRows[i - 1].Index);
-                    //if (this.dgvFileList.Rows[i].Selected)
-                    //{ this.dgvFileList.Rows.RemoveAt(i); }
                 }
                 if (this.dgvFileList.Rows.Count == 0)
                 {
@@ -622,13 +657,41 @@ namespace BatchExportDrawings
             }
             return dicFile;
         }
+
         /// <summary>
-        /// 用户双击单元格时取消选中行
+        /// 用户单击单元格时取消选中行
         /// </summary>   
-        private void dgvFileList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvFileList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.RowIndex >= 0 && this.dgvFileList.CurrentRow.Selected)
-                this.dgvFileList.CurrentRow.Selected = false;
+
+            //if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            //{
+            //    if (this.dgvFileList.CurrentRow.Selected)
+            //    {
+            //        Color selectc = this.dgvFileList.DefaultCellStyle.BackColor;
+            //        if (this.dgvFileList.DefaultCellStyle.SelectionBackColor == Color.DodgerBlue)
+            //        {
+            //            this.dgvFileList.DefaultCellStyle.SelectionBackColor = selectc;
+            //            this.dgvFileList.DefaultCellStyle.SelectionForeColor = Color.Black;
+            //        }
+            //        else
+            //        {
+            //            this.dgvFileList.DefaultCellStyle.SelectionBackColor = Color.DodgerBlue;
+
+            //        }
+            //    }
+            //    else
+            //    {
+            //        //this.dgvFileList.CurrentRow.Selected = false;
+            //        this.dgvFileList.DefaultCellStyle.SelectionBackColor = Color.DodgerBlue;
+            //    }
+
+            //}
+            //else
+            //{
+            //    this.dgvFileList.CurrentRow.Selected = true;
+            //}
+
         }
         private void dgvFileList_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
@@ -903,6 +966,9 @@ namespace BatchExportDrawings
         /// </summary>
         private void btnStartDrawing_Click(object sender, EventArgs e)
         {
+           
+            drawPaths.Clear();
+            GetDrawPathByDir(txtSavePath.Text);
             Dictionary<string, string[]> tempFiles = new Dictionary<string, string[]>();
             List<string> sucFles = new List<string>();
             try
@@ -941,13 +1007,13 @@ namespace BatchExportDrawings
                     }
                 }
             }
-            if (this.dgvFileList.Rows.Count==0)//如果界面为空
+            if (this.dgvFileList.Rows.Count == 0)//如果界面为空
             {
                 this.chkIsometric.Checked = false;
                 this.chkBom.Checked = false;
                 this.chkIsometric.Enabled = false;
                 this.chkBom.Enabled = false;
-            }
+            }         
         }
         /// <summary>
         /// 窗体加载事件
@@ -955,7 +1021,7 @@ namespace BatchExportDrawings
         private void FrmMain_Load(object sender, EventArgs e)
         {
             System.Diagnostics.Process[] processArr = null;
-            processArr = System.Diagnostics.Process.GetProcessesByName("mdb");           
+            processArr = System.Diagnostics.Process.GetProcessesByName("mdb");
             if (processArr.Length == 0) //设计宝未运行
             {
                 DialogResult d_result = MessageBox.Show("请在设计宝中运行该插件工具，谢谢配合！", "非设计宝环境的启动错误", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
@@ -965,19 +1031,27 @@ namespace BatchExportDrawings
                     return;
                 }
             }
-            //窗体打开之前判断SoildWorks是否打开
-            if (MD_SW_ConnectSW.ConnectSW.iSwApp == null)
+            //窗体打开之前判断SoildWorks是否打开    
+            try
             {
-                MessageBox.Show("请打开SoildWorks!");
+                if (swApp == null)
+                    swApp = (SldWorks)ConnectSW.iSwApp;
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                this.Close();
+                return;
+            }
+        
             prtPath = _exePath + "迈迪模板\\GB-A4.drwdot";
-            compPath = _exePath + "迈迪模板\\GB-A3.drwdot";
-            bomPath = _exePath + "迈迪模板\\gb-bom-material.sldbomtbt";
-            bendPath = _exePath + "迈迪模板\\bendtable-standard.sldbndtbt";
-            this.txtPrtTemplate.Text = prtPath;
-            this.txtCompTemplate.Text = compPath;
-            this.txtBomPath.Text = bomPath;
-            this.txtBendBom.Text = bendPath;
+                compPath = _exePath + "迈迪模板\\GB-A3.drwdot";
+                bomPath = _exePath + "迈迪模板\\gb-bom-material.sldbomtbt";
+                bendPath = _exePath + "迈迪模板\\bendtable-standard.sldbndtbt";
+                this.txtPrtTemplate.Text = prtPath;
+                this.txtCompTemplate.Text = compPath;
+                this.txtBomPath.Text = bomPath;
+                this.txtBendBom.Text = bendPath;
 
         }
 
@@ -1050,5 +1124,72 @@ namespace BatchExportDrawings
                 objFrm.Dispose();
             }
         }
+
+        private void dgvFileList_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (e.Button == MouseButtons.Right)//反键取消
+            {
+                if (dgvFileList.Rows[e.RowIndex].Selected)
+                {
+                    dgvFileList.Rows[e.RowIndex].Selected = false;
+                }
+                else
+                {
+                    dgvFileList.Rows[e.RowIndex].Selected = true;
+                }
+            }
+        }
+
+        private void dgvFileList_DragDrop(object sender, DragEventArgs e)
+        {
+
+            if (!e.Data.GetDataPresent(DataFormats.FileDrop)) return;
+            //获取列表中原有数据
+            //List<string> originalFiles = new List<string>();
+            int fileNumber = dgvFileList.RowCount;
+            string[] originalFiles = new string[dgvFileList.Rows.Count];
+            if (fileNumber > 0)
+            {
+                for (int i = 0; i < fileNumber; i++)
+                {
+                    originalFiles[i] = dgvFileList.Rows[i].Cells[0].Value.ToString();
+                }
+            }
+
+            string[] path_list = e.Data.GetData(DataFormats.FileDrop) as string[];
+            ArrayList array = new ArrayList();
+            //定义过滤格式
+            var filter = new Regex(@"$(?<=\.(sldasm|sldprt))", RegexOptions.IgnoreCase);
+            foreach (string path in path_list)
+            {
+                if (File.Exists(path) && filter.IsMatch(path))//文件,且格式符合
+                {
+                    array.Add(path);
+                }
+            }
+            string[] addfiles = new string[array.Count];
+            for (  int i=0; i<array.Count; i++)
+            {
+                addfiles[i] = array[i].ToString();
+            }
+
+            AddFileInfo(addfiles, originalFiles);
+
+        }
+
+        private void dgvFileList_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Link;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+
+        }
+
     }
 }

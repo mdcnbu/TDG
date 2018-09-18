@@ -26,6 +26,94 @@
             出工程图类
             </summary>
         </member>
+        <member name="F:BatchExportDrawings.Drawings.Drawings.AssemBar">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.ExportDrawing(System.Collections.Generic.Dictionary{System.String,System.String[]},System.Collections.Generic.List{System.String},System.String,System.String,System.String)">
+            <summary>
+            出工程图方法
+            </summary>
+            <param name="dicValue">字典集合保存datagridview中的值</param>
+            <param name="drawPath">图纸路径集合</param>
+            <param name="bomPath">bom表模板路径</param>
+            <param name="bendPath">折弯表模板路径</param>
+            <param name="savePath">图纸保存路径</param>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.Drawing(System.Collections.Generic.Dictionary{System.String,System.String[]},System.String,System.String,System.String,System.String)">
+            <summary>
+            出工程图
+            </summary>
+            <param name="dicValues">字典集合</param>
+            <param name="bomPaths">Bom表模板</param>
+            <param name="bendPaths">折弯表模板</param>
+            <param name="savePaths">保存路径</param>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.IsMentalSheets(SolidWorks.Interop.sldworks.ModelDoc2)">
+            <summary>
+            判断是否为钣金
+            </summary>
+            <param name="swModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.SheetPlante(SolidWorks.Interop.sldworks.ModelDoc2,SolidWorks.Interop.sldworks.DrawingDoc,System.String,System.Collections.Generic.List{System.Double[]},System.Collections.Generic.List{System.Double[]},System.Int32)">
+            <summary>
+            钣金展开
+            </summary>
+            <param name="swModel"></param>
+            <param name="swDraw"></param>
+            <param name="path">零件路径</param>
+            <param name="pos"></param>
+            <param name="outLine"></param>
+            <param name="viewNum"></param>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.SupressFeature(SolidWorks.Interop.sldworks.ModelDoc2)">
+            <summary>
+            压缩钣金展开
+            </summary>
+            <param name="swModel"></param>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.InsertBendTable(SolidWorks.Interop.sldworks.DrawingDoc,SolidWorks.Interop.sldworks.IView,SolidWorks.Interop.sldworks.ModelDoc2,System.String)">
+            <summary>
+            插入折弯表
+            </summary>
+            <param name="swDraw"></param>
+            <param name="__swView"></param>
+            <param name="swModel"></param>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.CreatIsometric(SolidWorks.Interop.sldworks.DrawingDoc,System.String)">
+            <summary>
+            只生成等轴测视图
+            </summary>
+            <param name="swDraw"></param>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.ChangeViewShow(System.String,SolidWorks.Interop.sldworks.IView)">
+            <summary>
+            改变视图的显示样式
+            </summary>
+            <param name="viewType">视图样式</param>
+            <param name="__swView"></param>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.AddDimension(System.String,SolidWorks.Interop.sldworks.DrawingDoc,SolidWorks.Interop.sldworks.ModelDoc2)">
+            <summary>
+            添加尺寸
+            </summary>
+            <param name="dimensionType">添加尺寸类型</param>
+            <param name="_swDrawDoc"></param>
+            <param name="swModel"></param>
+        </member>
+        <member name="M:BatchExportDrawings.Drawings.Drawings.CalcuScale(System.Collections.Generic.List{System.Double[]},SolidWorks.Interop.sldworks.DrawingDoc,System.Double,System.Double,System.Int32)">
+            <summary>
+            计算修改比列
+            </summary>
+            <param name="box"></param>
+            <param name="swDraw"></param>
+            <param name="scale"></param>
+            <param name="space"></param>
+        </member>
         <member name="P:BatchExportDrawings.Drawings.Drawings.MaxCount">
             <summary>
             文件个数
@@ -35,19 +123,6 @@
             <summary>
             单步
             </summary>
-        </member>
-        <member name="T:BatchExportDrawings.Drawings.Drawings.cdAssemBar">
-            <summary>
-            进度条委托
-            </summary>
-            <param name="imaxCnt"></param>
-            <param name="iStep"></param>
-        </member>
-        <member name="F:BatchExportDrawings.Drawings.Drawings.AssemBar">
-            <summary>
-            
-            </summary>
-            <returns></returns>
         </member>
         <member name="P:BatchExportDrawings.Drawings.Drawings.drawScale">
             <summary>
@@ -104,81 +179,12 @@
             标题栏单元格高度
             </summary>
         </member>
-        <member name="M:BatchExportDrawings.Drawings.Drawings.ExportDrawing(System.Collections.Generic.Dictionary{System.String,System.String[]},System.Collections.Generic.List{System.String},System.String,System.String,System.String)">
+        <member name="T:BatchExportDrawings.Drawings.Drawings.cdAssemBar">
             <summary>
-            出工程图方法
+            进度条委托
             </summary>
-            <param name="dicValue">字典集合保存datagridview中的值</param>
-            <param name="drawPath">图纸路径集合</param>
-            <param name="bomPath">bom表模板路径</param>
-            <param name="bendPath">折弯表模板路径</param>
-            <param name="savePath">图纸保存路径</param>
-        </member>
-        <member name="M:BatchExportDrawings.Drawings.Drawings.Drawing(System.Collections.Generic.Dictionary{System.String,System.String[]},System.String,System.String,System.String)">
-            <summary>
-            出工程图
-            </summary>
-            <param name="dicValues">字典集合</param>
-            <param name="bomPaths">Bom表模板</param>
-            <param name="bendPaths">折弯表模板</param>
-            <param name="savePaths">保存路径</param>
-        </member>
-        <member name="M:BatchExportDrawings.Drawings.Drawings.IsMentalSheets(SolidWorks.Interop.sldworks.ModelDoc2)">
-            <summary>
-            判断是否为钣金
-            </summary>
-            <param name="swModel"></param>
-            <returns></returns>
-        </member>
-        <member name="M:BatchExportDrawings.Drawings.Drawings.SheetPlante(SolidWorks.Interop.sldworks.ModelDoc2,SolidWorks.Interop.sldworks.DrawingDoc,System.String,System.Collections.Generic.List{System.Double[]},System.Collections.Generic.List{System.Double[]},System.Int32)">
-            <summary>
-            钣金展开
-            </summary>
-            <param name="swModel"></param>
-            <param name="swDraw"></param>
-            <param name="path"></param>
-            <param name="pos"></param>
-            <param name="outLine"></param>
-            <param name="viewNum"></param>
-        </member>
-        <member name="M:BatchExportDrawings.Drawings.Drawings.InsertBendTable(SolidWorks.Interop.sldworks.DrawingDoc,SolidWorks.Interop.sldworks.IView,SolidWorks.Interop.sldworks.ModelDoc2,System.String)">
-            <summary>
-            插入折弯表
-            </summary>
-            <param name="swDraw"></param>
-            <param name="swView"></param>
-            <param name="swModel"></param>
-        </member>
-        <member name="M:BatchExportDrawings.Drawings.Drawings.CreatIsometric(SolidWorks.Interop.sldworks.DrawingDoc,System.String)">
-            <summary>
-            只生成等轴测视图
-            </summary>
-            <param name="swDraw"></param>
-            <param name="fileName"></param>
-        </member>
-        <member name="M:BatchExportDrawings.Drawings.Drawings.ChangeViewShow(System.String,SolidWorks.Interop.sldworks.IView)">
-            <summary>
-            改变视图的显示样式
-            </summary>
-            <param name="viewType">视图样式</param>
-            <param name="swView"></param>
-        </member>
-        <member name="M:BatchExportDrawings.Drawings.Drawings.AddDimension(System.String,SolidWorks.Interop.sldworks.DrawingDoc,SolidWorks.Interop.sldworks.ModelDoc2)">
-            <summary>
-            添加尺寸
-            </summary>
-            <param name="dimensionType">添加尺寸类型</param>
-            <param name="swDrawDoc"></param>
-            <param name="swModel"></param>
-        </member>
-        <member name="M:BatchExportDrawings.Drawings.Drawings.CalcuScale(System.Collections.Generic.List{System.Double[]},SolidWorks.Interop.sldworks.DrawingDoc,System.Double,System.Double,System.Int32)">
-            <summary>
-            计算修改比列
-            </summary>
-            <param name="box"></param>
-            <param name="swDraw"></param>
-            <param name="scale"></param>
-            <param name="space"></param>
+            <param name="imaxCnt"></param>
+            <param name="iStep"></param>
         </member>
         <member name="M:BatchExportDrawings.FrmMain.#ctor">
             <summary>
@@ -244,6 +250,11 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
+        <member name="M:BatchExportDrawings.FrmMain.AddFileInfo(System.String[],System.String[])">
+            <summary>
+            添加文件信息
+            </summary>
+        </member>
         <member name="M:BatchExportDrawings.FrmMain.addCombox">
             <summary>
             向combox中添加元素
@@ -282,9 +293,9 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:BatchExportDrawings.FrmMain.dgvFileList_CellDoubleClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+        <member name="M:BatchExportDrawings.FrmMain.dgvFileList_CellMouseClick(System.Object,System.Windows.Forms.DataGridViewCellMouseEventArgs)">
             <summary>
-            用户双击单元格时取消选中行
+            用户单击单元格时取消选中行
             </summary>   
         </member>
         <member name="M:BatchExportDrawings.FrmMain.FirstColum">
@@ -353,6 +364,7 @@
             <summary>
             应用程序的主入口点。
             </summary>
+            
         </member>
         <member name="M:BatchExportDrawings.FrmResultShow.#ctor(System.Collections.Generic.List{System.String},System.Int32)">
             <summary>

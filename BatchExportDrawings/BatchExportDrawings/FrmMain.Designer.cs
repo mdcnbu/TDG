@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openDocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +41,8 @@
             this.loadTempToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tempFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tempFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.操作演示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvFileList = new System.Windows.Forms.DataGridView();
             this.FileListColum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TempColum = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -82,8 +85,7 @@
             this.lblBar = new System.Windows.Forms.Label();
             this.pbAssem = new System.Windows.Forms.ProgressBar();
             this.chkFlap = new System.Windows.Forms.CheckBox();
-            this.操作演示ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tipCmb = new System.Windows.Forms.ToolTip(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFileList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nUDLeft)).BeginInit();
@@ -185,18 +187,36 @@
             this.tempFolderToolStripMenuItem.Text = "选择文件夹";
             this.tempFolderToolStripMenuItem.Click += new System.EventHandler(this.tempFolderToolStripMenuItem_Click);
             // 
+            // 操作演示ToolStripMenuItem
+            // 
+            this.操作演示ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("操作演示ToolStripMenuItem.Image")));
+            this.操作演示ToolStripMenuItem.Name = "操作演示ToolStripMenuItem";
+            this.操作演示ToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
+            this.操作演示ToolStripMenuItem.Text = "操作演示";
+            this.操作演示ToolStripMenuItem.Click += new System.EventHandler(this.操作演示ToolStripMenuItem_Click);
+            // 
+            // 关于ToolStripMenuItem
+            // 
+            this.关于ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("关于ToolStripMenuItem.Image")));
+            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
+            this.关于ToolStripMenuItem.Text = "关于";
+            this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
+            // 
             // dgvFileList
             // 
+            this.dgvFileList.AllowDrop = true;
             this.dgvFileList.AllowUserToAddRows = false;
             this.dgvFileList.AllowUserToOrderColumns = true;
+            this.dgvFileList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFileList.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFileList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFileList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvFileList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileListColum,
             this.TempColum,
@@ -215,8 +235,11 @@
             this.dgvFileList.TabIndex = 1;
             this.dgvFileList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFileList_CellClick);
             this.dgvFileList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFileList_CellContentClick);
-            this.dgvFileList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFileList_CellDoubleClick);
+            this.dgvFileList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFileList_CellMouseClick);
+            this.dgvFileList.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvFileList_CellMouseDown);
             this.dgvFileList.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvFileList_DataError);
+            this.dgvFileList.DragDrop += new System.Windows.Forms.DragEventHandler(this.dgvFileList_DragDrop);
+            this.dgvFileList.DragEnter += new System.Windows.Forms.DragEventHandler(this.dgvFileList_DragEnter);
             this.dgvFileList.MouseUp += new System.Windows.Forms.MouseEventHandler(this.dgvFileList_MouseUp);
             // 
             // FileListColum
@@ -233,7 +256,6 @@
             this.TempColum.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.TempColum.HeaderText = "模板选择";
             this.TempColum.Name = "TempColum";
-            this.TempColum.Width = 310;
             // 
             // PicShiJiaoColum
             // 
@@ -242,7 +264,6 @@
             this.PicShiJiaoColum.HeaderText = "投影类型";
             this.PicShiJiaoColum.Name = "PicShiJiaoColum";
             this.PicShiJiaoColum.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.PicShiJiaoColum.Width = 75;
             // 
             // ViewType
             // 
@@ -252,7 +273,6 @@
             this.ViewType.Name = "ViewType";
             this.ViewType.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.ViewType.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.ViewType.Width = 80;
             // 
             // PicFangXColum
             // 
@@ -261,7 +281,6 @@
             this.PicFangXColum.HeaderText = "等轴测";
             this.PicFangXColum.Name = "PicFangXColum";
             this.PicFangXColum.TrueValue = "1";
-            this.PicFangXColum.Width = 52;
             // 
             // bomColum
             // 
@@ -270,7 +289,6 @@
             this.bomColum.HeaderText = "明细表";
             this.bomColum.Name = "bomColum";
             this.bomColum.TrueValue = "1";
-            this.bomColum.Width = 52;
             // 
             // DimesionColum
             // 
@@ -280,7 +298,6 @@
             this.DimesionColum.Name = "DimesionColum";
             this.DimesionColum.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DimesionColum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.DimesionColum.Width = 90;
             // 
             // txtPrtTemplate
             // 
@@ -642,22 +659,6 @@
             this.chkFlap.Text = "翻转";
             this.chkFlap.UseVisualStyleBackColor = false;
             // 
-            // 操作演示ToolStripMenuItem
-            // 
-            this.操作演示ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("操作演示ToolStripMenuItem.Image")));
-            this.操作演示ToolStripMenuItem.Name = "操作演示ToolStripMenuItem";
-            this.操作演示ToolStripMenuItem.Size = new System.Drawing.Size(84, 21);
-            this.操作演示ToolStripMenuItem.Text = "操作演示";
-            this.操作演示ToolStripMenuItem.Click += new System.EventHandler(this.操作演示ToolStripMenuItem_Click);
-            // 
-            // 关于ToolStripMenuItem
-            // 
-            this.关于ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("关于ToolStripMenuItem.Image")));
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
-            this.关于ToolStripMenuItem.Text = "关于";
-            this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -773,6 +774,7 @@
         private System.Windows.Forms.CheckBox chkFlap;
         private System.Windows.Forms.ToolStripMenuItem 操作演示ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
+        private System.Windows.Forms.ToolTip tipCmb;
     }
 }
 
