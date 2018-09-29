@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.IO;
+using System.Configuration;
 using System.Runtime.InteropServices;
 using System.Text.RegularExpressions;
 using SolidWorks.Interop.sldworks;
 using SolidWorks.Interop.swcommands;
 using SolidWorks.Interop.swconst;
+using MD_SW_ConnectSW;
 
 namespace FrmReducerDesignerApplication
 {
@@ -39,12 +41,7 @@ namespace FrmReducerDesignerApplication
         int warnings;
         string assemblyName;
         bool state;
-        private void btnAssembly_Click(object sender, EventArgs e)
-        {          
-            ConnectSw();
-
-            InsretComponent();
-        }
+ 
         //#region 新建装配体零件方法
         ///// <summary>
         ///// x新建零件
@@ -200,11 +197,11 @@ namespace FrmReducerDesignerApplication
         public void InsretComponent()
         {
             string[] strCompName = new string[3];
-            string[] firstSelect = new string[15];
+            string[] firstSelect = new string[15]; 
             string[] secondSelect = new string[15];
             swModel = (ModelDoc2)swApp.OpenDoc6("G:\\CodeTest\\planetAssembly.SLDASM", (int)swDocumentTypes_e.swDocASSEMBLY, (int)swOpenDocOptions_e.swOpenDocOptions_Silent, "", ref errors, ref warnings);
-            swAssembly = (AssemblyDoc)swModel;//////////////////////////        
-            string assemblyTitle =swModel.GetTitle();//获取装配体实例号。。。。
+            swAssembly = (AssemblyDoc)swModel;//////
+            string assemblyTitle =swModel.GetTitle();//获取装配体名称
             string[] strings = assemblyTitle.Split(new Char[] { '.' });//使用分隔符分割装配体实例号
             assemblyName = (string)strings[0];//获得装配体名称
             //打开零件并添加零件到装配体
@@ -236,7 +233,147 @@ namespace FrmReducerDesignerApplication
             swModelEx.SelectByID2("Point1@原点@输入轴-1@装配体5", "EXTSKETCHPOINT", 0, 0, 0, true, 1, null, 0);
             swAssembly.AddMate3((int)swMateType_e.swMateDISTANCE, (int)swMateAlign_e.swMateAlignALIGNED, false, 0.0455, 0.0455, 0.0455, 0, 0, 0, 0, 0, false, out mateError);
             //添加齿轮配合
+            
+        }
 
+        private void btnAssembly_Click_1(object sender, EventArgs e)
+        {
+            if (swApp == null)
+                swApp = (SldWorks)ConnectSW.iSwApp;
+            ConnectSw();
+
+            InsretComponent();
+        }
+
+        private void btnAdd1_Click(object sender, EventArgs e)
+        {
+            
+            string[] fileList = GetFiles("请选择要装配的文件", "零部件 (*.SLDASM;*.SLDPRT)|*.SLDASM;*.SLDPRT", "files");
+            //把选择的文件展示在listbox中
+            if (fileList != null)
+            {
+                this.lBoxAssem1.Items.AddRange(fileList);
+            }
+           
+        }
+     /// <summary>
+        ///  获取用户所选文件（prt,asm）
+     /// </summary>
+     /// <param name="title">标题</param>
+     /// <param name="filter">过滤标题</param>
+     /// <param name="key">配置中的键</param>
+     /// <returns></returns>
+        private string[] GetFiles(string title, string filter, string key)//参数key为配置文件中的key值
+        {
+            string[] file = null;
+            OpenFileDialog openDialog = new OpenFileDialog();
+            openDialog.Multiselect = true;//该值确定是否可以选择多个文件
+            openDialog.Title = title;
+            openDialog.Filter = filter;
+            System.Configuration.Configuration conf = System.Configuration.ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            if (File.Exists(conf.AppSettings.Settings[key].Value))//判断配置的路径是否存在
+            {
+                string dir = SubLastString(conf.AppSettings.Settings[key].Value, "\\");
+                openDialog.InitialDirectory = dir;//设置初始路径为当前路径
+            }
+            if (openDialog.ShowDialog() == DialogResult.OK)
+            {
+                file = openDialog.FileNames;
+                conf.AppSettings.Settings[key].Value = file[0];//把用户选取的文件赋给配置文件的value值
+                conf.Save(ConfigurationSaveMode.Modified);//保存配置
+            }
+            else
+            {
+                return null;
+            }
+            System.Configuration.ConfigurationManager.RefreshSection("appSettings");//刷新配置文件
+            return file;
+        }
+
+        /// <summary>
+        ///截取到最后一位字符
+        /// </summary>
+        /// <param name="sSubStr">原字符串路径</param>
+        /// <param name="sSplitStr">分隔的字符</param>
+        /// <returns></returns>
+        public string SubLastString(string sSubStr, string sSplitStr)
+        {
+            int ipos = sSubStr.LastIndexOf(sSplitStr);
+            return sSubStr.Substring(0, ipos + 1);
+        }
+
+        private void btnAdd2_Click(object sender, EventArgs e)
+        {
+            string[] fileList = GetFiles("请选择要装配的文件", "零部件 (*.SLDASM;*.SLDPRT)|*.SLDASM;*.SLDPRT", "files");
+            //把选择的文件展示在listbox中
+            this.lBoxAssem2.Items.AddRange(fileList);
+        }
+
+        private void btnDelete1_Click(object sender, EventArgs e)
+        {
+            if (this.lBoxAssem1.Items.Count == 0)
+            {
+                MessageBox.Show("列表中无可操作文件！", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (this.lBoxAssem1.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("请选中删除行！", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                for (int i = this.lBoxAssem1.SelectedIndices.Count; i > 0; i--)
+                {
+                    this.lBoxAssem1.Items.RemoveAt(this.lBoxAssem1.SelectedIndices[i - 1]);//删除选中的项
+                }
+            }
+        }
+
+        private void btnDelete2_Click(object sender, EventArgs e)
+        {
+            if (this.lBoxAssem2.Items.Count == 0)
+            {
+                MessageBox.Show("列表中无可操作文件！", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (this.lBoxAssem2.SelectedItems.Count < 1)
+            {
+                MessageBox.Show("请选中删除行！", "错误提示", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                for (int i = this.lBoxAssem2.SelectedIndices.Count; i > 0; i--)
+                {
+                    this.lBoxAssem2.Items.RemoveAt(this.lBoxAssem2.SelectedIndices[i - 1]);//删除选中的项
+                }
+            }
+        }
+
+        private void btnAssem1_Click(object sender, EventArgs e)
+        {
+            if (swApp == null)
+                swApp = (SldWorks)ConnectSW.iSwApp;
+            List<string> fileAssem1 = new List<string>();
+            //子装配体1
+            //获取界面中的文件并打开
+              int selectedRows = this.lBoxAssem1.SelectedIndices.Count;//选定行的数量        
+                foreach (object item in lBoxAssem1.Items)
+                {
+                    fileAssem1.Add(item.ToString());
+                }
+                foreach (string file in fileAssem1)
+                {
+                    swModel = (ModelDoc2)swApp.OpenDoc6(file, (int)swDocumentTypes_e.swDocPART, (int)swOpenDocOptions_e.swOpenDocOptions_Silent, "", ref errors, ref warnings);
+                }
+      
+            //实现装配
+
+        }
+
+        private void btnAssem2_Click(object sender, EventArgs e)
+        {
 
         }
     }

@@ -127,9 +127,7 @@ namespace FrmReducerDesignerApplication.Common
                 Step = 0;
                 foreach (string item in dicValue)
                 {
-                    Step += 1;
-                    //List<string> dicVal = new List<string>();
-                    //dicVal.Add(item.Key, item.Value);
+                    Step += 1;                   
                     string filePath = item;
                     string compName = filePath.Substring(filePath.LastIndexOf("\\") + 1, filePath.LastIndexOf(".") - filePath.LastIndexOf("\\") - 1);//获得文件名
                     if (picNames.IndexOf(compName) != -1)  //判断是否存在同名图纸

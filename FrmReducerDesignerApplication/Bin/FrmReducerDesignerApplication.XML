@@ -225,6 +225,23 @@
             连接Solidworks---------方法
             </summary>
         </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.GetFiles(System.String,System.String,System.String)">
+            <summary>
+             获取用户所选文件（prt,asm）
+            </summary>
+            <param name="title">标题</param>
+            <param name="filter">过滤标题</param>
+            <param name="key">配置中的键</param>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.SubLastString(System.String,System.String)">
+             <summary>
+            截取到最后一位字符
+             </summary>
+             <param name="sSubStr">原字符串路径</param>
+             <param name="sSplitStr">分隔的字符</param>
+             <returns></returns>
+        </member>
         <member name="F:FrmReducerDesignerApplication.FrmAssembly.components">
             <summary>
             Required designer variable.
