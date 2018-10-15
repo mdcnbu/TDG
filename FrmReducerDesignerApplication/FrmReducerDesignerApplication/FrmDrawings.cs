@@ -83,7 +83,12 @@ namespace FrmReducerDesignerApplication
                 string prtTemp = this.txtPrtTemplate.Text.Trim().ToString();//零件模板
                 string compTemp = this.txtCompTemplate.Text.Trim().ToString();//部件模板
                 string bomTemp = this.txtBomPath.Text.Trim().ToString();//bom模板             
-                string savePath = this.txtSavePath.Text.Trim().ToString();//保存路径    
+                string savePath = this.txtSavePath.Text.Trim().ToString();//保存路径  
+                if (savePath == string.Empty)
+                {
+                    MessageBox.Show("请选择保存路径！");
+                    return;
+                }
                 objDraw.stardardScale = this.chkStardardScale.Checked;//国标比例
                 objDraw.standarView = this.chkStardView.Checked;//标准三视图
                 objDraw.matrialBom = this.chkBom.Checked;//材料明细表
@@ -569,6 +574,20 @@ namespace FrmReducerDesignerApplication
         private void FrmDrawings_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.lblViewStyle.Text = int_1.ToString();
+        }
+
+        private void btnSavePaths_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog savePath = new FolderBrowserDialog();
+            savePath.Description = "请选择保存路径";
+            if (savePath.ShowDialog() == DialogResult.OK)
+            {
+                path = savePath.SelectedPath;
+            }
+            else
+            {
+            }
+            this.txtSavePath.Text = path;
         }
 
     }

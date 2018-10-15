@@ -206,7 +206,7 @@
             // 
             this.默认样式ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("默认样式ToolStripMenuItem.Image")));
             this.默认样式ToolStripMenuItem.Name = "默认样式ToolStripMenuItem";
-            this.默认样式ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.默认样式ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.默认样式ToolStripMenuItem.Tag = "1";
             this.默认样式ToolStripMenuItem.Text = "默认样式";
             this.默认样式ToolStripMenuItem.Click += new System.EventHandler(this.消除隐藏线ToolStripMenuItem_Click);
@@ -215,7 +215,7 @@
             // 
             this.消除隐藏线ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("消除隐藏线ToolStripMenuItem.Image")));
             this.消除隐藏线ToolStripMenuItem.Name = "消除隐藏线ToolStripMenuItem";
-            this.消除隐藏线ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.消除隐藏线ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.消除隐藏线ToolStripMenuItem.Tag = "2";
             this.消除隐藏线ToolStripMenuItem.Text = "消除隐藏线";
             this.消除隐藏线ToolStripMenuItem.Click += new System.EventHandler(this.消除隐藏线ToolStripMenuItem_Click);
@@ -224,7 +224,7 @@
             // 
             this.隐藏线可见ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("隐藏线可见ToolStripMenuItem.Image")));
             this.隐藏线可见ToolStripMenuItem.Name = "隐藏线可见ToolStripMenuItem";
-            this.隐藏线可见ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.隐藏线可见ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.隐藏线可见ToolStripMenuItem.Tag = "3";
             this.隐藏线可见ToolStripMenuItem.Text = "隐藏线可见";
             this.隐藏线可见ToolStripMenuItem.Click += new System.EventHandler(this.消除隐藏线ToolStripMenuItem_Click);
@@ -233,7 +233,7 @@
             // 
             this.线框架ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("线框架ToolStripMenuItem.Image")));
             this.线框架ToolStripMenuItem.Name = "线框架ToolStripMenuItem";
-            this.线框架ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.线框架ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.线框架ToolStripMenuItem.Tag = "4";
             this.线框架ToolStripMenuItem.Text = "线框架";
             this.线框架ToolStripMenuItem.Click += new System.EventHandler(this.消除隐藏线ToolStripMenuItem_Click);
@@ -242,7 +242,7 @@
             // 
             this.带边线上色ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("带边线上色ToolStripMenuItem.Image")));
             this.带边线上色ToolStripMenuItem.Name = "带边线上色ToolStripMenuItem";
-            this.带边线上色ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.带边线上色ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.带边线上色ToolStripMenuItem.Tag = "5";
             this.带边线上色ToolStripMenuItem.Text = "带边线上色";
             this.带边线上色ToolStripMenuItem.Click += new System.EventHandler(this.消除隐藏线ToolStripMenuItem_Click);
@@ -251,7 +251,7 @@
             // 
             this.上色ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("上色ToolStripMenuItem.Image")));
             this.上色ToolStripMenuItem.Name = "上色ToolStripMenuItem";
-            this.上色ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.上色ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.上色ToolStripMenuItem.Tag = "6";
             this.上色ToolStripMenuItem.Text = "上色";
             this.上色ToolStripMenuItem.Click += new System.EventHandler(this.消除隐藏线ToolStripMenuItem_Click);
@@ -279,6 +279,7 @@
             this.btnSavePaths.TabIndex = 23;
             this.btnSavePaths.Text = "保存路径";
             this.btnSavePaths.UseVisualStyleBackColor = false;
+            this.btnSavePaths.Click += new System.EventHandler(this.btnSavePaths_Click);
             // 
             // btnBomTempl
             // 
@@ -323,33 +324,37 @@
             // txtSavePath
             // 
             this.txtSavePath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSavePath.Location = new System.Drawing.Point(86, 436);
+            this.txtSavePath.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtSavePath.Location = new System.Drawing.Point(86, 433);
             this.txtSavePath.Name = "txtSavePath";
-            this.txtSavePath.Size = new System.Drawing.Size(438, 21);
+            this.txtSavePath.Size = new System.Drawing.Size(438, 26);
             this.txtSavePath.TabIndex = 18;
             // 
             // txtBomPath
             // 
             this.txtBomPath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBomPath.Location = new System.Drawing.Point(86, 404);
+            this.txtBomPath.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtBomPath.Location = new System.Drawing.Point(86, 401);
             this.txtBomPath.Name = "txtBomPath";
-            this.txtBomPath.Size = new System.Drawing.Size(438, 21);
+            this.txtBomPath.Size = new System.Drawing.Size(438, 26);
             this.txtBomPath.TabIndex = 20;
             // 
             // txtCompTemplate
             // 
             this.txtCompTemplate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCompTemplate.Location = new System.Drawing.Point(86, 370);
+            this.txtCompTemplate.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtCompTemplate.Location = new System.Drawing.Point(86, 367);
             this.txtCompTemplate.Name = "txtCompTemplate";
-            this.txtCompTemplate.Size = new System.Drawing.Size(438, 21);
+            this.txtCompTemplate.Size = new System.Drawing.Size(438, 26);
             this.txtCompTemplate.TabIndex = 21;
             // 
             // txtPrtTemplate
             // 
             this.txtPrtTemplate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPrtTemplate.Location = new System.Drawing.Point(86, 336);
+            this.txtPrtTemplate.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtPrtTemplate.Location = new System.Drawing.Point(86, 333);
             this.txtPrtTemplate.Name = "txtPrtTemplate";
-            this.txtPrtTemplate.Size = new System.Drawing.Size(438, 21);
+            this.txtPrtTemplate.Size = new System.Drawing.Size(438, 26);
             this.txtPrtTemplate.TabIndex = 22;
             // 
             // chkBom

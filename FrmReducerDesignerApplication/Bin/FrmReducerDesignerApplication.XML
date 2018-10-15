@@ -242,6 +242,12 @@
              <param name="sSplitStr">分隔的字符</param>
              <returns></returns>
         </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.TraverseAssembly(System.String)">
+            <summary>
+            递归遍历装配体方法
+            </summary>
+            <param name="parentPath">装配体路径</param>
+        </member>
         <member name="F:FrmReducerDesignerApplication.FrmAssembly.components">
             <summary>
             Required designer variable.
@@ -679,6 +685,11 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.#ctor">
+            <summary>
+            初始化 构造方法
+            </summary>
+        </member>
         <member name="F:FrmReducerDesignerApplication.FrmUnstandardized.sty3Para1">
             <summary>
             窗体3变量值
@@ -815,22 +826,36 @@
             判断其他数
             </summary>
         </member>
-        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.CreateAPart(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)">
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.CreateAPart(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)">
             <summary>
             //生成一个零件
             </summary>
             <param name="ra">总直径</param>
             <param name="r2">R2</param>
             <param name="r3">R3</param>
+            <param name="rkeys"></param>
             <param name="r4">内圆直径</param>
             <param name="rc">中心线直径</param>
             <param name="rh">孔径</param>
             <param name="B1">总厚度</param>
             <param name="B3">花键长度</param>
             <param name="B4">B4宽度</param>
-            <param name="B5">键槽宽度</param>
-            <param name="holeNum">孔数量</param>
+            <param name="B5">键槽宽度</param>    
             <param name="keyNum">花键数量</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.CreatePlanet(SolidWorks.Interop.sldworks.ModelDoc2,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            生成机座
+            </summary>
+            <param name="Part"></param>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <param name="fai3"></param>
+            <param name="fai4"></param>
+            <param name="fai5"></param>
+            <param name="faiHole"></param>
+            <param name="B"></param>
+            <returns></returns>
         </member>
         <member name="F:FrmReducerDesignerApplication.FrmUnstandardized.components">
             <summary>

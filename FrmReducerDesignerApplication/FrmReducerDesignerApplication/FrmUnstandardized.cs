@@ -24,11 +24,14 @@ namespace FrmReducerDesignerApplication
     public delegate void GetParaSpur1(double dia1, double wid1, double deep1);
     public delegate void GetParaSpur2(double dia1, double dia2, double dia3, double dia4, double banThick, double guWidth, double holeDia, int holeNum, double keyW, double keyD);
     public delegate void GetParaSpur3(List<string[]> para1, List<string[]> para2);
-   public delegate void GetParaSpur4(double D1,double D2,double D3,double D4,double L1,double L2,double L3,double L4,double L5,double B1,double B,int num );
+    public delegate void GetParaSpur4(double D1, double D2, double D3, double D4, double L1, double L2, double L3, double L4, double L5, double B1, double B, int num);
     #endregion
     public partial class FrmUnstandardized : Form
     {
         private GearValuesService objGearService = new GearValuesService();
+        /// <summary>
+        /// 初始化 构造方法
+        /// </summary>
         public FrmUnstandardized()
         {
             InitializeComponent();
@@ -65,7 +68,6 @@ namespace FrmReducerDesignerApplication
             this.cboBevelMoudle.DisplayMember = "GearModul";
             this.cboBevelMoudle.SelectedIndex = -1;
             # endregion
-            
         }
         # region 全局变量
         private SldWorks swApp;
@@ -98,6 +100,11 @@ namespace FrmReducerDesignerApplication
         //窗体4变量值
         double sty4D1, sty4D2, sty4D3, sty4D4, sty4L1, sty4L2, sty4L3, sty4L4, sty4L5, sty4B1, sty4B;
         int sty4Num;
+        //保存路径
+        string savePathSpur = string.Empty;
+        string savePathInner = string.Empty;
+        string savePathCarrier = string.Empty;
+        string savePathPlanet = string.Empty;
         #endregion
 
         #region 验证直齿轮输入数据方法
@@ -745,8 +752,13 @@ namespace FrmReducerDesignerApplication
                 swFeatMgr = swModel.FeatureManager as FeatureManager;
                 Feature feat2 = swFeatMgr.FeatureCircularPattern3(gearNum, 6.2831853071796, false, "", false, true);
                 swModel.ClearSelection2(true);
-               
             }
+            //插入配合基准面（一个，另一个为前视基准面）
+            //选择一个面
+            swModel.ClearSelection2(true);
+            swModelEx.SelectByID2("", "", 0, 0, gearWidth, false, 0, null, 0);
+            Feature feat3 = swFeatMgr.InsertRefPlane((int)swRefPlaneReferenceConstraints_e.swRefPlaneReferenceConstraint_Coincident, 0, 0, 0, 0, 0);
+
         }
 
         #endregion
@@ -1322,7 +1334,7 @@ namespace FrmReducerDesignerApplication
             sty1wid = wid1;
             sty1deep = deep1;
         }
-       
+
         private void Receiver2(double dia1, double dia2, double dia3, double dia4, double banThick, double guWidth, double holeDia, int holeNum, double keyW, double keyD)
         {
             sty2dia1 = dia1;
@@ -1336,20 +1348,20 @@ namespace FrmReducerDesignerApplication
             sty2keyW = keyW;
             sty2keyD = keyD;
         }
-       
+
         private void Receiver3(List<string[]> para1, List<string[]> para2)
         {
             sty3Para1 = para1;
             sty3Para2 = para2;
         }
-      
-        private void Receiver4(double D1,double D2,double D3,double D4,double L1,double L2,double L3,double L4,double L5,double B1,double B,int num)
+
+        private void Receiver4(double D1, double D2, double D3, double D4, double L1, double L2, double L3, double L4, double L5, double B1, double B, int num)
         {
             sty4D1 = D1;
             sty4D2 = D2;
             sty4D3 = D3;
             sty4D4 = D4;
-            sty4L1=L1;
+            sty4L1 = L1;
             sty4L2 = L2;
             sty4L3 = L3;
             sty4L4 = L4;
@@ -2393,7 +2405,7 @@ namespace FrmReducerDesignerApplication
                 throw new Exception("螺旋角值不是有效数字，请重新输入！");
             }
         }
-         #endregion
+        #endregion
         #region 验证输入数据方法内齿轮
         /// <summary>
         /// 验证输入数据内齿轮-------------
@@ -2455,7 +2467,7 @@ namespace FrmReducerDesignerApplication
             {
                 throw new Exception("孔个数值不是有效数字，请重新输入！");
             }
-        }        
+        }
         #endregion
         #region 生成内齿轮的方法
         /// <summary>
@@ -2472,7 +2484,7 @@ namespace FrmReducerDesignerApplication
         /// <param name="holeCenter">孔中心线直径</param>
         /// <param name="holeDia">孔径</param>
         /// <param name="holeNUM">孔个数</param>
-        private void GenerateCircleGear(double gearModule, int gearNum, double diamMax, double pressureAngl, double higthModule, double xiModule, double shiftModule, double gearWidth,double holeCenter,double holeDia,int holeNUM)
+        private void GenerateCircleGear(double gearModule, int gearNum, double diamMax, double pressureAngl, double higthModule, double xiModule, double shiftModule, double gearWidth, double holeCenter, double holeDia, int holeNUM)
         {
             //单位转换
             gearModule = gearModule / 1000.0;
@@ -2482,8 +2494,8 @@ namespace FrmReducerDesignerApplication
             shiftModule /= 1000.0;
             gearWidth /= 1000.0;
             diamMax /= 1000.0;
-            holeCenter/=1000.0;
-            holeDia/=1000.0;
+            holeCenter /= 1000.0;
+            holeDia /= 1000.0;
             //计算分度圆半径
             double radiusFen = (gearModule * gearNum) / 2.0;
             //计算齿顶圆半径
@@ -2702,35 +2714,35 @@ namespace FrmReducerDesignerApplication
             GenerateGear(gearModule, gearNum, pressureAngl, higthModule, xiModule, shiftModule, gearWidth);
             ViewShow("等轴测");
             swModelEx.SelectByID2("前视基准面", "PLANE", 0, 0, 0, false, 0, null, 0);
-           RefPlane refPlane=(RefPlane)swFeatMgr.InsertRefPlane(264, sty4L1 - sty4L2 - sty4L5, 0, 0, 0, 0);
-           swModel.ClearSelection2(true);
-           swModelEx.SelectByID2("基准面1", "PLANE", 0, 0, 0, false, 0, null, 0);
-           swSketchMgr.InsertSketch(true);
-           swSketchMgr.CreateCircleByRadius(0, 0, -(sty4L1 - sty4L2 - sty4L5), sty4D1 / 2.0);
-           Feature feat3 = swFeatMgr.FeatureExtrusion2(true, false, false, (int)swEndConditions_e.swEndCondBlind, (int)swEndConditions_e.swEndCondBlind, (sty4L4), 0,
-                                                                                        false, false, false, false, 0, 0, false, false, false, false, true, true, true, 0, 0, false);
-           swModel.ClearSelection2(true);
-           swModelEx = swModel.Extension;
-           swModelEx.SelectByID2("", "FACE", 0, 0, -(sty4L1 - sty4L2 - sty4L5 - sty4L4 ), false, 0, null, 0);
-           swSketchMgr.InsertSketch(true);
-           swSketchMgr.CreateCircleByRadius(0, 0, -(sty4L1 - sty4L2 - sty4L5 - sty4L4), sty4D3 / 2.0);
+            RefPlane refPlane = (RefPlane)swFeatMgr.InsertRefPlane(264, sty4L1 - sty4L2 - sty4L5, 0, 0, 0, 0);
+            swModel.ClearSelection2(true);
+            swModelEx.SelectByID2("基准面1", "PLANE", 0, 0, 0, false, 0, null, 0);
+            swSketchMgr.InsertSketch(true);
+            swSketchMgr.CreateCircleByRadius(0, 0, -(sty4L1 - sty4L2 - sty4L5), sty4D1 / 2.0);
+            Feature feat3 = swFeatMgr.FeatureExtrusion2(true, false, false, (int)swEndConditions_e.swEndCondBlind, (int)swEndConditions_e.swEndCondBlind, (sty4L4), 0,
+                                                                                         false, false, false, false, 0, 0, false, false, false, false, true, true, true, 0, 0, false);
+            swModel.ClearSelection2(true);
+            swModelEx = swModel.Extension;
+            swModelEx.SelectByID2("", "FACE", 0, 0, -(sty4L1 - sty4L2 - sty4L5 - sty4L4), false, 0, null, 0);
+            swSketchMgr.InsertSketch(true);
+            swSketchMgr.CreateCircleByRadius(0, 0, -(sty4L1 - sty4L2 - sty4L5 - sty4L4), sty4D3 / 2.0);
             swFeatMgr = swModel.FeatureManager as FeatureManager;
             Feature feat = swFeatMgr.FeatureExtrusion2(true, false, false, (int)swEndConditions_e.swEndCondBlind, (int)swEndConditions_e.swEndCondBlind, sty4B, 0,
                                                                                             false, false, false, false, 0, 0, false, false, false, false, true, true, true, 0, 0, false);
             //Feature ff = swFeatMgr.FeatureRevolve(6.2831853071796, false, 0, (int)swRevolveType_e.swRevolveTypeOneDirection, (int)swRevolveOptions_e.swAutoCloseSketch, false, false, true);
             swModel.ClearSelection2(true);
-            swModelEx = swModel.Extension;      
+            swModelEx = swModel.Extension;
             swModelEx.SelectByID2("", "FACE", 0, 0, -(sty4L1 - sty4L2 - sty4L5 - sty4L4 - sty4B), false, 0, null, 0);
             swSketchMgr.InsertSketch(true);
             swSketchMgr.CreateCircleByRadius(0, 0, -(sty4L1 - sty4L2 - sty4L5 - sty4L4 - sty4B), sty4D1 / 2.0);
             Feature feat1 = swFeatMgr.FeatureExtrusion2(true, false, false, (int)swEndConditions_e.swEndCondBlind, (int)swEndConditions_e.swEndCondBlind, (sty4L3 - sty4L4 - sty4B), 0,
                                                                                            false, false, false, false, 0, 0, false, false, false, false, true, true, true, 0, 0, false);
-            
-            swModel.ClearSelection2(true);            
-            swModelEx.SelectByID2("", "FACE", 0, 0, -(sty4L1 - sty4L2 - sty4L5 -sty4L4 - sty4B), false, 0, null, 0);
+
+            swModel.ClearSelection2(true);
+            swModelEx.SelectByID2("", "FACE", 0, 0, -(sty4L1 - sty4L2 - sty4L5 - sty4L4 - sty4B), false, 0, null, 0);
             swSketchMgr.InsertSketch(true);
             swSketchMgr.CreateCircleByRadius(0, 0, -(sty4L1 - sty4L2 - sty4L5 - sty4L4 - sty4B), sty4D2 / 2.0);
-            Feature feat2 = swFeatMgr.FeatureExtrusion2(true, false, false, (int)swEndConditions_e.swEndCondBlind, (int)swEndConditions_e.swEndCondBlind, (sty4L1 - sty4L2 - sty4L5-sty4L3), 0,
+            Feature feat2 = swFeatMgr.FeatureExtrusion2(true, false, false, (int)swEndConditions_e.swEndCondBlind, (int)swEndConditions_e.swEndCondBlind, (sty4L1 - sty4L2 - sty4L5 - sty4L3), 0,
                                                                                          false, false, false, false, 0, 0, false, false, false, false, true, true, true, 0, 0, false);
             swModel.ClearSelection2(true);
             ViewShow("右视");
@@ -2754,7 +2766,12 @@ namespace FrmReducerDesignerApplication
                 double xiModule = Convert.ToDouble(this.txtXiModule.Text);
                 double shiftModule = Convert.ToDouble(this.txtShiftModule.Text);
                 double gearWidth = Convert.ToDouble(this.txtGearWidth.Text);
-                string savePath = this.txtSavePath1.Text;
+                string savePath = this.txtSPSpur.Text.Trim();
+                if (savePath == string.Empty)
+                {
+                    MessageBox.Show("请选择保存路径！");
+                    return;
+                }
                 ConnectSw();
                 //新建零件
                 NewPart();
@@ -2763,26 +2780,26 @@ namespace FrmReducerDesignerApplication
                 //生成齿轮的方法
                 if (this.cboGearStyle.SelectedIndex == 0)
                 {
-                    GenerateGear(gearModule, gearNum, pressureAngl, higthModule, xiModule, shiftModule, gearWidth);               
+                    GenerateGear(gearModule, gearNum, pressureAngl, higthModule, xiModule, shiftModule, gearWidth);
                 }
                 if (this.cboGearStyle.SelectedIndex == 1)
                 {
                     GenerateGear(gearModule, gearNum, pressureAngl, higthModule, xiModule, shiftModule, gearWidth);
                     CutHole1();
-                    swModel.SaveAs3("G:\\测试用\\零件2.SLDPRT", 0, 2);
-                    swModel.ClearSelection2(true);                 
+
+                    swModel.ClearSelection2(true);
                 }
                 if (this.cboGearStyle.SelectedIndex == 2)
                 {
-                    GenerateBanGear(gearModule, gearNum, pressureAngl, higthModule, xiModule, shiftModule, gearWidth);                   
+                    GenerateBanGear(gearModule, gearNum, pressureAngl, higthModule, xiModule, shiftModule, gearWidth);
                 }
                 if (this.cboGearStyle.SelectedIndex == 3)
                 {
                     GenerateGear(gearModule, gearNum, pressureAngl, higthModule, xiModule, shiftModule, gearWidth);
                     GenerateShaftR();
                     GenerateShaftL();
-                    swModel.SaveAs3("G:\\测试用\\零件3.SLDPRT", 0, 2);
-                    swModel.ClearSelection2(true);                  
+
+                    swModel.ClearSelection2(true);
                 }
                 if (this.cboGearStyle.SelectedIndex == 4)
                 {
@@ -2792,12 +2809,13 @@ namespace FrmReducerDesignerApplication
                 //保存文件
                 int errors = 0;
                 int warnings = 0;
-                bool isTrue=swModelEx.SaveAs(savePath+"\\"+ swModel.GetTitle() + ".slddrw", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent,null, ref errors, ref warnings);
-          
+                string aa = swModel.GetTitle() + ".sldprt";
+                bool isTrue = swModelEx.SaveAs(savePath + "\\" + aa, (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("异常："+ex.Message);
+                MessageBox.Show("异常：" + ex.Message);
             }
         }
         #endregion
@@ -2815,7 +2833,7 @@ namespace FrmReducerDesignerApplication
             }
         }
         private void btnBackHelix_Click(object sender, EventArgs e)
-        {         
+        {
             this.Close();
             foreach (Control item in FrmMain.pMainWin.splitContainer1.Panel2.Controls)
             {
@@ -2878,7 +2896,7 @@ namespace FrmReducerDesignerApplication
             if (!VerificationIsDigital(gearScale))
             {
                 throw new Exception("模数值不是有效数字，请重新输入！");
-            }            
+            }
             if (!VerificationIsDigital(pressureAngl))
             {
                 throw new Exception("压力角值不是有效数字，请重新输入！");
@@ -2916,7 +2934,7 @@ namespace FrmReducerDesignerApplication
             gearScale = gearScale / 1000.0;
             pressureAngl = pressureAngl * (System.Math.PI) / 180;//把角度转换为弧度值
             higthScale /= 1000.0;
-            xiScale /= 1000.0;            
+            xiScale /= 1000.0;
             gearWidth /= 1000.0;
             bevelHoleDia /= 1000.0;
             bevelKeyW /= 1000.0;
@@ -2924,8 +2942,8 @@ namespace FrmReducerDesignerApplication
             //参数计算
             double smallFenConeAng = System.Math.Atan2(gearNumS, gearNumB);//小齿轮分锥角
             double BigFenConeAng = System.Math.PI / 2 - smallFenConeAng;//大齿轮分锥角
-            double topHight=gearScale*higthScale;//齿顶高
-            double downHight=(higthScale+xiScale)*gearScale;//齿根高
+            double topHight = gearScale * higthScale;//齿顶高
+            double downHight = (higthScale + xiScale) * gearScale;//齿根高
             double RefenceDiameter = gearScale * gearNumS;//分度圆直径
             double topDiameter = RefenceDiameter + 2 * topHight * System.Math.Cos(smallFenConeAng);//齿顶圆直径
             double downDiameter = RefenceDiameter - 2 * downHight * System.Math.Cos(smallFenConeAng);//齿根圆直径
@@ -2943,7 +2961,7 @@ namespace FrmReducerDesignerApplication
             //新建草图
             swSketchMgr = (SketchManager)swModel.SketchManager;
             swSketchMgr.InsertSketch(true);
-            swSketchMgr.CreateLine(0,0,0,0,0,0);
+            swSketchMgr.CreateLine(0, 0, 0, 0, 0, 0);
             //swSketchMgr.CreateCircleByRadius(0, 0, 0, radiusTop);
             swSketchMgr.InsertSketch(true);
             //视角
@@ -3065,11 +3083,11 @@ namespace FrmReducerDesignerApplication
                     break;
             }
         }
-         # endregion
+        # endregion
         #region 生成斜齿轮按钮
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-             try
+            try
             {
                 VerificationInputH();//验证输入数据            
                 //获取值
@@ -3131,6 +3149,8 @@ namespace FrmReducerDesignerApplication
                 double holeCente = Convert.ToDouble(this.txtHoleCenter.Text);//孔中心线
                 double holeDia = Convert.ToDouble(this.txtHoleDiaInne.Text);//孔径大小
                 int holeNUMS = Convert.ToInt32(this.txtHoleNumInner.Text);//孔个数
+                string savePath = this.txtSPInner.Text.Trim();//保存路径
+
                 if (gearNum < 34 && shiftModule == 0 && higthModule == 1)
                 {
                     MessageBox.Show("你输入的齿数少于最小齿数，请重新输入。", "参数提示");
@@ -3143,11 +3163,18 @@ namespace FrmReducerDesignerApplication
                     this.cboGearNum.Focus();
                     return;
                 }
+                if (savePath == string.Empty)
+                {
+                    MessageBox.Show("请选择保存路径！");
+                    return;
+                }
                 ConnectSw();
                 NewPart();
                 FramMax();
                 GenerateCircleGear(gearModule, gearNum, diamMax, pressureAngl, higthModule, xiModule, shiftModule, gearWidth, holeCente, holeDia, holeNUMS);
-                swModel.SaveAs3("G:\\测试用\\零件1.SLDPRT", 0, 2);
+                int err = 0;
+                int war = 0;
+                swModelEx.SaveAs(savePath + swModel.GetTitle() + ".sldprt", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref err, ref war);
                 swModel.ClearSelection2(true);
             }
             catch (Exception ex)
@@ -3179,7 +3206,7 @@ namespace FrmReducerDesignerApplication
                 //文档框最大化
                 FramMax();
                 //生成齿轮的方法             
-                GenerateBevelGear(gearNumS, gearNumB, gearModule, pressureAngl, higthModule, xiModule, gearWidth, holeDiame, keyWidth, keyDeep);                           
+                GenerateBevelGear(gearNumS, gearNumB, gearModule, pressureAngl, higthModule, xiModule, gearWidth, holeDiame, keyWidth, keyDeep);
             }
             catch (Exception ex)
             {
@@ -3195,22 +3222,34 @@ namespace FrmReducerDesignerApplication
                 //验证输入数据
                 VerificationInputCarrier();
                 //获取界面值
-                double W1 =Convert.ToDouble( this.txtW1.Text);//
-                double RA = Convert.ToDouble(this.txtRA.Text);//
-                double R4 = Convert.ToDouble(this.txtR4.Text);
-                double RCenter = Convert.ToDouble( this.txtRCenter.Text);//
-                double RC = Convert.ToDouble( this.txtRC.Text);//
-                double Rhole =  Convert.ToDouble(this.txtRhole.Text);//
-                double RKey =  Convert.ToDouble(this.txtRKey.Text);// 
-                double W2 =  Convert.ToDouble(this.txtW2.Text);//
-                double W3 =  Convert.ToDouble(this.txtW3.Text);//
-                double W4 = Convert.ToDouble( this.txtW4.Text);//
-                double W5 = Convert.ToDouble( this.txtW5.Text);
-                int keyNum = Convert.ToInt32( this.txtKeyNum.Text);//花键个数
+                double W1 = Convert.ToDouble(this.txtW1.Text);//
+                double RA = Convert.ToDouble(this.txtRA.Text);//最大外径
+                double fai3 = Convert.ToDouble(this.txtφ3.Text);
+                double RCenter = Convert.ToDouble(this.txtRCenter.Text);//孔中心线直径
+                double fai4 = Convert.ToDouble(this.txtφ4.Text);//
+                double Rhole = Convert.ToDouble(this.txtRhole.Text);//
+                double RKey = Convert.ToDouble(this.txtRKey1.Text);// 
+                double rKey2 = Convert.ToDouble(this.txtR5.Text);//键槽深度元直径
+                double W2 = Convert.ToDouble(this.txtW2.Text);//
+                double W3 = Convert.ToDouble(this.txtW3.Text);//
+                double W4 = Convert.ToDouble(this.txtW4.Text);//
+                double W5 = Convert.ToDouble(this.txtW5.Text);
+                double fai5 = Convert.ToDouble(this.txtfai5.Text);//凸台直径
+                int keyNum = Convert.ToInt32(this.txtKeyNum.Text);//花键个数
                 //int holeNum = Convert.ToInt32(this.txtHoleNum.Text);//孔个数
-
-                CreateAPart(RA, RC, RKey, R4, RCenter, Rhole, W1, W3, W4, W5,keyNum);
-
+                string save = this.txtSPCarrier.Text.Trim();
+                if (save == string.Empty)
+                {
+                    MessageBox.Show("请选择保存路径！");
+                    return;
+                }
+              ModelDoc2 swPart=  CreateAPart(RA, fai3, RKey, rKey2, fai4, fai5, RCenter, Rhole, W1, W3, W4, W5, keyNum);
+                int errors = 0;
+                int warnings = 0;
+                //swModelEx为空？？？？
+                swModelEx = swPart.Extension;
+                //零部件名称相同了？？？？？？？？
+                bool ss = swModelEx.SaveAs(save + "\\" + swPart.GetTitle() + ".sldprt", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
             }
             catch (Exception ex)
             {
@@ -3238,10 +3277,10 @@ namespace FrmReducerDesignerApplication
             string W1 = this.txtW1.Text;//
             string RA = this.txtRA.Text;//
             string RCenter = this.txtRCenter.Text;//
-            string RC = this.txtRC.Text;//
-            string R4 = this.txtR4.Text;
+            string RC = this.txtφ3.Text;//凸台直径
+            string R4 = this.txtRKey1.Text;
             string Rhole = this.txtRhole.Text;//
-            string RKey = this.txtRKey.Text;// 
+            string RKey = this.txtfai5.Text;// 
             string W2 = this.txtW2.Text;//
             string W3 = this.txtW3.Text;//
             string W4 = this.txtW4.Text;//
@@ -3266,7 +3305,7 @@ namespace FrmReducerDesignerApplication
             }
             if (!VerificationIsDigital(RC))
             {
-                throw new Exception("RC不是有效数字，请重新输入！");
+                throw new Exception("φC不是有效数字，请重新输入！");
             }
             if (!VerificationIsDigital(W1))
             {
@@ -3292,6 +3331,7 @@ namespace FrmReducerDesignerApplication
             {
                 throw new Exception("花键个数值不是有效数字，请重新输入！");
             }
+
             //if (!VerificationDigital(holeNum))
             //{
             //    throw new Exception("孔个数值不是有效数字，请重新输入！");
@@ -3306,10 +3346,13 @@ namespace FrmReducerDesignerApplication
                 {
                     return "行星架";
                 }
-                else
+
+                else if (tabControl1.SelectedIndex == 6)
                 {
-                    return "";
+                    return "立机座";
                 }
+                else
+                    return "";
             }
         }
         /// 模版文件名,同时也是参数表名（数据库）
@@ -3317,79 +3360,88 @@ namespace FrmReducerDesignerApplication
         {
             get
             {
-                if (this.tabControl1.SelectedIndex == 5&&this.tabControl5.SelectedIndex==0)
+                if (this.tabControl1.SelectedIndex == 5 && this.tabControl5.SelectedIndex == 0)
                 {
                     return "PlanetCarrier";
+                }
+                if (this.tabControl1.SelectedIndex == 6 && this.tabControl6.SelectedIndex == 0)
+                {
+                    return "VerticalBasePlanet";
                 }
                 return "";
             }
         }
-        
+
         /// <summary>
         /// //生成一个零件
         /// </summary>
         /// <param name="ra">总直径</param>
         /// <param name="r2">R2</param>
         /// <param name="r3">R3</param>
+        /// <param name="rkeys"></param>
         /// <param name="r4">内圆直径</param>
         /// <param name="rc">中心线直径</param>
         /// <param name="rh">孔径</param>
         /// <param name="B1">总厚度</param>
         /// <param name="B3">花键长度</param>
         /// <param name="B4">B4宽度</param>
-        /// <param name="B5">键槽宽度</param>
-        /// <param name="holeNum">孔数量</param>
+        /// <param name="B5">键槽宽度</param>    
         /// <param name="keyNum">花键数量</param>
-        private void CreateAPart(double ra, double r2, double r3, double r4, double rc, double rh, double B1, double B3, double B4, double B5, int keyNum)
+        private ModelDoc2 CreateAPart(double ra, double r2, double r3, double rkeys, double r4, double r5, double rc, double rh, double B1, double B3, double B4, double B5, int keyNum)
         {
             //新方法,检查看看还能不能用
             //if (Dbtool2.hasconn(true, this.FindForm()) == false) return;
 
             ModelDoc2 Part = (ModelDoc2)AllData.NewDoc(false, false, AllData.StartUpPath + "\\prtTemplate\\" + this.Temp_TB_name + ".prtdot");
-            bool ist=Part.SetTitle2(this.FileNameNOConf);
+            bool ist = Part.SetTitle2(this.FileNameNOConf);
 
             //调用下面的方法
             if (this.Temp_TB_name == "PlanetCarrier")
             {
-                Part = CreatePartCarrier(Part,ra,r2,r3,r4,rc,rh,B1,B3,B4,B5,keyNum);//生成行星架
+                Part = CreatePartCarrier(Part, ra, r2, r3, rkeys, r4, r5, rc, rh, B1, B3, B4, B5, keyNum);//生成行星架
             }
-            
             //这里不能自动关闭，因为还有大的没有生成
             Part.SetUserPreferenceToggle(198, true);//隐藏尺寸
-
             CustomPropertyManager cpmMdl = Part.Extension.get_CustomPropertyManager(Part.ConfigurationManager.ActiveConfiguration.Name);//自定义属性
             cpmMdl.Add2("名称", (int)swCustomInfoType_e.swCustomInfoText, this.FileNameNOConf);
             cpmMdl.Add2("类别", (int)swCustomInfoType_e.swCustomInfoText, "专用件");
+            return Part;
         }
-        private ModelDoc2 CreatePartCarrier(ModelDoc2 Part,double ra,double r2,double r3,double r4,double rc,double rh,double B1,double B3,double B4,double B5,int keyNum)
+        private ModelDoc2 CreatePartCarrier(ModelDoc2 Part, double ra, double r2, double r3, double rkeys, double r4, double r5, double rc, double rh, double B1, double B3, double B4, double B5, int keyNum)
         {
             SolidWorks.Interop.sldworks.Dimension Dim = null;
             Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("RBig@草图1");
-            Dim.SetSystemValue2(ra / 2.0/1000.0, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+            Dim.SetSystemValue2(ra / 2.0 / 1000.0, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
 
             Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("B1@草图1");
             Dim.SetSystemValue2(B1 / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
 
             Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("R2@草图1");
-            Dim.SetSystemValue2((r2/2.0)/ 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+            Dim.SetSystemValue2((r2 / 2.0) / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
 
             Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("R3@草图1");
-            Dim.SetSystemValue2((r3 / 2.0) / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+            Dim.SetSystemValue2((r4 / 2.0) / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
 
             Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("B3@草图1");
             Dim.SetSystemValue2((B3 / 1000), (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
 
             Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("B4@草图1");
-            Dim.SetSystemValue2(B4 /1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
-           
-            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("R1@草图1");
-            Dim.SetSystemValue2(r4/2.0 / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+            Dim.SetSystemValue2(B4 / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("R1@草图1");//花键槽内径
+            Dim.SetSystemValue2(rkeys / 2.0 / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("RKEY@草图3");//花键槽外径
+            Dim.SetSystemValue2(r3 / 2.0 / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("R5@草图1");//凸台直径
+            Dim.SetSystemValue2(r5/2.0 / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
 
             Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("RCenter@草图2");
-            Dim.SetSystemValue2((rc/2.0) / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+            Dim.SetSystemValue2(rc / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
 
             Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("Rhole@草图2");//轴间距
-            Dim.SetSystemValue2(rh/2.0 / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+            Dim.SetSystemValue2(rh / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
 
             Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("D1@阵列(圆周)2");//花键个数
             Dim.SetSystemValue2(keyNum, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
@@ -3399,8 +3451,187 @@ namespace FrmReducerDesignerApplication
             Part.ViewZoomtofit2();
             return Part;
         }
-    
+
+        private void btnSavePathSpur_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog savePath = new FolderBrowserDialog();
+            savePath.Description = "请选择保存路径";
+            if (savePath.ShowDialog() == DialogResult.OK)
+            {
+                savePathSpur = savePath.SelectedPath;
+            }
+            else
+            {
+            }
+            this.txtSPSpur.Text = savePathSpur;
+        }
+
+        private void btnOFInner_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog savePath = new FolderBrowserDialog();
+            savePath.Description = "请选择保存路径";
+            if (savePath.ShowDialog() == DialogResult.OK)
+            {
+                savePathInner = savePath.SelectedPath;
+            }
+            else
+            {
+            }
+            this.txtSPInner.Text = savePathInner;
+        }
+
+        private void btnOFCarrier_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog savePath = new FolderBrowserDialog();
+            savePath.Description = "请选择保存路径";
+            if (savePath.ShowDialog() == DialogResult.OK)
+            {
+                savePathCarrier = savePath.SelectedPath;
+            }
+            else
+            {
+            }
+            this.txtSPCarrier.Text = savePathCarrier;
+        }
+
+        private void btnCreateKeTi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //验证数据
+                Verification();
+                //获取界面值
+                double r1 = Convert.ToDouble(this.txtketiR1.Text.Trim());
+                double r2 = Convert.ToDouble(this.txtketiR2.Text.Trim());
+                double fai3 = Convert.ToDouble(this.txtketifai3.Text.Trim());
+                double fai4 = Convert.ToDouble(this.txtketifai4.Text.Trim());
+                double fai5 = Convert.ToDouble(this.txtketifai5.Text.Trim());
+                double fiaHole = Convert.ToDouble(this.txtketifaiHole.Text.Trim());
+                double B = Convert.ToDouble(this.txtkeitiB.Text.Trim());
+                string savePath = this.txtSaveKeti.Text.Trim();//保存路径
+                if (savePath == string.Empty)
+                {
+                    MessageBox.Show("请选择保存路径！");
+                    return;
+                }
+                //调用方法生成机座
+                ModelDoc2 Part = (ModelDoc2)AllData.NewDoc(false, false, AllData.StartUpPath + "\\prtTemplate\\" + this.Temp_TB_name + ".prtdot");
+                bool ist = Part.SetTitle2(this.FileNameNOConf);
+
+                //调用下面的方法
+                if (this.Temp_TB_name == "PlanetCarrier")
+                {
+                    Part = CreatePlanet(Part, r1, r2, fai3, fai4, fai5, fiaHole, B);//生成立机座
+                }
+                Part.SetUserPreferenceToggle(198, true);//隐藏尺寸
+                CustomPropertyManager cpmMdl = Part.Extension.get_CustomPropertyManager(Part.ConfigurationManager.ActiveConfiguration.Name);//自定义属性
+                cpmMdl.Add2("名称", (int)swCustomInfoType_e.swCustomInfoText, this.FileNameNOConf);
+                cpmMdl.Add2("类别", (int)swCustomInfoType_e.swCustomInfoText, "专用件");
+                //保存文件
+                swModelEx = swModel.Extension;
+                int errors = -1;
+                int warnings = -1;
+                bool isss = swModelEx.SaveAs(savePath +"\\"+ swModel.GetTitle() + ".sldprt", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
+            }
+            catch (Exception ex)
+            {
+               MessageBox.Show("出现错误："+ex.Message);
+            }
+        }
+        private void Verification()
+        {
+            string r1 = this.txtketiR1.Text;//
+            string r2 = this.txtketiR2.Text;//
+            string fai3 = this.txtketifai3.Text;//
+            string fai4 = this.txtketifai4.Text;//
+            string fai5 = this.txtketifai5.Text;
+            string faiHole = this.txtketifaiHole.Text;
+            string B = this.txtkeitiB.Text;
+            if (!VerificationIsDigital(r1))
+            {
+                throw new Exception("R1不是有效数字，请重新输入！");
+            }
+            if (!VerificationIsDigital(r2))
+            {
+                throw new Exception("R2不是有效数字，请重新输入！");
+            }
+            if (!VerificationIsDigital(fai3))
+            {
+                throw new Exception("φ3不是有效数字，请重新输入！");
+            }
+            if (!VerificationIsDigital(fai4))
+            {
+                throw new Exception("φ4不是有效数字，请重新输入！");
+            }
+            if (!VerificationIsDigital(fai5))
+            {
+                throw new Exception("φ5不是有效数字，请重新输入！");
+            }
+            if (!VerificationIsDigital(faiHole))
+            {
+                throw new Exception("孔径φh不是有效数字，请重新输入！");
+            }
+            if (!VerificationIsDigital(B))
+            {
+                throw new Exception("筋宽度B不是有效数字，请重新输入！");
+            }
+        }
+        /// <summary>
+        /// 生成机座
+        /// </summary>
+        /// <param name="Part"></param>
+        /// <param name="r1"></param>
+        /// <param name="r2"></param>
+        /// <param name="fai3"></param>
+        /// <param name="fai4"></param>
+        /// <param name="fai5"></param>
+        /// <param name="faiHole"></param>
+        /// <param name="B"></param>
+        /// <returns></returns>
+        private ModelDoc2 CreatePlanet(ModelDoc2 Part, double r1, double r2, double fai3, double fai4, double fai5, double faiHole,double B)
+        {
+            SolidWorks.Interop.sldworks.Dimension Dim = null;
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("R1@草图1");//最大外径
+            Dim.SetSystemValue2(r1 / 2.0 / 1000.0, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("R2@草图1");//孔中心线直径
+            Dim.SetSystemValue2(r2 / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("FAI3@草图1");
+            Dim.SetSystemValue2((fai3 / 2.0) / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("FAI4@草图1");
+            Dim.SetSystemValue2((fai4 / 2.0) / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("FAI5@草图1");//
+            Dim.SetSystemValue2((fai5/2.0 / 1000), (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("FAI5@草图1");//孔的直径。。。。。
+            Dim.SetSystemValue2((faiHole / 2.0 / 1000), (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+
+            Dim = (SolidWorks.Interop.sldworks.Dimension)Part.Parameter("D1@筋3");//筋的宽度
+            Dim.SetSystemValue2(B / 1000, (int)swSetValueInConfiguration_e.swSetValue_InThisConfiguration);
+            Part.ClearSelection2(true);
+            Part.EditRebuild3();
+            Part.ViewZoomtofit2();
+            return Part;
+        }
+        //选择机座保存路径
+        private void btnKetiOpenSave_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog savePath = new FolderBrowserDialog();
+            savePath.Description = "请选择保存路径";
+            if (savePath.ShowDialog() == DialogResult.OK)
+            {
+                savePathPlanet = savePath.SelectedPath;
+            }
+            else
+            {
+            }
+            this.txtSaveKeti.Text = savePathPlanet;
+        }
+
     }
-    }
+}
 
 

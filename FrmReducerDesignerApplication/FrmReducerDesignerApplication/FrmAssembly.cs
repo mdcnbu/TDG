@@ -24,7 +24,9 @@ namespace FrmReducerDesignerApplication
         public FrmAssembly()
         {
             InitializeComponent();
+            _exePath = System.AppDomain.CurrentDomain.SetupInformation.ApplicationBase;//获取程序当前的启动目录
         }
+        #region 全局变量
         private SldWorks swApp;
         private ModelDoc2 swModel;        
         private ModelDocExtension swModelEx;
@@ -33,15 +35,20 @@ namespace FrmReducerDesignerApplication
         private SketchManager swSketchMgr;
         private AssemblyDoc swAssembly;
         private string stDefaultTemplateAssembly;
-        private IComponent2 swComponent;
+        //private IComponent2 swComponent;
         private Feature mateFeature;
         private Mate2 myMate;
+        private SolidWorks.Interop.sldworks.ConfigurationManager swConfMgr;
+        private SolidWorks.Interop.sldworks.Configuration swConf;
+        private Component2 swRootComp;
+
+        private string _exePath = string.Empty;//程序启动目录
         int mateError;
         int errors;
         int warnings;
         string assemblyName;
         bool state;
- 
+        #endregion
         //#region 新建装配体零件方法
         ///// <summary>
         ///// x新建零件
@@ -369,9 +376,51 @@ namespace FrmReducerDesignerApplication
                 }
       
             //实现装配
+            //打开装配模板(行星架+输出轴+销轴+行星轮+行星轮垫片+轴承)然后替换相关零部件
+                swModel = (ModelDoc2)swApp.OpenDoc6(_exePath + "PrtAndAsmTemp\\subAssemly.sldasm", (int)swDocumentTypes_e.swDocASSEMBLY, (int)swOpenDocOptions_e.swOpenDocOptions_Silent, "", ref errors, ref warnings);
+            //遍历装配体选择零部件
+                TraverseAssembly(_exePath + "PrtAndAsmTemp\\subAssemly.sldasm");
+                swModel = (ModelDoc2)swApp.ActiveDoc;
+                swConfMgr = (SolidWorks.Interop.sldworks.ConfigurationManager)swModel.ConfigurationManager;
+                swConf = (SolidWorks.Interop.sldworks.Configuration)swConfMgr.ActiveConfiguration;
+                swRootComp = (Component2)swConf.GetRootComponent();
+                TraverseAssembly(swRootComp, 1);
 
         }
-
+        /// <summary>
+        /// 递归遍历装配体方法
+        /// </summary>
+        /// <param name="swComp"></param>
+        /// <param name="nLevel"></param>
+        private void TraverseAssembly(Component2 swComp,int nLevel)
+        {
+            object[] vChildComp;
+            Component2 swChildComp;
+            vChildComp = (object[])swComp.GetChildren();
+            for (int i = 0; i < vChildComp.Length; i++)
+            {
+                swChildComp = (Component2)vChildComp[i];
+                AssemblyDoc swTempModel = (AssemblyDoc)swChildComp;
+                TraverseAssembly(swChildComp, nLevel + 1);
+                //选中要替换掉的零件
+                SelectData seldate=((SelectionMgr)swModel.SelectionManager).CreateSelectData();
+                swChildComp.Select4(false, seldate, false);
+                //替换零部件
+                swTempModel.ReplaceComponents("", "", true, true);//零件地址
+            }
+            //object[] compNum = null;
+            //int idex=1;
+            ////_swApp = (SldWorks)MD_SW_ConnectSW.ConnectSW.iSwApp;
+            //compNum = swApp.GetDocumentDependencies2(parentPath, false, false, false);
+            //if (compNum != null)
+            //{
+            //    while (idex <= compNum.GetUpperBound(0))
+            //    {
+            //        string path = compNum[idex].ToString();
+            //        idex++;
+            //    }
+            //}
+        }
         private void btnAssem2_Click(object sender, EventArgs e)
         {
 
