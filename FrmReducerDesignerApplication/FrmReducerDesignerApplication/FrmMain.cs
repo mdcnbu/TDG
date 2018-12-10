@@ -135,5 +135,26 @@ namespace FrmReducerDesignerApplication
         {
             OpenForm(new FrmSelectType());
         }
+
+        private void btnDataMgr_Click(object sender, EventArgs e)
+        {
+            OpenForm(new FrmDataMgr());
+        }
+
+        private void btnMinimal_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void 计算器ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEvolentCacul objFrm = new FrmEvolentCacul();
+            objFrm.ShowDialog();
+        }
     }
 }

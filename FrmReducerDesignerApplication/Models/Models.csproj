@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CutTool.cs" />
     <Compile Include="GearNums.cs" />
     <Compile Include="GearType.cs" />
     <Compile Include="HeatType.cs" />

@@ -29,47 +29,47 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtTorAC = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPlantaryNum = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtInputTor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtKc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
+            this.txtMLess = new System.Windows.Forms.TextBox();
+            this.txtDisLess = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtU = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtContactXY = new System.Windows.Forms.TextBox();
+            this.txtφc = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtContactVal = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtK = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cboRealM = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtDistNone = new System.Windows.Forms.TextBox();
+            this.txtAngleBc = new System.Windows.Forms.TextBox();
+            this.txtAngleAc = new System.Windows.Forms.TextBox();
+            this.txtDisReal = new System.Windows.Forms.TextBox();
+            this.txtRealβ = new System.Windows.Forms.TextBox();
+            this.btnCalculateFour = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnFourBefore = new System.Windows.Forms.Button();
             this.btnFourNext = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -78,29 +78,29 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtTorAC);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.txtPlantaryNum);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtInputTor);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtKc);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox1.Location = new System.Drawing.Point(33, 12);
+            this.groupBox1.Location = new System.Drawing.Point(23, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(461, 100);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "太阳轮-行星轮传动载荷";
             // 
-            // textBox4
+            // txtTorAC
             // 
-            this.textBox4.Location = new System.Drawing.Point(352, 68);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(59, 23);
-            this.textBox4.TabIndex = 1;
+            this.txtTorAC.Location = new System.Drawing.Point(352, 68);
+            this.txtTorAC.Name = "txtTorAC";
+            this.txtTorAC.ReadOnly = true;
+            this.txtTorAC.Size = new System.Drawing.Size(59, 23);
+            this.txtTorAC.TabIndex = 1;
             // 
             // label4
             // 
@@ -111,30 +111,30 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "单对传动扭矩(N.m)";
             // 
-            // textBox3
+            // txtPlantaryNum
             // 
-            this.textBox3.Location = new System.Drawing.Point(131, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(59, 23);
-            this.textBox3.TabIndex = 1;
+            this.txtPlantaryNum.Location = new System.Drawing.Point(131, 65);
+            this.txtPlantaryNum.Name = "txtPlantaryNum";
+            this.txtPlantaryNum.ReadOnly = true;
+            this.txtPlantaryNum.Size = new System.Drawing.Size(59, 23);
+            this.txtPlantaryNum.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 74);
+            this.label3.Location = new System.Drawing.Point(41, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(82, 17);
             this.label3.TabIndex = 0;
             this.label3.Text = "行星轮数目Cs";
             // 
-            // textBox2
+            // txtInputTor
             // 
-            this.textBox2.Location = new System.Drawing.Point(352, 27);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(59, 23);
-            this.textBox2.TabIndex = 1;
+            this.txtInputTor.Location = new System.Drawing.Point(352, 27);
+            this.txtInputTor.Name = "txtInputTor";
+            this.txtInputTor.ReadOnly = true;
+            this.txtInputTor.Size = new System.Drawing.Size(59, 23);
+            this.txtInputTor.TabIndex = 1;
             // 
             // label2
             // 
@@ -145,12 +145,13 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "总体输入扭矩(N.m)";
             // 
-            // textBox1
+            // txtKc
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 27);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(59, 23);
-            this.textBox1.TabIndex = 1;
+            this.txtKc.Location = new System.Drawing.Point(131, 27);
+            this.txtKc.Name = "txtKc";
+            this.txtKc.ReadOnly = true;
+            this.txtKc.Size = new System.Drawing.Size(59, 23);
+            this.txtKc.TabIndex = 1;
             // 
             // label1
             // 
@@ -163,62 +164,62 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox12);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.txtMLess);
+            this.groupBox2.Controls.Add(this.txtDisLess);
             this.groupBox2.Controls.Add(this.label8);
+            this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.textBox11);
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.txtU);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.textBox6);
+            this.groupBox2.Controls.Add(this.txtContactXY);
+            this.groupBox2.Controls.Add(this.txtφc);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.textBox9);
+            this.groupBox2.Controls.Add(this.txtContactVal);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Controls.Add(this.textBox5);
+            this.groupBox2.Controls.Add(this.txtK);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox2.Location = new System.Drawing.Point(33, 138);
+            this.groupBox2.Location = new System.Drawing.Point(23, 131);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(461, 137);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "初算太阳轮-行星轮中心距";
             // 
-            // textBox12
+            // txtMLess
             // 
-            this.textBox12.Location = new System.Drawing.Point(352, 107);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.ReadOnly = true;
-            this.textBox12.Size = new System.Drawing.Size(59, 23);
-            this.textBox12.TabIndex = 1;
+            this.txtMLess.Location = new System.Drawing.Point(131, 109);
+            this.txtMLess.Name = "txtMLess";
+            this.txtMLess.ReadOnly = true;
+            this.txtMLess.Size = new System.Drawing.Size(59, 23);
+            this.txtMLess.TabIndex = 1;
             // 
-            // textBox8
+            // txtDisLess
             // 
-            this.textBox8.Location = new System.Drawing.Point(131, 107);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(59, 23);
-            this.textBox8.TabIndex = 1;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(259, 110);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 17);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "模数m不小于";
+            this.txtDisLess.Location = new System.Drawing.Point(352, 109);
+            this.txtDisLess.Name = "txtDisLess";
+            this.txtDisLess.Size = new System.Drawing.Size(59, 23);
+            this.txtDisLess.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(31, 110);
+            this.label8.Location = new System.Drawing.Point(260, 112);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "中心距不小于";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(38, 112);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 17);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "模数m不小于";
             // 
             // textBox11
             // 
@@ -228,13 +229,13 @@
             this.textBox11.Size = new System.Drawing.Size(59, 23);
             this.textBox11.TabIndex = 1;
             // 
-            // textBox7
+            // txtU
             // 
-            this.textBox7.Location = new System.Drawing.Point(131, 80);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(59, 23);
-            this.textBox7.TabIndex = 1;
+            this.txtU.Location = new System.Drawing.Point(131, 80);
+            this.txtU.Name = "txtU";
+            this.txtU.ReadOnly = true;
+            this.txtU.Size = new System.Drawing.Size(59, 23);
+            this.txtU.TabIndex = 1;
             // 
             // label11
             // 
@@ -254,20 +255,20 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "齿速比u=Zc/Za";
             // 
-            // textBox10
+            // txtContactXY
             // 
-            this.textBox10.Location = new System.Drawing.Point(352, 53);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(59, 23);
-            this.textBox10.TabIndex = 1;
+            this.txtContactXY.Location = new System.Drawing.Point(352, 53);
+            this.txtContactXY.Name = "txtContactXY";
+            this.txtContactXY.ReadOnly = true;
+            this.txtContactXY.Size = new System.Drawing.Size(59, 23);
+            this.txtContactXY.TabIndex = 1;
             // 
-            // textBox6
+            // txtφc
             // 
-            this.textBox6.Location = new System.Drawing.Point(131, 53);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(59, 23);
-            this.textBox6.TabIndex = 1;
+            this.txtφc.Location = new System.Drawing.Point(131, 53);
+            this.txtφc.Name = "txtφc";
+            this.txtφc.Size = new System.Drawing.Size(59, 23);
+            this.txtφc.TabIndex = 1;
             // 
             // label10
             // 
@@ -281,40 +282,40 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(31, 56);
+            this.label6.Location = new System.Drawing.Point(44, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(72, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "齿宽系数φa";
             // 
-            // textBox9
+            // txtContactVal
             // 
-            this.textBox9.Location = new System.Drawing.Point(352, 26);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(59, 23);
-            this.textBox9.TabIndex = 1;
+            this.txtContactVal.Location = new System.Drawing.Point(352, 26);
+            this.txtContactVal.Name = "txtContactVal";
+            this.txtContactVal.ReadOnly = true;
+            this.txtContactVal.Size = new System.Drawing.Size(59, 23);
+            this.txtContactVal.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(259, 29);
+            this.label9.Location = new System.Drawing.Point(238, 29);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(80, 17);
+            this.label9.Size = new System.Drawing.Size(114, 17);
             this.label9.TabIndex = 0;
-            this.label9.Text = "接触疲劳极限";
+            this.label9.Text = "接触疲劳极限σHlim";
             // 
-            // textBox5
+            // txtK
             // 
-            this.textBox5.Location = new System.Drawing.Point(131, 26);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(59, 23);
-            this.textBox5.TabIndex = 1;
+            this.txtK.Location = new System.Drawing.Point(131, 26);
+            this.txtK.Name = "txtK";
+            this.txtK.Size = new System.Drawing.Size(59, 23);
+            this.txtK.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 29);
+            this.label5.Location = new System.Drawing.Point(33, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 17);
             this.label5.TabIndex = 0;
@@ -322,25 +323,34 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cboRealM);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label18);
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.label13);
-            this.groupBox3.Controls.Add(this.textBox18);
-            this.groupBox3.Controls.Add(this.textBox17);
-            this.groupBox3.Controls.Add(this.textBox15);
-            this.groupBox3.Controls.Add(this.textBox16);
-            this.groupBox3.Controls.Add(this.textBox14);
-            this.groupBox3.Controls.Add(this.textBox13);
+            this.groupBox3.Controls.Add(this.txtDistNone);
+            this.groupBox3.Controls.Add(this.txtAngleBc);
+            this.groupBox3.Controls.Add(this.txtAngleAc);
+            this.groupBox3.Controls.Add(this.txtDisReal);
+            this.groupBox3.Controls.Add(this.txtRealβ);
             this.groupBox3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.groupBox3.Location = new System.Drawing.Point(33, 295);
+            this.groupBox3.Location = new System.Drawing.Point(23, 290);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(460, 106);
+            this.groupBox3.Size = new System.Drawing.Size(461, 106);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "初定几何参数";
+            // 
+            // cboRealM
+            // 
+            this.cboRealM.FormattingEnabled = true;
+            this.cboRealM.Location = new System.Drawing.Point(131, 18);
+            this.cboRealM.Name = "cboRealM";
+            this.cboRealM.Size = new System.Drawing.Size(59, 25);
+            this.cboRealM.TabIndex = 2;
+            this.cboRealM.SelectedIndexChanged += new System.EventHandler(this.cboRealM_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -372,7 +382,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(259, 23);
+            this.label16.Location = new System.Drawing.Point(265, 23);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(78, 17);
             this.label16.TabIndex = 0;
@@ -396,56 +406,50 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "取实际模数m";
             // 
-            // textBox18
+            // txtDistNone
             // 
-            this.textBox18.Location = new System.Drawing.Point(352, 47);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(59, 23);
-            this.textBox18.TabIndex = 1;
+            this.txtDistNone.Location = new System.Drawing.Point(352, 47);
+            this.txtDistNone.Name = "txtDistNone";
+            this.txtDistNone.Size = new System.Drawing.Size(59, 23);
+            this.txtDistNone.TabIndex = 1;
             // 
-            // textBox17
+            // txtAngleBc
             // 
-            this.textBox17.Location = new System.Drawing.Point(352, 74);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(59, 23);
-            this.textBox17.TabIndex = 1;
+            this.txtAngleBc.Location = new System.Drawing.Point(352, 74);
+            this.txtAngleBc.Name = "txtAngleBc";
+            this.txtAngleBc.Size = new System.Drawing.Size(59, 23);
+            this.txtAngleBc.TabIndex = 1;
             // 
-            // textBox15
+            // txtAngleAc
             // 
-            this.textBox15.Location = new System.Drawing.Point(131, 74);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(59, 23);
-            this.textBox15.TabIndex = 1;
+            this.txtAngleAc.Location = new System.Drawing.Point(131, 74);
+            this.txtAngleAc.Name = "txtAngleAc";
+            this.txtAngleAc.Size = new System.Drawing.Size(59, 23);
+            this.txtAngleAc.TabIndex = 1;
             // 
-            // textBox16
+            // txtDisReal
             // 
-            this.textBox16.Location = new System.Drawing.Point(352, 20);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(59, 23);
-            this.textBox16.TabIndex = 1;
+            this.txtDisReal.Location = new System.Drawing.Point(352, 20);
+            this.txtDisReal.Name = "txtDisReal";
+            this.txtDisReal.Size = new System.Drawing.Size(59, 23);
+            this.txtDisReal.TabIndex = 1;
             // 
-            // textBox14
+            // txtRealβ
             // 
-            this.textBox14.Location = new System.Drawing.Point(131, 47);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(59, 23);
-            this.textBox14.TabIndex = 1;
+            this.txtRealβ.Location = new System.Drawing.Point(131, 47);
+            this.txtRealβ.Name = "txtRealβ";
+            this.txtRealβ.Size = new System.Drawing.Size(59, 23);
+            this.txtRealβ.TabIndex = 1;
             // 
-            // textBox13
+            // btnCalculateFour
             // 
-            this.textBox13.Location = new System.Drawing.Point(131, 20);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(59, 23);
-            this.textBox13.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(60, 407);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "确 定";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCalculateFour.Location = new System.Drawing.Point(60, 407);
+            this.btnCalculateFour.Name = "btnCalculateFour";
+            this.btnCalculateFour.Size = new System.Drawing.Size(75, 23);
+            this.btnCalculateFour.TabIndex = 3;
+            this.btnCalculateFour.Text = "确 定";
+            this.btnCalculateFour.UseVisualStyleBackColor = true;
+            this.btnCalculateFour.Click += new System.EventHandler(this.btnCalculateFour_Click);
             // 
             // button2
             // 
@@ -456,14 +460,15 @@
             this.button2.Text = "取 消";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnFourBefore
             // 
-            this.button3.Location = new System.Drawing.Point(294, 407);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "上一步";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnFourBefore.Location = new System.Drawing.Point(294, 407);
+            this.btnFourBefore.Name = "btnFourBefore";
+            this.btnFourBefore.Size = new System.Drawing.Size(75, 23);
+            this.btnFourBefore.TabIndex = 3;
+            this.btnFourBefore.Text = "上一步";
+            this.btnFourBefore.UseVisualStyleBackColor = true;
+            this.btnFourBefore.Click += new System.EventHandler(this.btnFourBefore_Click);
             // 
             // btnFourNext
             // 
@@ -480,11 +485,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.ClientSize = new System.Drawing.Size(537, 436);
+            this.ClientSize = new System.Drawing.Size(503, 436);
             this.Controls.Add(this.btnFourNext);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnFourBefore);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCalculateFour);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -506,30 +511,30 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtTorAC;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPlantaryNum;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtInputTor;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtKc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtMLess;
+        private System.Windows.Forms.TextBox txtDisLess;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtU;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtContactXY;
+        private System.Windows.Forms.TextBox txtφc;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtContactVal;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtK;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label15;
@@ -538,15 +543,15 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txtDistNone;
+        private System.Windows.Forms.TextBox txtAngleBc;
+        private System.Windows.Forms.TextBox txtAngleAc;
+        private System.Windows.Forms.TextBox txtDisReal;
+        private System.Windows.Forms.TextBox txtRealβ;
+        private System.Windows.Forms.Button btnCalculateFour;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnFourBefore;
         private System.Windows.Forms.Button btnFourNext;
+        private System.Windows.Forms.ComboBox cboRealM;
     }
 }

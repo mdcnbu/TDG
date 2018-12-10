@@ -15,7 +15,7 @@ namespace FrmReducerDesignerApplication.Common
        //正整数验证
         public static bool IsInteger(string txt)
         {
-            Regex objReg = new Regex(@"^[1-9]\d*$");
+            Regex objReg = new Regex(@"^\d*$");
             return objReg.IsMatch(txt);
         }
        //数字验证

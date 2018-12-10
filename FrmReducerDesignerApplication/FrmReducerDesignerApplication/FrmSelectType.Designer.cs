@@ -32,18 +32,19 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cboGearNum = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cboModule = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtXiModule = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtHighModule = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAngle = new System.Windows.Forms.TextBox();
-            this.cboGearNum = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cboModule = new System.Windows.Forms.ComboBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -98,56 +99,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "输入参数";
             // 
-            // label3
+            // button1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.Location = new System.Drawing.Point(6, 45);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(116, 20);
-            this.label3.TabIndex = 94;
-            this.label3.Text = "电机额定功率P：";
-            // 
-            // txtXiModule
-            // 
-            this.txtXiModule.Location = new System.Drawing.Point(124, 113);
-            this.txtXiModule.Name = "txtXiModule";
-            this.txtXiModule.Size = new System.Drawing.Size(83, 21);
-            this.txtXiModule.TabIndex = 98;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(45, 79);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 20);
-            this.label4.TabIndex = 95;
-            this.label4.Text = "公称速比i：";
-            // 
-            // txtHighModule
-            // 
-            this.txtHighModule.Location = new System.Drawing.Point(124, 79);
-            this.txtHighModule.Name = "txtHighModule";
-            this.txtHighModule.Size = new System.Drawing.Size(83, 21);
-            this.txtHighModule.TabIndex = 99;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(58, 112);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 20);
-            this.label5.TabIndex = 96;
-            this.label5.Text = "转速n：";
-            // 
-            // txtAngle
-            // 
-            this.txtAngle.Location = new System.Drawing.Point(125, 45);
-            this.txtAngle.Name = "txtAngle";
-            this.txtAngle.Size = new System.Drawing.Size(82, 21);
-            this.txtAngle.TabIndex = 97;
+            this.button1.Location = new System.Drawing.Point(293, 212);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(68, 29);
+            this.button1.TabIndex = 104;
+            this.button1.Text = "选 型";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // cboGearNum
             // 
@@ -185,29 +144,81 @@
             this.cboModule.Size = new System.Drawing.Size(83, 20);
             this.cboModule.TabIndex = 102;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.Location = new System.Drawing.Point(6, 45);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(116, 20);
+            this.label3.TabIndex = 94;
+            this.label3.Text = "电机额定功率P：";
+            // 
+            // txtXiModule
+            // 
+            this.txtXiModule.Location = new System.Drawing.Point(124, 113);
+            this.txtXiModule.Name = "txtXiModule";
+            this.txtXiModule.Size = new System.Drawing.Size(83, 21);
+            this.txtXiModule.TabIndex = 98;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.Location = new System.Drawing.Point(39, 79);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 20);
+            this.label4.TabIndex = 95;
+            this.label4.Text = "公称速比i：";
+            // 
+            // txtHighModule
+            // 
+            this.txtHighModule.Location = new System.Drawing.Point(126, 79);
+            this.txtHighModule.Name = "txtHighModule";
+            this.txtHighModule.Size = new System.Drawing.Size(83, 21);
+            this.txtHighModule.TabIndex = 99;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.Location = new System.Drawing.Point(61, 112);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 20);
+            this.label5.TabIndex = 96;
+            this.label5.Text = "转速n：";
+            // 
+            // txtAngle
+            // 
+            this.txtAngle.Location = new System.Drawing.Point(125, 45);
+            this.txtAngle.Name = "txtAngle";
+            this.txtAngle.Size = new System.Drawing.Size(82, 21);
+            this.txtAngle.TabIndex = 97;
+            // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(22, 314);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(390, 184);
+            this.listBox1.Size = new System.Drawing.Size(382, 184);
             this.listBox1.TabIndex = 15;
             // 
-            // button1
+            // button2
             // 
-            this.button1.Location = new System.Drawing.Point(289, 211);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(68, 29);
-            this.button1.TabIndex = 104;
-            this.button1.Text = "选 型";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button2.Location = new System.Drawing.Point(437, 456);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(106, 42);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "生成模型";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // FrmSelectType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(748, 520);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
@@ -240,5 +251,6 @@
         private System.Windows.Forms.ComboBox cboModule;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button button2;
     }
 }

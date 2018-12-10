@@ -247,27 +247,27 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabControl6 = new System.Windows.Forms.TabControl();
             this.tabPage16 = new System.Windows.Forms.TabPage();
-            this.tabPage17 = new System.Windows.Forms.TabPage();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.txtketifai5 = new System.Windows.Forms.TextBox();
-            this.txtketiR1 = new System.Windows.Forms.TextBox();
-            this.txtketifai3 = new System.Windows.Forms.TextBox();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
-            this.txtketiR2 = new System.Windows.Forms.TextBox();
-            this.label87 = new System.Windows.Forms.Label();
-            this.txtketifai4 = new System.Windows.Forms.TextBox();
-            this.label88 = new System.Windows.Forms.Label();
-            this.txtketifaiHole = new System.Windows.Forms.TextBox();
-            this.btnCreateKeTi = new System.Windows.Forms.Button();
-            this.label89 = new System.Windows.Forms.Label();
-            this.txtkeitiB = new System.Windows.Forms.TextBox();
             this.btnKetiOpenSave = new System.Windows.Forms.Button();
             this.txtSaveKeti = new System.Windows.Forms.TextBox();
             this.label90 = new System.Windows.Forms.Label();
+            this.btnCreateKeTi = new System.Windows.Forms.Button();
+            this.txtkeitiB = new System.Windows.Forms.TextBox();
+            this.txtketifai5 = new System.Windows.Forms.TextBox();
+            this.txtketiR2 = new System.Windows.Forms.TextBox();
+            this.txtketiR1 = new System.Windows.Forms.TextBox();
+            this.label86 = new System.Windows.Forms.Label();
+            this.txtketifaiHole = new System.Windows.Forms.TextBox();
+            this.txtketifai4 = new System.Windows.Forms.TextBox();
+            this.txtketifai3 = new System.Windows.Forms.TextBox();
+            this.label88 = new System.Windows.Forms.Label();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.tabPage17 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -300,8 +300,8 @@
             this.tabPage7.SuspendLayout();
             this.tabControl6.SuspendLayout();
             this.tabPage16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCloseReducer
@@ -2493,158 +2493,6 @@
             this.tabPage16.Text = "G800立机座";
             this.tabPage16.UseVisualStyleBackColor = true;
             // 
-            // tabPage17
-            // 
-            this.tabPage17.Location = new System.Drawing.Point(4, 4);
-            this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage17.Size = new System.Drawing.Size(716, 399);
-            this.tabPage17.TabIndex = 1;
-            this.tabPage17.Text = "HT机座";
-            this.tabPage17.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(30, 6);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(289, 212);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 0;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.Location = new System.Drawing.Point(319, 6);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(264, 212);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 0;
-            this.pictureBox9.TabStop = false;
-            // 
-            // txtketifai5
-            // 
-            this.txtketifai5.Location = new System.Drawing.Point(84, 301);
-            this.txtketifai5.Name = "txtketifai5";
-            this.txtketifai5.Size = new System.Drawing.Size(80, 26);
-            this.txtketifai5.TabIndex = 7;
-            // 
-            // txtketiR1
-            // 
-            this.txtketiR1.Location = new System.Drawing.Point(84, 237);
-            this.txtketiR1.Name = "txtketiR1";
-            this.txtketiR1.Size = new System.Drawing.Size(80, 26);
-            this.txtketiR1.TabIndex = 8;
-            // 
-            // txtketifai3
-            // 
-            this.txtketifai3.Location = new System.Drawing.Point(84, 269);
-            this.txtketifai3.Name = "txtketifai3";
-            this.txtketifai3.Size = new System.Drawing.Size(80, 26);
-            this.txtketifai3.TabIndex = 9;
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(42, 240);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(40, 20);
-            this.label83.TabIndex = 4;
-            this.label83.Text = "R1：";
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(40, 304);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(42, 20);
-            this.label84.TabIndex = 5;
-            this.label84.Text = "φ5：";
-            // 
-            // label85
-            // 
-            this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(40, 272);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(42, 20);
-            this.label85.TabIndex = 6;
-            this.label85.Text = "φ3：";
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(187, 240);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(40, 20);
-            this.label86.TabIndex = 4;
-            this.label86.Text = "R2：";
-            // 
-            // txtketiR2
-            // 
-            this.txtketiR2.Location = new System.Drawing.Point(229, 237);
-            this.txtketiR2.Name = "txtketiR2";
-            this.txtketiR2.Size = new System.Drawing.Size(80, 26);
-            this.txtketiR2.TabIndex = 8;
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(185, 272);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(42, 20);
-            this.label87.TabIndex = 6;
-            this.label87.Text = "φ4：";
-            // 
-            // txtketifai4
-            // 
-            this.txtketifai4.Location = new System.Drawing.Point(229, 269);
-            this.txtketifai4.Name = "txtketifai4";
-            this.txtketifai4.Size = new System.Drawing.Size(80, 26);
-            this.txtketifai4.TabIndex = 9;
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(163, 304);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(71, 20);
-            this.label88.TabIndex = 6;
-            this.label88.Text = "孔径φh：";
-            // 
-            // txtketifaiHole
-            // 
-            this.txtketifaiHole.Location = new System.Drawing.Point(229, 301);
-            this.txtketifaiHole.Name = "txtketifaiHole";
-            this.txtketifaiHole.Size = new System.Drawing.Size(80, 26);
-            this.txtketifaiHole.TabIndex = 9;
-            // 
-            // btnCreateKeTi
-            // 
-            this.btnCreateKeTi.Location = new System.Drawing.Point(229, 333);
-            this.btnCreateKeTi.Name = "btnCreateKeTi";
-            this.btnCreateKeTi.Size = new System.Drawing.Size(80, 29);
-            this.btnCreateKeTi.TabIndex = 10;
-            this.btnCreateKeTi.Text = "生 成";
-            this.btnCreateKeTi.UseVisualStyleBackColor = true;
-            this.btnCreateKeTi.Click += new System.EventHandler(this.btnCreateKeTi_Click);
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(13, 336);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(74, 20);
-            this.label89.TabIndex = 5;
-            this.label89.Text = "筋宽度B：";
-            // 
-            // txtkeitiB
-            // 
-            this.txtkeitiB.Location = new System.Drawing.Point(84, 333);
-            this.txtkeitiB.Name = "txtkeitiB";
-            this.txtkeitiB.Size = new System.Drawing.Size(80, 26);
-            this.txtkeitiB.TabIndex = 7;
-            // 
             // btnKetiOpenSave
             // 
             this.btnKetiOpenSave.BackColor = System.Drawing.Color.GreenYellow;
@@ -2676,6 +2524,158 @@
             this.label90.Size = new System.Drawing.Size(79, 20);
             this.label90.TabIndex = 106;
             this.label90.Text = "保存路径：";
+            // 
+            // btnCreateKeTi
+            // 
+            this.btnCreateKeTi.Location = new System.Drawing.Point(229, 333);
+            this.btnCreateKeTi.Name = "btnCreateKeTi";
+            this.btnCreateKeTi.Size = new System.Drawing.Size(80, 29);
+            this.btnCreateKeTi.TabIndex = 10;
+            this.btnCreateKeTi.Text = "生 成";
+            this.btnCreateKeTi.UseVisualStyleBackColor = true;
+            this.btnCreateKeTi.Click += new System.EventHandler(this.btnCreateKeTi_Click);
+            // 
+            // txtkeitiB
+            // 
+            this.txtkeitiB.Location = new System.Drawing.Point(84, 333);
+            this.txtkeitiB.Name = "txtkeitiB";
+            this.txtkeitiB.Size = new System.Drawing.Size(80, 26);
+            this.txtkeitiB.TabIndex = 7;
+            // 
+            // txtketifai5
+            // 
+            this.txtketifai5.Location = new System.Drawing.Point(84, 301);
+            this.txtketifai5.Name = "txtketifai5";
+            this.txtketifai5.Size = new System.Drawing.Size(80, 26);
+            this.txtketifai5.TabIndex = 7;
+            // 
+            // txtketiR2
+            // 
+            this.txtketiR2.Location = new System.Drawing.Point(229, 237);
+            this.txtketiR2.Name = "txtketiR2";
+            this.txtketiR2.Size = new System.Drawing.Size(80, 26);
+            this.txtketiR2.TabIndex = 8;
+            // 
+            // txtketiR1
+            // 
+            this.txtketiR1.Location = new System.Drawing.Point(84, 237);
+            this.txtketiR1.Name = "txtketiR1";
+            this.txtketiR1.Size = new System.Drawing.Size(80, 26);
+            this.txtketiR1.TabIndex = 8;
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(187, 240);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(40, 20);
+            this.label86.TabIndex = 4;
+            this.label86.Text = "R2：";
+            // 
+            // txtketifaiHole
+            // 
+            this.txtketifaiHole.Location = new System.Drawing.Point(229, 301);
+            this.txtketifaiHole.Name = "txtketifaiHole";
+            this.txtketifaiHole.Size = new System.Drawing.Size(80, 26);
+            this.txtketifaiHole.TabIndex = 9;
+            // 
+            // txtketifai4
+            // 
+            this.txtketifai4.Location = new System.Drawing.Point(229, 269);
+            this.txtketifai4.Name = "txtketifai4";
+            this.txtketifai4.Size = new System.Drawing.Size(80, 26);
+            this.txtketifai4.TabIndex = 9;
+            // 
+            // txtketifai3
+            // 
+            this.txtketifai3.Location = new System.Drawing.Point(84, 269);
+            this.txtketifai3.Name = "txtketifai3";
+            this.txtketifai3.Size = new System.Drawing.Size(80, 26);
+            this.txtketifai3.TabIndex = 9;
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(163, 304);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(71, 20);
+            this.label88.TabIndex = 6;
+            this.label88.Text = "孔径φh：";
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(42, 240);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(40, 20);
+            this.label83.TabIndex = 4;
+            this.label83.Text = "R1：";
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(13, 336);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(74, 20);
+            this.label89.TabIndex = 5;
+            this.label89.Text = "筋宽度B：";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(185, 272);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(42, 20);
+            this.label87.TabIndex = 6;
+            this.label87.Text = "φ4：";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(40, 304);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(42, 20);
+            this.label84.TabIndex = 5;
+            this.label84.Text = "φ5：";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(40, 272);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(42, 20);
+            this.label85.TabIndex = 6;
+            this.label85.Text = "φ3：";
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(319, 6);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(264, 212);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 0;
+            this.pictureBox9.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(30, 6);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(289, 212);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 0;
+            this.pictureBox8.TabStop = false;
+            // 
+            // tabPage17
+            // 
+            this.tabPage17.Location = new System.Drawing.Point(4, 4);
+            this.tabPage17.Name = "tabPage17";
+            this.tabPage17.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage17.Size = new System.Drawing.Size(716, 399);
+            this.tabPage17.TabIndex = 1;
+            this.tabPage17.Text = "HT机座";
+            this.tabPage17.UseVisualStyleBackColor = true;
             // 
             // FrmUnstandardized
             // 
@@ -2736,8 +2736,8 @@
             this.tabControl6.ResumeLayout(false);
             this.tabPage16.ResumeLayout(false);
             this.tabPage16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
 
         }

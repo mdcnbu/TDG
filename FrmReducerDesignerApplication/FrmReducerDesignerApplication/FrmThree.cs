@@ -23,18 +23,21 @@ namespace FrmReducerDesignerApplication
             this.cboMaterialCard1.DataSource = objMaterialService.GetMaterialId();
             this.cboMaterialCard1.DisplayMember = "MaterialCardId";
             this.cboMaterialCard1.ValueMember = "CardId";
-            this.cboMaterialCard1.SelectedIndex = -1;
+            this.cboMaterialCard1.SelectedIndex = 10;
             this.cboMaterialCard2.DataSource = objMaterialService.GetMaterialId();
             this.cboMaterialCard2.DisplayMember = "MaterialCardId";
             this.cboMaterialCard2.ValueMember = "CardId";
-            this.cboMaterialCard2.SelectedIndex = -1;
+            this.cboMaterialCard2.SelectedIndex = 10;
             this.cboMaterialCard3.DataSource = objMaterialService.GetMaterialId();
             this.cboMaterialCard3.DisplayMember = "MaterialCardId";
             this.cboMaterialCard3.ValueMember = "CardId";
-            this.cboMaterialCard3.SelectedIndex = -1;
+            this.cboMaterialCard3.SelectedIndex = 12;
             #endregion
         }
-        
+        /// <summary>
+        /// 定义事件传值
+        /// </summary>
+        public event GetValue3 OperateGetValue3;
         private void btnSelectOne_Click(object sender, EventArgs e)
         {
             FrmMaterials objMaterial = new FrmMaterials();
@@ -2326,21 +2329,63 @@ namespace FrmReducerDesignerApplication
         }
 
             # endregion
-        public static FrmFour objFour = null;
+        //public static FrmFour objFour = null;
         private void frm3Next_Click(object sender, EventArgs e)
         {
+            FrmDesign objDesign = new FrmDesign();
             this.Visible = false;//隐藏当前窗体
-            if (objFour == null)
-            {
-                objFour = new FrmFour();
-                objFour.ShowDialog();
-            }
-            else
-            {
-                objFour.Activate();
-                objFour.Show();
-                objFour.WindowState = FormWindowState.Normal;
-            }
+
+            this.btnMaterialOk_Click(null, e);
+            objDesign.btnCaculDistance_Click(null, new EventArgs());//通过主窗体打开窗体4
+
+            //if (objFour == null)
+            //{
+            //    objFour = new FrmFour();
+            //    objFour.ShowDialog();
+            //}
+            //else
+            //{
+            //    objFour.Activate();
+            //    objFour.Show();
+            //    objFour.WindowState = FormWindowState.Normal;
+            //}
+        }
+
+        private void btnMaterialOk_Click(object sender, EventArgs e)
+        {
+            //获取界面的数值
+            double ContactValue1 = Convert.ToDouble(this.txtContactValue1.Text);
+            double BendValue1 = Convert.ToDouble(this.txtBendValue1.Text);
+            double ContactValue2 = Convert.ToDouble(this.txtContactValue2.Text);
+            double BendValue2= Convert.ToDouble(this.txtBendValue2.Text);
+            double ContactValue3 = Convert.ToDouble(this.txtContactValue3.Text);
+            double BendValue3 = Convert.ToDouble(this.txtBendValue3.Text);
+            string sunMatrials = this.cboMaterialCard1.Text + "，" + this.cboHeat1.Text + "处理，硬度值：" + this.txtHardValue1.Text + "，接触疲劳强度：" + ContactValue1 + "MPa，弯曲疲劳强度：" + BendValue1 + "MPa";
+            string plaMatrials = this.cboMaterialCard2.Text + "，" + this.cboHeat2.Text + "处理，硬度值：" + this.txtHardValue2.Text + "，接触疲劳强度：" + ContactValue2 + "MPa，弯曲疲劳强度：" + BendValue2 + "MPa";
+            string innMatrials = this.cboMaterialCard3.Text + "，" + this.cboHeat3.Text + "处理，硬度值：" + this.txtHardValue3.Text + "，接触疲劳强度：" + ContactValue3 + "MPa，弯曲疲劳强度：" + BendValue3 + "MPa";
+
+            Common.PassValues.MaterialVala = this.cboMaterialCard1.Text;
+            Common.PassValues.MaterialValc = this.cboMaterialCard2.Text;
+            Common.PassValues.MaterialValb = this.cboMaterialCard3.Text;
+            Common.PassValues.sunMaterial = sunMatrials;
+            Common.PassValues.planMaterial = plaMatrials;
+            Common.PassValues.innMaterial = innMatrials;
+            Common.PassValues.ContactValue1 = ContactValue1;
+            Common.PassValues.ContactValue2 = ContactValue2;
+            Common.PassValues.ContactValue3 = ContactValue3;
+            Common.PassValues.BendValue1 = BendValue1;
+            Common.PassValues.BendValue2 = BendValue2;
+            Common.PassValues.BendValue3 = BendValue3;
+            //激发事件
+            OperateGetValue3(sunMatrials, plaMatrials, innMatrials);
+            this.Hide();
+        }
+
+        private void frm3Prim_Click(object sender, EventArgs e)
+        {
+            FrmDesign objDesign = new FrmDesign();
+            this.Visible = false;//隐藏当前窗体
+            objDesign.btnCaculGearNum_Click(null, new EventArgs());
         }
 
     }

@@ -90,10 +90,12 @@
             <summary>
             出工程图
             </summary>
-            <param name="dicValues">字典集合</param>
-            <param name="bomPaths">Bom表模板</param>
-            <param name="bendPaths">折弯表模板</param>
+            <param name="dicValues"></param>
+            <param name="prtTemp"></param>
+            <param name="compTemp"></param>
+            <param name="bomPaths"></param>
             <param name="savePaths">保存路径</param>
+            <param name="newPath">新路径</param>
         </member>
         <member name="M:FrmReducerDesignerApplication.Common.Drawings.CreatIsometric(SolidWorks.Interop.sldworks.DrawingDoc,System.String)">
             <summary>
@@ -203,6 +205,11 @@
             <param name="imaxCnt"></param>
             <param name="iStep"></param>
         </member>
+        <member name="T:FrmReducerDesignerApplication.Common.PassValues">
+            <summary>
+            公共数据存储类
+            </summary>
+        </member>
         <member name="F:FrmReducerDesignerApplication.FrmUserLogin.components">
             <summary>
             Required designer variable.
@@ -242,11 +249,12 @@
              <param name="sSplitStr">分隔的字符</param>
              <returns></returns>
         </member>
-        <member name="M:FrmReducerDesignerApplication.FrmAssembly.TraverseAssembly(System.String)">
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.TraverseAssembly(SolidWorks.Interop.sldworks.Component2,System.Int32)">
             <summary>
             递归遍历装配体方法
             </summary>
-            <param name="parentPath">装配体路径</param>
+            <param name="swComp"></param>
+            <param name="nLevel"></param>
         </member>
         <member name="F:FrmReducerDesignerApplication.FrmAssembly.components">
             <summary>
@@ -264,6 +272,203 @@
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmCutTool.#ctor(System.Double)">
+            <summary>
+            窗体初始化
+            </summary>
+            <param name="M"></param>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmCutTool.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmCutTool.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmCutTool.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDataMgr.#ctor">
+            <summary>
+            构造函数（初始化）
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDataMgr.ExportExcel(System.String,System.Data.DataTable,System.String)">
+            <summary>
+            把DataTable导出到EXCEL
+            </summary>
+            <param name="reportName">报表名称</param>
+            <param name="dt">数据源表</param>
+            <param name="saveFileName">Excel全路径文件名</param>
+            <returns>导出是否成功</returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmDataMgr.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDataMgr.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDataMgr.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue">
+            <summary>
+            【1】创建委托对象
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="p3"></param>
+            <param name="p4"></param>
+            <param name="p5"></param>
+            <param name="p6"></param>
+            <param name="p7"></param>
+            <param name="p8"></param>
+            <param name="p9"></param>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue2">
+            <summary>
+            []创建委托对象（第二步）
+            </summary>
+            <param name="a1"></param>
+            <param name="a2"></param>
+            <param name="a3"></param>
+            <param name="a4"></param>
+            <param name="a5"></param>
+            <param name="a6"></param>
+            <param name="a7"></param>
+            <param name="a8"></param>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue3">
+            <summary>
+            委托对象（接收窗体3的值）
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <param name="v3"></param>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue4">
+            <summary>
+            定义窗体4的委托
+            </summary>
+            <param name="faiD">齿宽系数</param>
+            <param name="ContaValue">许用接触应力</param>
+            <param name="Tac">a-c传动扭矩</param>
+            <param name="a">中心距</param>
+            <param name="Kc">均载系数</param>
+            <param name="Kf">综合系数</param>
+            <param name="u">齿数比</param>
+            <param name="m">模数选择</param>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue5">
+            <summary>
+            窗体5的委托
+            </summary>
+            <param name="β"></param>
+            <param name="a"></param>
+            <param name="aReal"></param>
+            <param name="Xa"></param>
+            <param name="Xb"></param>
+            <param name="Xc"></param>
+            <param name="Da"></param>
+            <param name="Db"></param>
+            <param name="Dc"></param>
+            <param name="da1"></param>
+            <param name="da2"></param>
+            <param name="da3"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.PassMsg_SendMsgEvent(System.String,System.String,System.String)">
+            <summary>
+            传递材料热处理方式的值
+            </summary>
+            <param name="s1"></param>
+            <param name="s2"></param>
+            <param name="s3"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow3(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <param name="v3"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+             //显示数据在textbox中 
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="p3"></param>
+            <param name="p4"></param>
+            <param name="p5"></param>
+            <param name="p6"></param>
+            <param name="p7"></param>
+            <param name="p8"></param>
+            <param name="p9"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow2(System.Int32,System.Double,System.Double,System.Double,System.Double,System.String,System.Double,System.Double)">
+            <summary>
+            方法;z显示在界面上
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="p3"></param>
+            <param name="p4"></param>
+            <param name="p5"></param>
+            <param name="p6"></param>
+            <param name="p7"></param>
+            <param name="p8"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow4(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            把窗体4的值显示在主界面上
+            </summary>
+            <param name="faiD"></param>
+            <param name="ContaValue"></param>
+            <param name="Tac"></param>
+            <param name="a"></param>
+            <param name="Kc"></param>
+            <param name="Kf"></param>
+            <param name="u"></param>
+            <param name="m"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow5(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            窗体5显示值
+            </summary>
+            <param name="β"></param>
+            <param name="a"></param>
+            <param name="aReal"></param>
+            <param name="Xa"></param>
+            <param name="Xb"></param>
+            <param name="Xc"></param>
+            <param name="Da"></param>
+            <param name="Db"></param>
+            <param name="Dc"></param>
+            <param name="da1"></param>
+            <param name="da2"></param>
+            <param name="da3"></param>
         </member>
         <member name="F:FrmReducerDesignerApplication.FrmDesign.components">
             <summary>
@@ -364,6 +569,64 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.CaculateAlp(System.Double)">
+            <summary>
+            迭代求解α'
+            </summary>
+            <param name="Value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.OldFunction(System.Double,System.Double)">
+            <summary>
+            原函数
+            </summary>
+            <param name="alp"></param>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.Dfunction(System.Double)">
+            <summary>
+            导函数
+            </summary>
+            <param name="alp"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmEvolentCacul.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.ToolValue">
+            <summary>
+            定义委托接收插齿刀参数值
+            </summary>
+            <param name="z0"></param>
+            <param name="ha0"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFive.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFive.CaculateAlp(System.Double)">
+            <summary>
+            迭代求解α'
+            </summary>
+            <param name="Value"></param>
+            <returns></returns>
+        </member>
         <member name="F:FrmReducerDesignerApplication.FrmFive.components">
             <summary>
             Required designer variable.
@@ -381,6 +644,61 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.#ctor(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            窗体初始化
+            </summary>
+            <param name="ka"></param>
+            <param name="inputTor"></param>
+            <param name="kp"></param>
+            <param name="za"></param>
+            <param name="zc"></param>
+            <param name="zb"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.EstimateValue(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            初算参数
+            </summary>
+            <param name="ka"></param>
+            <param name="inputTor"></param>
+            <param name="kp"></param>
+            <param name="za"></param>
+            <param name="zc"></param>
+            <param name="zb"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.StandardTransmi(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            标准传动参数计算
+            </summary>
+            <param name="ka">使用系数</param>
+            <param name="inputTor">输入扭矩</param>
+            <param name="kp">载荷系数</param>
+            <param name="za">太阳轮数</param>
+            <param name="zc">行星轮数</param>
+            <param name="zb">内齿轮数</param>
+            <param name="mLess">最小模数</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.InOutShift(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            外啮合角变位，内啮合高度变位
+            </summary>
+            <param name="ka"></param>
+            <param name="inputTor">输入扭矩</param>
+            <param name="kp">均载系数</param>
+            <param name="za">太阳轮齿数</param>
+            <param name="zc">行星轮齿数</param>
+            <param name="zb">内齿轮齿数</param>
+            <param name="mLess"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.CalculataScale(System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            初算模数的方法
+            </summary>
+            <param name="ka"></param>
+            <param name="inputTor"></param>
+            <param name="kp"></param>
+            <param name="za"></param>
+        </member>
         <member name="F:FrmReducerDesignerApplication.FrmFour.components">
             <summary>
             Required designer variable.
@@ -396,6 +714,11 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:FrmReducerDesignerApplication.FrmFour.OperateGetValue4">
+            <summary>
+            【2】定义事件传值
             </summary>
         </member>
         <member name="M:FrmReducerDesignerApplication.FrmKeyGear.#ctor">
@@ -483,6 +806,13 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="T:FrmReducerDesignerApplication.delegateMeasure">
+            <summary>
+            [1]定义委托方法
+            </summary>
+            <param name="c"></param>
+            <param name="d"></param>
+        </member>
         <member name="M:FrmReducerDesignerApplication.FrmOne.OperateRadioBtn(System.Int32,System.Int32)">
             <summary>
             【4】定义事件响应方法
@@ -507,6 +837,11 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="E:FrmReducerDesignerApplication.FrmOne.OperateGetValue">
+            <summary>
+            [2]定义一个事件(传递窗体1、2、3、4、5、6的值)
+            </summary>
+        </member>
         <member name="F:FrmReducerDesignerApplication.FrmSelectType.components">
             <summary>
             Required designer variable.
@@ -522,6 +857,25 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSix.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="m">模数</param>
+            <param name="da">a的分度圆</param>
+            <param name="dc">c的分度圆</param>
+            <param name="db">b的分度圆</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSix.CaculateContactVal">
+            <summary>
+            校核接触应力
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSix.CaculateBendVal">
+            <summary>
+            校核弯曲应力
             </summary>
         </member>
         <member name="F:FrmReducerDesignerApplication.FrmSix.components">
@@ -634,6 +988,11 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:FrmReducerDesignerApplication.FrmStandardized.#ctor">
+            <summary>
+            构造函数（初始化）
+            </summary>
+        </member>
         <member name="F:FrmReducerDesignerApplication.FrmStandardized.components">
             <summary>
             Required designer variable.
@@ -668,6 +1027,45 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="E:FrmReducerDesignerApplication.FrmThree.OperateGetValue3">
+            <summary>
+            定义事件传值
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.#ctor">
+            <summary>
+            构造函数（初始化）
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            构造函数实现不同窗体间的传参
+            </summary>
+            <param name="inputPower"></param>
+            <param name="reRation"></param>
+            <param name="inputRevolo"></param>
+            <param name="efficent"></param>
+            <param name="outpTorque"></param>
+            <param name="outpRevolo"></param>
+            <param name="inpuTorque"></param>
+            <param name="Ka"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.traveMatch(System.Double,System.Double,System.Double)">
+            <summary>
+            递归方法判断是否满足同心条件
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.AssemblyMatch(System.Double,System.Double)">
+            <summary>
+            满足装配条件的方法
+            </summary>
+            <param name="za"></param>
+            <param name="zb"></param>
+            <returns></returns>
+        </member>
         <member name="F:FrmReducerDesignerApplication.FrmTwo.components">
             <summary>
             Required designer variable.
@@ -683,6 +1081,11 @@
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:FrmReducerDesignerApplication.FrmTwo.OperateGetValue2">
+            <summary>
+            [2]定义一个事件
             </summary>
         </member>
         <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.#ctor">

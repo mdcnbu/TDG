@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmThree));
             this.frm3Next = new System.Windows.Forms.Button();
             this.frm3Prim = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMaterialCancel = new System.Windows.Forms.Button();
+            this.btnMaterialOk = new System.Windows.Forms.Button();
             this.btnSelectThree = new System.Windows.Forms.Button();
             this.btnSelectTwo = new System.Windows.Forms.Button();
             this.btnSelectOne = new System.Windows.Forms.Button();
@@ -81,26 +81,28 @@
             this.frm3Prim.TabIndex = 8;
             this.frm3Prim.Text = "上一步";
             this.frm3Prim.UseVisualStyleBackColor = true;
+            this.frm3Prim.Click += new System.EventHandler(this.frm3Prim_Click);
             // 
-            // button2
+            // btnMaterialCancel
             // 
-            this.button2.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button2.Location = new System.Drawing.Point(195, 166);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(55, 23);
-            this.button2.TabIndex = 7;
-            this.button2.Text = "取 消";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMaterialCancel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnMaterialCancel.Location = new System.Drawing.Point(195, 166);
+            this.btnMaterialCancel.Name = "btnMaterialCancel";
+            this.btnMaterialCancel.Size = new System.Drawing.Size(55, 23);
+            this.btnMaterialCancel.TabIndex = 7;
+            this.btnMaterialCancel.Text = "取 消";
+            this.btnMaterialCancel.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnMaterialOk
             // 
-            this.button1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button1.Location = new System.Drawing.Point(118, 166);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(55, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "确 定";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMaterialOk.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnMaterialOk.Location = new System.Drawing.Point(118, 166);
+            this.btnMaterialOk.Name = "btnMaterialOk";
+            this.btnMaterialOk.Size = new System.Drawing.Size(55, 23);
+            this.btnMaterialOk.TabIndex = 6;
+            this.btnMaterialOk.Text = "确 定";
+            this.btnMaterialOk.UseVisualStyleBackColor = true;
+            this.btnMaterialOk.Click += new System.EventHandler(this.btnMaterialOk_Click);
             // 
             // btnSelectThree
             // 
@@ -358,8 +360,8 @@
             this.ClientSize = new System.Drawing.Size(557, 206);
             this.Controls.Add(this.frm3Next);
             this.Controls.Add(this.frm3Prim);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnMaterialCancel);
+            this.Controls.Add(this.btnMaterialOk);
             this.Controls.Add(this.btnSelectThree);
             this.Controls.Add(this.btnSelectTwo);
             this.Controls.Add(this.btnSelectOne);
@@ -401,8 +403,8 @@
 
         private System.Windows.Forms.Button frm3Next;
         private System.Windows.Forms.Button frm3Prim;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMaterialCancel;
+        private System.Windows.Forms.Button btnMaterialOk;
         private System.Windows.Forms.Button btnSelectThree;
         private System.Windows.Forms.Button btnSelectTwo;
         private System.Windows.Forms.Button btnSelectOne;

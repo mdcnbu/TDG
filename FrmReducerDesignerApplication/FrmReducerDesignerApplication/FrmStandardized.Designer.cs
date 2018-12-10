@@ -569,9 +569,9 @@
             // pcbBall
             // 
             this.pcbBall.Image = ((System.Drawing.Image)(resources.GetObject("pcbBall.Image")));
-            this.pcbBall.Location = new System.Drawing.Point(439, 92);
+            this.pcbBall.Location = new System.Drawing.Point(418, 92);
             this.pcbBall.Name = "pcbBall";
-            this.pcbBall.Size = new System.Drawing.Size(281, 208);
+            this.pcbBall.Size = new System.Drawing.Size(302, 218);
             this.pcbBall.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcbBall.TabIndex = 8;
             this.pcbBall.TabStop = false;
@@ -843,6 +843,7 @@
             this.btnCloseReducer.TabIndex = 1;
             this.btnCloseReducer.Text = "   返 回";
             this.btnCloseReducer.UseVisualStyleBackColor = false;
+            this.btnCloseReducer.Click += new System.EventHandler(this.btnCloseReducer_Click);
             // 
             // label2
             // 
@@ -851,9 +852,9 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(2, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(244, 21);
+            this.label2.Size = new System.Drawing.Size(212, 21);
             this.label2.TabIndex = 2;
-            this.label2.Text = "当前位置：[标准零件参数化设计]";
+            this.label2.Text = "当前位置：[标准零件选型库]";
             // 
             // label1
             // 

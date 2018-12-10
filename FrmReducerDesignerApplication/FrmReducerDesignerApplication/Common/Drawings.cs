@@ -173,10 +173,12 @@ namespace FrmReducerDesignerApplication.Common
         /// <summary>
         /// 出工程图
         /// </summary>
-        /// <param name="dicValues">字典集合</param>
-        /// <param name="bomPaths">Bom表模板</param>
-        /// <param name="bendPaths">折弯表模板</param>
+        /// <param name="dicValues"></param>
+        /// <param name="prtTemp"></param>
+        /// <param name="compTemp"></param>
+        /// <param name="bomPaths"></param>
         /// <param name="savePaths">保存路径</param>
+        /// <param name="newPath">新路径</param>
         private void Drawing(List<string> dicValues, string prtTemp, string compTemp, string bomPaths, string savePaths, string newPath)
         {
                 

@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CutToolService.cs" />
     <Compile Include="GearValuesService.cs" />
     <Compile Include="HeatTypeService.cs" />
     <Compile Include="MaterialIdService.cs" />

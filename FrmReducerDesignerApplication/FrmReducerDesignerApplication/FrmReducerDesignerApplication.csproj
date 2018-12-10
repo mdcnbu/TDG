@@ -39,6 +39,9 @@
     <Reference Include="MD_SW_ConnectSW">
       <HintPath>G:\TDG\ClassLib\MD_SW_ConnectSW\MD_SW_ConnectSW\bin\Release\MD_SW_ConnectSW.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
     <Reference Include="SolidWorks.Interop.sldworks">
       <HintPath>..\Bin\SolidWorks.Interop.sldworks.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -67,6 +70,7 @@
     <Compile Include="AllData.cs" />
     <Compile Include="Common\DataValidate.cs" />
     <Compile Include="Common\Drawings.cs" />
+    <Compile Include="Common\PassValues.cs" />
     <Compile Include="FrmAdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +83,18 @@
     <Compile Include="FrmAssembly.Designer.cs">
       <DependentUpon>FrmAssembly.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCutTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCutTool.Designer.cs">
+      <DependentUpon>FrmCutTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDataMgr.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDataMgr.Designer.cs">
+      <DependentUpon>FrmDataMgr.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDesign.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +106,12 @@
     </Compile>
     <Compile Include="FrmDrawings.Designer.cs">
       <DependentUpon>FrmDrawings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEvolentCacul.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEvolentCacul.Designer.cs">
+      <DependentUpon>FrmEvolentCacul.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmFive.cs">
       <SubType>Form</SubType>
@@ -201,11 +223,21 @@
     <EmbeddedResource Include="FrmAssembly.resx">
       <DependentUpon>FrmAssembly.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCutTool.resx">
+      <DependentUpon>FrmCutTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDataMgr.resx">
+      <DependentUpon>FrmDataMgr.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDesign.resx">
       <DependentUpon>FrmDesign.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDrawings.resx">
       <DependentUpon>FrmDrawings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEvolentCacul.resx">
+      <DependentUpon>FrmEvolentCacul.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFive.resx">
       <DependentUpon>FrmFive.cs</DependentUpon>

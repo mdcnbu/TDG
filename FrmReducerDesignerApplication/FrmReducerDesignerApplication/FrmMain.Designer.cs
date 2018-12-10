@@ -34,12 +34,11 @@
             this.btnCloseMain = new System.Windows.Forms.Button();
             this.btnModifPwd = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.btnDataMgr = new System.Windows.Forms.Button();
             this.btnAssembly = new System.Windows.Forms.Button();
             this.btnRejection = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnReducer = new System.Windows.Forms.Button();
-            this.btnHousing = new System.Windows.Forms.Button();
             this.btnAllDesign = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -47,6 +46,8 @@
             this.lblCurrentUser = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnMinimal = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,6 +65,7 @@
             this.轴承型号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.计算器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.普通平键尺寸查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.使用说明ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             label4 = new System.Windows.Forms.Label();
@@ -97,12 +99,11 @@
             this.splitContainer1.Panel1.Controls.Add(this.btnCloseMain);
             this.splitContainer1.Panel1.Controls.Add(this.btnModifPwd);
             this.splitContainer1.Panel1.Controls.Add(this.button8);
-            this.splitContainer1.Panel1.Controls.Add(this.button7);
+            this.splitContainer1.Panel1.Controls.Add(this.btnDataMgr);
             this.splitContainer1.Panel1.Controls.Add(this.btnAssembly);
             this.splitContainer1.Panel1.Controls.Add(this.btnRejection);
             this.splitContainer1.Panel1.Controls.Add(this.button4);
             this.splitContainer1.Panel1.Controls.Add(this.btnReducer);
-            this.splitContainer1.Panel1.Controls.Add(this.btnHousing);
             this.splitContainer1.Panel1.Controls.Add(this.btnAllDesign);
             this.splitContainer1.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
             this.splitContainer1.Panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
@@ -163,7 +164,7 @@
             this.button8.ForeColor = System.Drawing.Color.White;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(40, 316);
+            this.button8.Location = new System.Drawing.Point(36, 286);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(148, 35);
             this.button8.TabIndex = 3;
@@ -171,23 +172,24 @@
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button7
+            // btnDataMgr
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(163)))), ((int)(((byte)(220)))));
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(163)))), ((int)(((byte)(220)))));
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(40, 364);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(148, 35);
-            this.button7.TabIndex = 4;
-            this.button7.Text = "       数 据 管 理";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = false;
+            this.btnDataMgr.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(163)))), ((int)(((byte)(220)))));
+            this.btnDataMgr.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(163)))), ((int)(((byte)(220)))));
+            this.btnDataMgr.FlatAppearance.BorderSize = 0;
+            this.btnDataMgr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDataMgr.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnDataMgr.ForeColor = System.Drawing.Color.White;
+            this.btnDataMgr.Image = ((System.Drawing.Image)(resources.GetObject("btnDataMgr.Image")));
+            this.btnDataMgr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDataMgr.Location = new System.Drawing.Point(36, 334);
+            this.btnDataMgr.Name = "btnDataMgr";
+            this.btnDataMgr.Size = new System.Drawing.Size(148, 35);
+            this.btnDataMgr.TabIndex = 4;
+            this.btnDataMgr.Text = "       数 据 管 理";
+            this.btnDataMgr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDataMgr.UseVisualStyleBackColor = false;
+            this.btnDataMgr.Click += new System.EventHandler(this.btnDataMgr_Click);
             // 
             // btnAssembly
             // 
@@ -198,11 +200,11 @@
             this.btnAssembly.ForeColor = System.Drawing.Color.White;
             this.btnAssembly.Image = ((System.Drawing.Image)(resources.GetObject("btnAssembly.Image")));
             this.btnAssembly.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAssembly.Location = new System.Drawing.Point(40, 266);
+            this.btnAssembly.Location = new System.Drawing.Point(36, 238);
             this.btnAssembly.Name = "btnAssembly";
             this.btnAssembly.Size = new System.Drawing.Size(148, 35);
             this.btnAssembly.TabIndex = 5;
-            this.btnAssembly.Text = "     零件参数化装配";
+            this.btnAssembly.Text = "    零件参数化装配";
             this.btnAssembly.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAssembly.UseVisualStyleBackColor = false;
             this.btnAssembly.Click += new System.EventHandler(this.btnAssembly_Click);
@@ -216,7 +218,7 @@
             this.btnRejection.ForeColor = System.Drawing.Color.White;
             this.btnRejection.Image = ((System.Drawing.Image)(resources.GetObject("btnRejection.Image")));
             this.btnRejection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRejection.Location = new System.Drawing.Point(40, 170);
+            this.btnRejection.Location = new System.Drawing.Point(36, 190);
             this.btnRejection.Name = "btnRejection";
             this.btnRejection.Size = new System.Drawing.Size(148, 35);
             this.btnRejection.TabIndex = 6;
@@ -234,11 +236,11 @@
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(40, 26);
+            this.button4.Location = new System.Drawing.Point(36, 46);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(148, 35);
             this.button4.TabIndex = 7;
-            this.button4.Text = "减速机选型系统";
+            this.button4.Text = "减速机选型";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -252,30 +254,13 @@
             this.btnReducer.ForeColor = System.Drawing.Color.White;
             this.btnReducer.Image = ((System.Drawing.Image)(resources.GetObject("btnReducer.Image")));
             this.btnReducer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReducer.Location = new System.Drawing.Point(40, 122);
+            this.btnReducer.Location = new System.Drawing.Point(36, 142);
             this.btnReducer.Name = "btnReducer";
             this.btnReducer.Size = new System.Drawing.Size(148, 35);
             this.btnReducer.TabIndex = 8;
             this.btnReducer.Text = " 零件参数化建模";
             this.btnReducer.UseVisualStyleBackColor = false;
             this.btnReducer.Click += new System.EventHandler(this.btnReducer_Click);
-            // 
-            // btnHousing
-            // 
-            this.btnHousing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(163)))), ((int)(((byte)(220)))));
-            this.btnHousing.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(163)))), ((int)(((byte)(220)))));
-            this.btnHousing.FlatAppearance.BorderSize = 0;
-            this.btnHousing.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHousing.ForeColor = System.Drawing.Color.White;
-            this.btnHousing.Image = ((System.Drawing.Image)(resources.GetObject("btnHousing.Image")));
-            this.btnHousing.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHousing.Location = new System.Drawing.Point(40, 218);
-            this.btnHousing.Name = "btnHousing";
-            this.btnHousing.Size = new System.Drawing.Size(148, 35);
-            this.btnHousing.TabIndex = 9;
-            this.btnHousing.Text = "传动部件参数化建模";
-            this.btnHousing.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnHousing.UseVisualStyleBackColor = false;
             // 
             // btnAllDesign
             // 
@@ -287,7 +272,7 @@
             this.btnAllDesign.ForeColor = System.Drawing.Color.White;
             this.btnAllDesign.Image = ((System.Drawing.Image)(resources.GetObject("btnAllDesign.Image")));
             this.btnAllDesign.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllDesign.Location = new System.Drawing.Point(40, 74);
+            this.btnAllDesign.Location = new System.Drawing.Point(36, 94);
             this.btnAllDesign.Name = "btnAllDesign";
             this.btnAllDesign.Size = new System.Drawing.Size(148, 35);
             this.btnAllDesign.TabIndex = 10;
@@ -367,6 +352,8 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(69)))), ((int)(((byte)(136)))));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.btnMinimal);
             this.panel1.Controls.Add(label4);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.menuStrip1);
@@ -379,6 +366,36 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseUp);
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnClose.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ForeColor = System.Drawing.Color.Red;
+            this.btnClose.Location = new System.Drawing.Point(955, 0);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(30, 30);
+            this.btnClose.TabIndex = 4;
+            this.btnClose.Text = "×";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnMinimal
+            // 
+            this.btnMinimal.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btnMinimal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMinimal.Font = new System.Drawing.Font("Gill Sans Ultra Bold Condensed", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMinimal.ForeColor = System.Drawing.Color.Black;
+            this.btnMinimal.Location = new System.Drawing.Point(927, 0);
+            this.btnMinimal.Name = "btnMinimal";
+            this.btnMinimal.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimal.TabIndex = 3;
+            this.btnMinimal.Text = "_";
+            this.btnMinimal.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnMinimal.UseVisualStyleBackColor = false;
+            this.btnMinimal.Click += new System.EventHandler(this.btnMinimal_Click);
             // 
             // label1
             // 
@@ -402,7 +419,7 @@
             this.帮助HToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 47);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(400, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(492, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -524,7 +541,8 @@
             // 工具TToolStripMenuItem
             // 
             this.工具TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.计算器ToolStripMenuItem});
+            this.计算器ToolStripMenuItem,
+            this.普通平键尺寸查询ToolStripMenuItem});
             this.工具TToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.工具TToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.工具TToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("工具TToolStripMenuItem.Image")));
@@ -537,8 +555,15 @@
             this.计算器ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
             this.计算器ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("计算器ToolStripMenuItem.Image")));
             this.计算器ToolStripMenuItem.Name = "计算器ToolStripMenuItem";
-            this.计算器ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.计算器ToolStripMenuItem.Text = "计算器";
+            this.计算器ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.计算器ToolStripMenuItem.Text = "渐开线函数计算";
+            this.计算器ToolStripMenuItem.Click += new System.EventHandler(this.计算器ToolStripMenuItem_Click);
+            // 
+            // 普通平键尺寸查询ToolStripMenuItem
+            // 
+            this.普通平键尺寸查询ToolStripMenuItem.Name = "普通平键尺寸查询ToolStripMenuItem";
+            this.普通平键尺寸查询ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.普通平键尺寸查询ToolStripMenuItem.Text = "普通平键尺寸查询";
             // 
             // 帮助HToolStripMenuItem
             // 
@@ -596,12 +621,11 @@
         private System.Windows.Forms.Button btnCloseMain;
         private System.Windows.Forms.Button btnModifPwd;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnDataMgr;
         private System.Windows.Forms.Button btnAssembly;
         private System.Windows.Forms.Button btnRejection;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnReducer;
-        private System.Windows.Forms.Button btnHousing;
         private System.Windows.Forms.Button btnAllDesign;
         public System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblUserName;
@@ -629,6 +653,9 @@
         private System.Windows.Forms.ToolStripMenuItem 使用说明ToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnMinimal;
+        private System.Windows.Forms.ToolStripMenuItem 普通平键尺寸查询ToolStripMenuItem;
     }
 }
 

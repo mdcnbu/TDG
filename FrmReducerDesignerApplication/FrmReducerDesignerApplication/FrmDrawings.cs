@@ -460,7 +460,6 @@ namespace FrmReducerDesignerApplication
             List<string> fileList = GetAllFiles("请选择一个包含零件或装配体的文件夹");                  
             if (fileList != null)
             {
-
                 if (this.txtSavePath.Text.Trim() == string.Empty)
                 {
                     string drawPath = SubLastString(fileList[0], "\\"); //【1】获取文件夹路径
