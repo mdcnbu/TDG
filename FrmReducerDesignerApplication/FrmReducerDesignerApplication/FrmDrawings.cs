@@ -97,6 +97,7 @@ namespace FrmReducerDesignerApplication
                 objDraw.thirProject = this.rdoShadowThree.Checked;//第三视角投影
                 objDraw.addDimensionNo = this.rdoAddDimenNo.Checked;
                 objDraw.addDimensionAuto = this.rdoAddDimenAuto.Checked;
+                objDraw.IfDwg = this.chkDwg.Checked;//是否保存为Dwg格式
                 objDraw.tag = int_1;
                 sucessFile=objDraw.ExportDrawing(tempFiles, drawPaths, prtTemp, compTemp, bomTemp, savePath);
                  foreach (string item in sucessFile)

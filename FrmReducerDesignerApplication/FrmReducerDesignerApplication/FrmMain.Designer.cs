@@ -37,7 +37,6 @@
             this.btnDataMgr = new System.Windows.Forms.Button();
             this.btnAssembly = new System.Windows.Forms.Button();
             this.btnRejection = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.btnReducer = new System.Windows.Forms.Button();
             this.btnAllDesign = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -51,21 +50,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.系统ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.添加管理员用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改密码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.退出登录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.文件FToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新建ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.打开ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查询QToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.模块编码ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.普通平键尺寸查询ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.轴承型号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.工具TToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.计算器ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.普通平键尺寸查询ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助HToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.使用说明ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             label4 = new System.Windows.Forms.Label();
@@ -102,7 +95,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.btnDataMgr);
             this.splitContainer1.Panel1.Controls.Add(this.btnAssembly);
             this.splitContainer1.Panel1.Controls.Add(this.btnRejection);
-            this.splitContainer1.Panel1.Controls.Add(this.button4);
             this.splitContainer1.Panel1.Controls.Add(this.btnReducer);
             this.splitContainer1.Panel1.Controls.Add(this.btnAllDesign);
             this.splitContainer1.Panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FrmMain_MouseDown);
@@ -164,7 +156,7 @@
             this.button8.ForeColor = System.Drawing.Color.White;
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(36, 286);
+            this.button8.Location = new System.Drawing.Point(36, 260);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(148, 35);
             this.button8.TabIndex = 3;
@@ -182,7 +174,7 @@
             this.btnDataMgr.ForeColor = System.Drawing.Color.White;
             this.btnDataMgr.Image = ((System.Drawing.Image)(resources.GetObject("btnDataMgr.Image")));
             this.btnDataMgr.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDataMgr.Location = new System.Drawing.Point(36, 334);
+            this.btnDataMgr.Location = new System.Drawing.Point(36, 312);
             this.btnDataMgr.Name = "btnDataMgr";
             this.btnDataMgr.Size = new System.Drawing.Size(148, 35);
             this.btnDataMgr.TabIndex = 4;
@@ -200,7 +192,7 @@
             this.btnAssembly.ForeColor = System.Drawing.Color.White;
             this.btnAssembly.Image = ((System.Drawing.Image)(resources.GetObject("btnAssembly.Image")));
             this.btnAssembly.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAssembly.Location = new System.Drawing.Point(36, 238);
+            this.btnAssembly.Location = new System.Drawing.Point(36, 208);
             this.btnAssembly.Name = "btnAssembly";
             this.btnAssembly.Size = new System.Drawing.Size(148, 35);
             this.btnAssembly.TabIndex = 5;
@@ -218,31 +210,13 @@
             this.btnRejection.ForeColor = System.Drawing.Color.White;
             this.btnRejection.Image = ((System.Drawing.Image)(resources.GetObject("btnRejection.Image")));
             this.btnRejection.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRejection.Location = new System.Drawing.Point(36, 190);
+            this.btnRejection.Location = new System.Drawing.Point(36, 156);
             this.btnRejection.Name = "btnRejection";
             this.btnRejection.Size = new System.Drawing.Size(148, 35);
             this.btnRejection.TabIndex = 6;
             this.btnRejection.Text = "标准零件选型库";
             this.btnRejection.UseVisualStyleBackColor = false;
             this.btnRejection.Click += new System.EventHandler(this.btnRejection_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(163)))), ((int)(((byte)(220)))));
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(163)))), ((int)(((byte)(220)))));
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(36, 46);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(148, 35);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "减速机选型";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // btnReducer
             // 
@@ -254,7 +228,7 @@
             this.btnReducer.ForeColor = System.Drawing.Color.White;
             this.btnReducer.Image = ((System.Drawing.Image)(resources.GetObject("btnReducer.Image")));
             this.btnReducer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReducer.Location = new System.Drawing.Point(36, 142);
+            this.btnReducer.Location = new System.Drawing.Point(36, 104);
             this.btnReducer.Name = "btnReducer";
             this.btnReducer.Size = new System.Drawing.Size(148, 35);
             this.btnReducer.TabIndex = 8;
@@ -272,7 +246,7 @@
             this.btnAllDesign.ForeColor = System.Drawing.Color.White;
             this.btnAllDesign.Image = ((System.Drawing.Image)(resources.GetObject("btnAllDesign.Image")));
             this.btnAllDesign.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAllDesign.Location = new System.Drawing.Point(36, 94);
+            this.btnAllDesign.Location = new System.Drawing.Point(36, 52);
             this.btnAllDesign.Name = "btnAllDesign";
             this.btnAllDesign.Size = new System.Drawing.Size(148, 35);
             this.btnAllDesign.TabIndex = 10;
@@ -413,21 +387,21 @@
             this.menuStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.系统ToolStripMenuItem,
-            this.文件FToolStripMenuItem,
             this.查询QToolStripMenuItem,
             this.工具TToolStripMenuItem,
             this.帮助HToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 47);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(492, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(415, 25);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // 系统ToolStripMenuItem
             // 
             this.系统ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.修改密码ToolStripMenuItem,
             this.toolStripSeparator1,
+            this.添加管理员用户ToolStripMenuItem,
+            this.修改密码ToolStripMenuItem,
             this.退出登录ToolStripMenuItem});
             this.系统ToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.系统ToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
@@ -437,83 +411,42 @@
             this.系统ToolStripMenuItem.Size = new System.Drawing.Size(77, 21);
             this.系统ToolStripMenuItem.Text = "系统(&S)";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+            // 
+            // 添加管理员用户ToolStripMenuItem
+            // 
+            this.添加管理员用户ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
+            this.添加管理员用户ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("添加管理员用户ToolStripMenuItem.Image")));
+            this.添加管理员用户ToolStripMenuItem.Name = "添加管理员用户ToolStripMenuItem";
+            this.添加管理员用户ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.添加管理员用户ToolStripMenuItem.Text = "添加管理员用户";
+            this.添加管理员用户ToolStripMenuItem.Click += new System.EventHandler(this.添加管理员用户ToolStripMenuItem_Click);
+            // 
             // 修改密码ToolStripMenuItem
             // 
             this.修改密码ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
             this.修改密码ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("修改密码ToolStripMenuItem.Image")));
             this.修改密码ToolStripMenuItem.Name = "修改密码ToolStripMenuItem";
-            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.修改密码ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.修改密码ToolStripMenuItem.Text = "修改密码";
             this.修改密码ToolStripMenuItem.Click += new System.EventHandler(this.修改密码ToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(121, 6);
             // 
             // 退出登录ToolStripMenuItem
             // 
             this.退出登录ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
             this.退出登录ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("退出登录ToolStripMenuItem.Image")));
             this.退出登录ToolStripMenuItem.Name = "退出登录ToolStripMenuItem";
-            this.退出登录ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.退出登录ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.退出登录ToolStripMenuItem.Text = "退出登录";
             this.退出登录ToolStripMenuItem.Click += new System.EventHandler(this.退出登录ToolStripMenuItem_Click);
-            // 
-            // 文件FToolStripMenuItem
-            // 
-            this.文件FToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.新建ToolStripMenuItem,
-            this.toolStripSeparator2,
-            this.打开ToolStripMenuItem,
-            this.toolStripSeparator3,
-            this.保存ToolStripMenuItem});
-            this.文件FToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.文件FToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.文件FToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("文件FToolStripMenuItem.Image")));
-            this.文件FToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.White;
-            this.文件FToolStripMenuItem.Name = "文件FToolStripMenuItem";
-            this.文件FToolStripMenuItem.Size = new System.Drawing.Size(77, 21);
-            this.文件FToolStripMenuItem.Text = "文件(&F)";
-            // 
-            // 新建ToolStripMenuItem
-            // 
-            this.新建ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
-            this.新建ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("新建ToolStripMenuItem.Image")));
-            this.新建ToolStripMenuItem.Name = "新建ToolStripMenuItem";
-            this.新建ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.新建ToolStripMenuItem.Text = "新建";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(97, 6);
-            // 
-            // 打开ToolStripMenuItem
-            // 
-            this.打开ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
-            this.打开ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("打开ToolStripMenuItem.Image")));
-            this.打开ToolStripMenuItem.Name = "打开ToolStripMenuItem";
-            this.打开ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.打开ToolStripMenuItem.Text = "打开";
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(97, 6);
-            // 
-            // 保存ToolStripMenuItem
-            // 
-            this.保存ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
-            this.保存ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("保存ToolStripMenuItem.Image")));
-            this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.保存ToolStripMenuItem.Text = "保存";
             // 
             // 查询QToolStripMenuItem
             // 
             this.查询QToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.模块编码ToolStripMenuItem,
+            this.普通平键尺寸查询ToolStripMenuItem1,
             this.轴承型号ToolStripMenuItem});
             this.查询QToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.查询QToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
@@ -523,26 +456,26 @@
             this.查询QToolStripMenuItem.Size = new System.Drawing.Size(80, 21);
             this.查询QToolStripMenuItem.Text = "查询(&Q)";
             // 
-            // 模块编码ToolStripMenuItem
+            // 普通平键尺寸查询ToolStripMenuItem1
             // 
-            this.模块编码ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
-            this.模块编码ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("模块编码ToolStripMenuItem.Image")));
-            this.模块编码ToolStripMenuItem.Name = "模块编码ToolStripMenuItem";
-            this.模块编码ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.模块编码ToolStripMenuItem.Text = "模块编码";
+            this.普通平键尺寸查询ToolStripMenuItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
+            this.普通平键尺寸查询ToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("普通平键尺寸查询ToolStripMenuItem1.Image")));
+            this.普通平键尺寸查询ToolStripMenuItem1.Name = "普通平键尺寸查询ToolStripMenuItem1";
+            this.普通平键尺寸查询ToolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
+            this.普通平键尺寸查询ToolStripMenuItem1.Text = "普通平键尺寸查询";
+            this.普通平键尺寸查询ToolStripMenuItem1.Click += new System.EventHandler(this.普通平键尺寸查询ToolStripMenuItem1_Click);
             // 
             // 轴承型号ToolStripMenuItem
             // 
             this.轴承型号ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
             this.轴承型号ToolStripMenuItem.Name = "轴承型号ToolStripMenuItem";
-            this.轴承型号ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.轴承型号ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.轴承型号ToolStripMenuItem.Text = "轴承型号";
             // 
             // 工具TToolStripMenuItem
             // 
             this.工具TToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.计算器ToolStripMenuItem,
-            this.普通平键尺寸查询ToolStripMenuItem});
+            this.计算器ToolStripMenuItem});
             this.工具TToolStripMenuItem.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.工具TToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.工具TToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("工具TToolStripMenuItem.Image")));
@@ -555,15 +488,9 @@
             this.计算器ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
             this.计算器ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("计算器ToolStripMenuItem.Image")));
             this.计算器ToolStripMenuItem.Name = "计算器ToolStripMenuItem";
-            this.计算器ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.计算器ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.计算器ToolStripMenuItem.Text = "渐开线函数计算";
             this.计算器ToolStripMenuItem.Click += new System.EventHandler(this.计算器ToolStripMenuItem_Click);
-            // 
-            // 普通平键尺寸查询ToolStripMenuItem
-            // 
-            this.普通平键尺寸查询ToolStripMenuItem.Name = "普通平键尺寸查询ToolStripMenuItem";
-            this.普通平键尺寸查询ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.普通平键尺寸查询ToolStripMenuItem.Text = "普通平键尺寸查询";
             // 
             // 帮助HToolStripMenuItem
             // 
@@ -581,8 +508,9 @@
             this.使用说明ToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(185)))), ((int)(((byte)(214)))));
             this.使用说明ToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("使用说明ToolStripMenuItem.Image")));
             this.使用说明ToolStripMenuItem.Name = "使用说明ToolStripMenuItem";
-            this.使用说明ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.使用说明ToolStripMenuItem.Text = "使用说明";
+            this.使用说明ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.使用说明ToolStripMenuItem.Text = "系统使用说明";
+            this.使用说明ToolStripMenuItem.Click += new System.EventHandler(this.使用说明ToolStripMenuItem_Click);
             // 
             // FrmMain
             // 
@@ -620,13 +548,6 @@
 
         private System.Windows.Forms.Button btnCloseMain;
         private System.Windows.Forms.Button btnModifPwd;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button btnDataMgr;
-        private System.Windows.Forms.Button btnAssembly;
-        private System.Windows.Forms.Button btnRejection;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button btnReducer;
-        private System.Windows.Forms.Button btnAllDesign;
         public System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblCurrentUser;
@@ -638,14 +559,7 @@
         private System.Windows.Forms.ToolStripMenuItem 修改密码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem 退出登录ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 文件FToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 新建ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem 打开ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem 保存ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查询QToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 模块编码ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 轴承型号ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 工具TToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 计算器ToolStripMenuItem;
@@ -655,7 +569,14 @@
         public System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnMinimal;
-        private System.Windows.Forms.ToolStripMenuItem 普通平键尺寸查询ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 添加管理员用户ToolStripMenuItem;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button btnDataMgr;
+        private System.Windows.Forms.Button btnAssembly;
+        private System.Windows.Forms.Button btnRejection;
+        private System.Windows.Forms.Button btnReducer;
+        private System.Windows.Forms.Button btnAllDesign;
+        private System.Windows.Forms.ToolStripMenuItem 普通平键尺寸查询ToolStripMenuItem1;
     }
 }
 

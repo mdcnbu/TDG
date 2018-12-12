@@ -135,7 +135,7 @@
             this.txtLoginId.Name = "txtLoginId";
             this.txtLoginId.Size = new System.Drawing.Size(141, 21);
             this.txtLoginId.TabIndex = 7;
-            this.txtLoginId.Text = "10000";
+            this.txtLoginId.Text = "ZH0001";
             // 
             // label2
             // 

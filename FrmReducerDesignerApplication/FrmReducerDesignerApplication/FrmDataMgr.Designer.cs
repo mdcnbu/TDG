@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDataMgr));
             this.btnCloseData = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -51,7 +50,6 @@
             this.txtBendVal = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tlpCardId = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -268,10 +266,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "材料类型:";
             // 
-            // tlpCardId
-            // 
-            this.tlpCardId.ToolTipTitle = "如：40Cr";
-            // 
             // FrmDataMgr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -318,6 +312,5 @@
         private System.Windows.Forms.Label txtBendVal;
         private System.Windows.Forms.TextBox txtCardId;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ToolTip tlpCardId;
     }
 }

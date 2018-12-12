@@ -58,12 +58,12 @@ namespace FrmReducerDesignerApplication
                 this.txtLoginId.Focus();
                 return;
             }
-            if (!Common.DataValidate.IsInteger(this.txtLoginId.Text.Trim()))
-            {
-                MessageBox.Show("登录账号必须为正整数!", "提示信息");
-                this.txtLoginId.Focus();
-                return;
-            }
+            //if (!Common.DataValidate.VerificationIsDigital(this.txtLoginId.Text.Trim()))
+            //{
+            //    MessageBox.Show("登录账号必须为正整数!", "提示信息");
+            //    this.txtLoginId.Focus();
+            //    return;
+            //}
             if (this.txtLoginPwd.Text.Trim().Length == 0)
             {
                 MessageBox.Show("请输入登录密码！", "登录提示");
@@ -73,7 +73,7 @@ namespace FrmReducerDesignerApplication
             //[2]封装对象
             SysAdmin objAdmin = new SysAdmin()
             {
-                LoginId = Convert.ToInt32(this.txtLoginId.Text.Trim()),
+                LoginId = this.txtLoginId.Text.Trim(),
                 LoginPwd = this.txtLoginPwd.Text.Trim()
             };
             //[3]和后台交互，判断登录信息是否正确

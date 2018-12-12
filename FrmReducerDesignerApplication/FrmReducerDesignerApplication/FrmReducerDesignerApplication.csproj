@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FrmReducerDesignerApplication</RootNamespace>
-    <AssemblyName>FrmReducerDesignerApplication</AssemblyName>
+    <AssemblyName>行星齿轮参数化设计系统</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\Bin\FrmReducerDesignerApplication.XML</DocumentationFile>
+    <DocumentationFile>..\Bin\行星齿轮参数化设计系统.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -57,6 +57,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -71,6 +72,12 @@
     <Compile Include="Common\DataValidate.cs" />
     <Compile Include="Common\Drawings.cs" />
     <Compile Include="Common\PassValues.cs" />
+    <Compile Include="FrmAddmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddmin.Designer.cs">
+      <DependentUpon>FrmAddmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAdminLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +108,12 @@
     <Compile Include="FrmDesign.Designer.cs">
       <DependentUpon>FrmDesign.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDetails.Designer.cs">
+      <DependentUpon>FrmDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDrawings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +137,12 @@
     </Compile>
     <Compile Include="FrmFour.Designer.cs">
       <DependentUpon>FrmFour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmKey.Designer.cs">
+      <DependentUpon>FrmKey.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmKeyGear.cs">
       <SubType>Form</SubType>
@@ -154,12 +173,6 @@
     </Compile>
     <Compile Include="FrmOne.Designer.cs">
       <DependentUpon>FrmOne.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSelectType.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSelectType.Designer.cs">
-      <DependentUpon>FrmSelectType.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSix.cs">
       <SubType>Form</SubType>
@@ -217,6 +230,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddmin.resx">
+      <DependentUpon>FrmAddmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAdminLogin.resx">
       <DependentUpon>FrmAdminLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +248,9 @@
     <EmbeddedResource Include="FrmDesign.resx">
       <DependentUpon>FrmDesign.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmDetails.resx">
+      <DependentUpon>FrmDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDrawings.resx">
       <DependentUpon>FrmDrawings.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -244,6 +263,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFour.resx">
       <DependentUpon>FrmFour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmKey.resx">
+      <DependentUpon>FrmKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmKeyGear.resx">
       <DependentUpon>FrmKeyGear.cs</DependentUpon>
@@ -259,9 +281,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOne.resx">
       <DependentUpon>FrmOne.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSelectType.resx">
-      <DependentUpon>FrmSelectType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSix.resx">
       <DependentUpon>FrmSix.cs</DependentUpon>

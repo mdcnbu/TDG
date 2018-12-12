@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Reflection;
+
+
 
 namespace FrmReducerDesignerApplication
 {
@@ -21,13 +24,13 @@ namespace FrmReducerDesignerApplication
             pMainWin = this;//初始化全局变量
         }
         #region 移动窗体
-        private Point mouseOff;//鼠标移动位置变量
+        private System.Drawing.Point mouseOff;//鼠标移动位置变量
         private bool leftFlag;//标签是否为左键
         private void FrmMain_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                mouseOff = new Point(-e.X, -e.Y);//得到变量的值
+                mouseOff = new System.Drawing.Point(-e.X, -e.Y);//得到变量的值
                 leftFlag = true;//点击左键按下时标注为true
             }
         }
@@ -35,7 +38,7 @@ namespace FrmReducerDesignerApplication
         {
             if (leftFlag)
             {
-                Point mouseSet = Control.MousePosition;
+                System.Drawing.Point mouseSet = Control.MousePosition;
                 mouseSet.Offset(mouseOff.X, mouseOff.Y);//设置移动后的位置
                 Location = mouseSet;
             }
@@ -131,11 +134,7 @@ namespace FrmReducerDesignerApplication
             OpenForm(new FrmDrawings());
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            OpenForm(new FrmSelectType());
-        }
-
+       
         private void btnDataMgr_Click(object sender, EventArgs e)
         {
             OpenForm(new FrmDataMgr());
@@ -156,5 +155,24 @@ namespace FrmReducerDesignerApplication
             FrmEvolentCacul objFrm = new FrmEvolentCacul();
             objFrm.ShowDialog();
         }
+
+        private void 添加管理员用户ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddmin objFrm = new FrmAddmin();
+            objFrm.ShowDialog();
+        }
+
+        private void 普通平键尺寸查询ToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmKey objkey = new FrmKey();
+            objkey.ShowDialog();
+        }
+
+        private void 使用说明ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDetails objDetails = new FrmDetails();
+            objDetails.ShowDialog();
+        }
+     
     }
 }

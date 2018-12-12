@@ -12,7 +12,7 @@ namespace Models
   public class SysAdmin
     {
         //自动属性
-        public int LoginId { get; set; }
+        public string LoginId { get; set; }
         public string AdminName { get; set; }
         public string LoginPwd { get; set; }
     }

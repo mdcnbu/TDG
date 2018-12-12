@@ -20,8 +20,6 @@ D:\vs练习\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debu
 D:\vs练习\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.MachineForce.resources
 D:\vs练习\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.FrmModifyPwd.resources
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\bin\Debug\FrmReducerDesignerApplication.exe.config
-C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.exe
-C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.pdb
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\bin\Debug\FrmReducerDesignerApplication.exe
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\bin\Debug\FrmReducerDesignerApplication.pdb
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\bin\Debug\DAL.dll
@@ -112,11 +110,6 @@ C:\Users\20170327\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplic
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\bin\Debug\MD_SW_ConnectSW.dll
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\bin\Debug\MD_SW_ConnectSW.pdb
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\bin\Debug\MD_SW_ConnectSW.xml
-C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\Bin\FrmReducerDesignerApplication.exe.config
-C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\Bin\FrmReducerDesignerApplication.exe
-C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\Bin\FrmReducerDesignerApplication.pdb
-C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\Bin\FrmReducerDesignerApplication.XML
-C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.FrmSelectType.resources
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.FrmKeyGear.resources
 G:\Tproject\FrmReducerDesignerApplication\Bin\FrmReducerDesignerApplication.exe.config
 G:\Tproject\FrmReducerDesignerApplication\Bin\FrmReducerDesignerApplication.XML
@@ -151,3 +144,12 @@ G:\Tproject\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debu
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.FrmDataMgr.resources
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.FrmCutTool.resources
 C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.FrmEvolentCacul.resources
+C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.FrmAddmin.resources
+C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.FrmKey.resources
+C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\Bin\行星齿轮参数化设计系统.exe.config
+C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\Bin\行星齿轮参数化设计系统.xml
+C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\Bin\行星齿轮参数化设计系统.exe
+C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\Bin\行星齿轮参数化设计系统.pdb
+C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\行星齿轮参数化设计系统.exe
+C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\行星齿轮参数化设计系统.pdb
+C:\Users\Administrator\Desktop\FrmReducerDesignerApplication\FrmReducerDesignerApplication\obj\Debug\FrmReducerDesignerApplication.FrmDetails.resources

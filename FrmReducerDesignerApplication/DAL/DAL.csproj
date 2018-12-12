@@ -43,6 +43,7 @@
     <Compile Include="CutToolService.cs" />
     <Compile Include="GearValuesService.cs" />
     <Compile Include="HeatTypeService.cs" />
+    <Compile Include="KeyValueService.cs" />
     <Compile Include="MaterialIdService.cs" />
     <Compile Include="MaterialService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

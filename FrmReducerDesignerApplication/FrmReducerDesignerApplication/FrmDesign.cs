@@ -326,7 +326,7 @@ namespace FrmReducerDesignerApplication
         private void OperateShow6(double contactVal, double XYContVal, double aBendVal, double cBendVal, double XYbendA, double XYbendC)
         {
             this.txtContact.Text = contactVal.ToString();
-            this.txtcontaValXY.Text = XYContVal.ToString();
+            this.txtXYContact.Text = XYContVal.ToString();
             this.txtSunBendV.Text = aBendVal.ToString();
             this.txtPlantBendV.Text = cBendVal.ToString();
             this.txtXYSun.Text = XYbendA.ToString();

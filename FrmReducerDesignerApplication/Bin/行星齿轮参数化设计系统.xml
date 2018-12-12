@@ -1,0 +1,1361 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>行星齿轮参数化设计系统</name>
+    </assembly>
+    <members>
+        <member name="F:FrmReducerDesignerApplication.AllData.SwEventPtr">
+            <summary>
+            带事件的
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.AllData.NewDoc(System.Boolean,System.Boolean,System.String)">
+            <summary>
+            在SolidWorks中新建一个零件，并返回
+            </summary>
+            <param name="bCheckRefPlaneChineseName">是否判断特征的名称是中文 如:前视基准面</param>
+            <param name="bAlertForm">模板不是中文时是否提醒</param>
+            <param name="templatePath">指定模板路径或空</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.AllData.setPartMaterial(SolidWorks.Interop.sldworks.IModelDoc2,SolidWorks.Interop.sldworks.PartDoc,System.String,System.String,System.String)">
+            <summary>
+            设置零件的材质,成功返回True（swModel和swPart二者指定其一）
+            </summary>
+            <param name="DBFullName">材料库路径，可以不指定</param>
+            <param name="cfgName">零件配置名称</param>
+            <param name="strValue">材质名称</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.AllData.GetConnStr(System.String,System.String)">
+            <summary>
+            得到新的数据库链接对象DBMethod
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.AllData.iSWVersion">
+            <summary>
+            版本号：15－2007，16－2008，17－2009，18－2010，19－2011
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.AllData.iSWLanguage">
+            <summary>
+            SolidWorks语言（简体中文1--chinese-simplified）， （英文2-english）， （繁体中文3--chinese）
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.AllData.StartUpPath">
+            <summary>
+            程序的运行目录最后没有"\"
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.AllData.WYXPath">
+            <summary>
+            王逸心程序专用路径,StartUpPath + "\\WYX\\";
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.AllData.strHelpFile">
+            <summary>
+            帮助文件的路径
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.AllData.CurDrog">
+            <summary>
+            用于拖放过程中的图标
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.AllData.AllMaterialDBs">
+            <summary>
+            得到所有的材料文件全名称
+            </summary>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.Common.DataValidate">
+            <summary>
+            基于正则表达式的数据验证
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.Common.Drawings.AssemBar">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.Common.Drawings.ExportDrawing(System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String)">
+            <summary>
+            出工程图方法
+            </summary>
+            <param name="dicValue">字典集合保存datagridview中的值</param>
+            <param name="drawPath">图纸路径集合</param>
+            <param name="bomPath">bom表模板路径</param>
+            <param name="bendPath">折弯表模板路径</param>
+            <param name="savePath">图纸保存路径</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.Common.Drawings.Drawing(System.Collections.Generic.List{System.String},System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            出工程图
+            </summary>
+            <param name="dicValues"></param>
+            <param name="prtTemp"></param>
+            <param name="compTemp"></param>
+            <param name="bomPaths"></param>
+            <param name="savePaths">保存路径</param>
+            <param name="newPath">新路径</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.Common.Drawings.CreatIsometric(SolidWorks.Interop.sldworks.DrawingDoc,System.String)">
+            <summary>
+            只生成等轴测视图
+            </summary>
+            <param name="swDraw"></param>
+            <param name="fileName"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.Common.Drawings.AddDimension(System.String,SolidWorks.Interop.sldworks.DrawingDoc,SolidWorks.Interop.sldworks.ModelDoc2)">
+            <summary>
+            添加尺寸
+            </summary>
+            <param name="dimensionType">添加尺寸类型</param>
+            <param name="swDrawDoc"></param>
+            <param name="swModel"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.Common.Drawings.ChangeViewShow(System.Int32,SolidWorks.Interop.sldworks.IView)">
+            <summary>
+            改变视图的显示样式
+            </summary>
+            <param name="viewType">视图样式</param>
+            <param name="swView"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.Common.Drawings.CalcuScale(System.Collections.Generic.List{System.Double[]},SolidWorks.Interop.sldworks.DrawingDoc,System.Double,System.Double,System.Int32)">
+            <summary>
+            计算修改比列
+            </summary>
+            <param name="box"></param>
+            <param name="swDraw"></param>
+            <param name="scale"></param>
+            <param name="space"></param>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.stardardScale">
+            <summary>
+            国标比例
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.firstProject">
+            <summary>
+            第一视角投影
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.thirProject">
+            <summary>
+            第三视角投影
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.standarView">
+            <summary>
+            标准三视图
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.isometric">
+            <summary>
+            等轴测视图
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.matrialBom">
+            <summary>
+            材料明细表
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.widthLeft">
+            <summary>
+            图纸左边框宽度
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.widthRight">
+            <summary>
+            图纸右下边框宽度
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.higthSheet">
+            <summary>
+            标题栏单元格高度
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.addDimensionNo">
+            <summary>
+            手动标注尺寸
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.addDimensionAuto">
+            <summary>
+            推荐的尺寸
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.IfDwg">
+            <summary>
+            保存为.Dwg格式
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.tag">
+            <summary>
+            视图样式
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.MaxCount">
+            <summary>
+            文件个数
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Common.Drawings.Step">
+            <summary>
+            单步
+            </summary>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.Common.Drawings.cdAssemBar">
+            <summary>
+            进度条委托
+            </summary>
+            <param name="imaxCnt"></param>
+            <param name="iStep"></param>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.Common.PassValues">
+            <summary>
+            公共数据存储类
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmAddmin.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAddmin.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAddmin.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmUserLogin.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUserLogin.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUserLogin.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.ConnectSw">
+            <summary>
+            连接Solidworks---------方法
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.GetFiles(System.String,System.String,System.String)">
+            <summary>
+             获取用户所选文件（prt,asm）
+            </summary>
+            <param name="title">标题</param>
+            <param name="filter">过滤标题</param>
+            <param name="key">配置中的键</param>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.SubLastString(System.String,System.String)">
+             <summary>
+            截取到最后一位字符
+             </summary>
+             <param name="sSubStr">原字符串路径</param>
+             <param name="sSplitStr">分隔的字符</param>
+             <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.TraverseAssembly(SolidWorks.Interop.sldworks.Component2,System.Int32)">
+            <summary>
+            递归遍历装配体方法
+            </summary>
+            <param name="swComp"></param>
+            <param name="nLevel"></param>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmAssembly.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmAssembly.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmCutTool.#ctor(System.Double)">
+            <summary>
+            窗体初始化
+            </summary>
+            <param name="M"></param>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmCutTool.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmCutTool.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmCutTool.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDataMgr.#ctor">
+            <summary>
+            构造函数（初始化）
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDataMgr.ExportExcel(System.String,System.Data.DataTable,System.String)">
+            <summary>
+            把DataTable导出到EXCEL
+            </summary>
+            <param name="reportName">报表名称</param>
+            <param name="dt">数据源表</param>
+            <param name="saveFileName">Excel全路径文件名</param>
+            <returns>导出是否成功</returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmDataMgr.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDataMgr.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDataMgr.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue">
+            <summary>
+            【1】创建委托对象
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="p3"></param>
+            <param name="p4"></param>
+            <param name="p5"></param>
+            <param name="p6"></param>
+            <param name="p7"></param>
+            <param name="p8"></param>
+            <param name="p9"></param>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue2">
+            <summary>
+            []创建委托对象（第二步）
+            </summary>
+            <param name="a1"></param>
+            <param name="a2"></param>
+            <param name="a3"></param>
+            <param name="a4"></param>
+            <param name="a5"></param>
+            <param name="a6"></param>
+            <param name="a7"></param>
+            <param name="a8"></param>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue3">
+            <summary>
+            委托对象（接收窗体3的值）
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <param name="v3"></param>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue4">
+            <summary>
+            定义窗体4的委托
+            </summary>
+            <param name="faiD">齿宽系数</param>
+            <param name="ContaValue">许用接触应力</param>
+            <param name="Tac">a-c传动扭矩</param>
+            <param name="a">中心距</param>
+            <param name="Kc">均载系数</param>
+            <param name="Kf">综合系数</param>
+            <param name="u">齿数比</param>
+            <param name="m">模数选择</param>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.GetValue5">
+            <summary>
+            窗体5的委托
+            </summary>
+            <param name="β"></param>
+            <param name="a"></param>
+            <param name="aReal"></param>
+            <param name="Xa"></param>
+            <param name="Xb"></param>
+            <param name="Xc"></param>
+            <param name="Da"></param>
+            <param name="Db"></param>
+            <param name="Dc"></param>
+            <param name="da1"></param>
+            <param name="da2"></param>
+            <param name="da3"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.PassMsg_SendMsgEvent(System.String,System.String,System.String)">
+            <summary>
+            传递材料热处理方式的值
+            </summary>
+            <param name="s1"></param>
+            <param name="s2"></param>
+            <param name="s3"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow3(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="v1"></param>
+            <param name="v2"></param>
+            <param name="v3"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+             //显示数据在textbox中 
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="p3"></param>
+            <param name="p4"></param>
+            <param name="p5"></param>
+            <param name="p6"></param>
+            <param name="p7"></param>
+            <param name="p8"></param>
+            <param name="p9"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow2(System.Int32,System.Double,System.Double,System.Double,System.Double,System.String,System.Double,System.Double)">
+            <summary>
+            方法;z显示在界面上
+            </summary>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="p3"></param>
+            <param name="p4"></param>
+            <param name="p5"></param>
+            <param name="p6"></param>
+            <param name="p7"></param>
+            <param name="p8"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow4(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            把窗体4的值显示在主界面上
+            </summary>
+            <param name="faiD"></param>
+            <param name="ContaValue"></param>
+            <param name="Tac"></param>
+            <param name="a"></param>
+            <param name="Kc"></param>
+            <param name="Kf"></param>
+            <param name="u"></param>
+            <param name="m"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.OperateShow5(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            窗体5显示值
+            </summary>
+            <param name="β"></param>
+            <param name="a"></param>
+            <param name="aReal"></param>
+            <param name="Xa"></param>
+            <param name="Xb"></param>
+            <param name="Xc"></param>
+            <param name="Da"></param>
+            <param name="Db"></param>
+            <param name="Dc"></param>
+            <param name="da1"></param>
+            <param name="da2"></param>
+            <param name="da3"></param>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmDesign.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDesign.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmDetails.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDetails.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDetails.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.#ctor">
+            <summary>
+            构造函数初始化
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.pbBarStep(System.Int32,System.Int32)">
+            <summary>
+            进度条格式
+            </summary>
+            <param name="imaxValue">总数</param>
+            <param name="istep">总步数</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.FilesLists">
+            <summary>
+            获取界面展示全部或选中的文件
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.GetFiles(System.String,System.String,System.String)">
+            <summary>
+            获取用户所选文件（prt,asm）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.SubLastString(System.String,System.String)">
+             <summary>
+            截取到最后一位字符
+             </summary>
+             <param name="sSubStr">原字符串路径</param>
+             <param name="sSplitStr">分隔的字符</param>
+             <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.GetDrawPathByDir(System.String)">
+            <summary>
+            获取文件夹下所有图纸路径
+            </summary>
+            <param name="direct"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.pairArry(System.Collections.Generic.Dictionary{System.String,System.String},System.Int32)">
+            <summary>
+            字典排序方法
+            </summary>
+            <param name="dic">排序对象</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.打开文件ToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            打开文件夹选择文件
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.GetAllFiles(System.String)">
+            <summary>
+            获取用户所选择文件夹下的所有文件（prt,asm）
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.GetFileByDir(System.String)">
+            <summary>
+            获取文件夹下包含指定字符串的所有文件
+            </summary>
+            <param name="directory">文件夹路径</param>       
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmDrawings.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmDrawings.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.CaculateAlp(System.Double)">
+            <summary>
+            迭代求解α'
+            </summary>
+            <param name="Value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.OldFunction(System.Double,System.Double)">
+            <summary>
+            原函数
+            </summary>
+            <param name="alp"></param>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.Dfunction(System.Double)">
+            <summary>
+            导函数
+            </summary>
+            <param name="alp"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmEvolentCacul.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmEvolentCacul.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.ToolValue">
+            <summary>
+            定义委托接收插齿刀参数值
+            </summary>
+            <param name="z0"></param>
+            <param name="ha0"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFive.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFive.CaculateAlp(System.Double)">
+            <summary>
+            迭代求解α'
+            </summary>
+            <param name="Value"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmFive.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFive.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFive.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.#ctor(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            窗体初始化
+            </summary>
+            <param name="ka"></param>
+            <param name="inputTor"></param>
+            <param name="kp"></param>
+            <param name="za"></param>
+            <param name="zc"></param>
+            <param name="zb"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.EstimateValue(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            初算参数
+            </summary>
+            <param name="ka"></param>
+            <param name="inputTor"></param>
+            <param name="kp"></param>
+            <param name="za"></param>
+            <param name="zc"></param>
+            <param name="zb"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.StandardTransmi(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            标准传动参数计算
+            </summary>
+            <param name="ka">使用系数</param>
+            <param name="inputTor">输入扭矩</param>
+            <param name="kp">载荷系数</param>
+            <param name="za">太阳轮数</param>
+            <param name="zc">行星轮数</param>
+            <param name="zb">内齿轮数</param>
+            <param name="mLess">最小模数</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.InOutShift(System.Double,System.Double,System.Double,System.Int32,System.Int32,System.Int32,System.Double)">
+            <summary>
+            外啮合角变位，内啮合高度变位
+            </summary>
+            <param name="ka"></param>
+            <param name="inputTor">输入扭矩</param>
+            <param name="kp">均载系数</param>
+            <param name="za">太阳轮齿数</param>
+            <param name="zc">行星轮齿数</param>
+            <param name="zb">内齿轮齿数</param>
+            <param name="mLess"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.CalculataScale(System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            初算模数的方法
+            </summary>
+            <param name="ka"></param>
+            <param name="inputTor"></param>
+            <param name="kp"></param>
+            <param name="za"></param>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmFour.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmFour.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:FrmReducerDesignerApplication.FrmFour.OperateGetValue4">
+            <summary>
+            【2】定义事件传值
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmKey.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmKey.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmKey.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmKeyGear.#ctor">
+            <summary>
+            花键齿轮轴
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmKeyGear.VerificationInput">
+            <summary>
+            验证输入数据-------------
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmKeyGear.VerificationIsDigital(System.String)">
+            <summary>
+            验证是否是数字---------
+            </summary>
+            <param name="value">验证内容</param>
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmKeyGear.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmKeyGear.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmKeyGear.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmMain.components">
+            <summary>
+            必需的设计器变量。
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmMain.Dispose(System.Boolean)">
+            <summary>
+            清理所有正在使用的资源。
+            </summary>
+            <param name="disposing">如果应释放托管资源，为 true；否则为 false。</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmMain.InitializeComponent">
+            <summary>
+            设计器支持所需的方法 - 不要
+            使用代码编辑器修改此方法的内容。
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmMaterials.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmMaterials.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmMaterials.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmModifyPwd.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmModifyPwd.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmModifyPwd.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.delegateMeasure">
+            <summary>
+            [1]定义委托方法
+            </summary>
+            <param name="c"></param>
+            <param name="d"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmOne.OperateRadioBtn(System.Int32,System.Int32)">
+            <summary>
+            【4】定义事件响应方法
+            </summary>
+            <param name="c">原动机索引值</param>
+            <param name="d">原动机索引值</param>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmOne.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmOne.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmOne.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:FrmReducerDesignerApplication.FrmOne.OperateGetValue">
+            <summary>
+            [2]定义一个事件(传递窗体1、2、3、4、5、6的值)
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSix.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="m">模数</param>
+            <param name="da">a的分度圆</param>
+            <param name="dc">c的分度圆</param>
+            <param name="db">b的分度圆</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSix.CaculateContactVal">
+            <summary>
+            校核接触应力
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSix.CaculateBendVal">
+            <summary>
+            校核弯曲应力
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmSix.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSix.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSix.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty1.VerificationInput">
+            <summary>
+            验证输入数据-------------
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty1.VerificationIsDigital(System.String)">
+            <summary>
+            验证是否是数字---------
+            </summary>
+            <param name="value">验证内容</param>
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmSpurSty1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty2.VerificationInput">
+            <summary>
+            验证输入数据
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty2.VerificationIsDigital(System.String)">
+            <summary>
+            验证是否是数字---------
+            </summary>
+            <param name="value">验证内容</param>
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmSpurSty2.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty2.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty2.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty3.ShowPara1">
+            <summary>
+            获取显示格式的参数列表方法1,2
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty3.VerificationInput">
+            <summary>
+            验证输入数据-------------
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty3.VerificationIsDigital(System.String)">
+            <summary>
+            验证是否是数字---------
+            </summary>
+            <param name="value">验证内容</param>
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmSpurSty3.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty3.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmSpurSty3.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmStandardized.#ctor">
+            <summary>
+            构造函数（初始化）
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmStandardized.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmStandardized.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmStandardized.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmThree.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmThree.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmThree.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:FrmReducerDesignerApplication.FrmThree.OperateGetValue3">
+            <summary>
+            定义事件传值
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.#ctor">
+            <summary>
+            构造函数（初始化）
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            构造函数实现不同窗体间的传参
+            </summary>
+            <param name="inputPower"></param>
+            <param name="reRation"></param>
+            <param name="inputRevolo"></param>
+            <param name="efficent"></param>
+            <param name="outpTorque"></param>
+            <param name="outpRevolo"></param>
+            <param name="inpuTorque"></param>
+            <param name="Ka"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.traveMatch(System.Double,System.Double,System.Double)">
+            <summary>
+            递归方法判断是否满足同心条件
+            </summary>
+            <param name="a"></param>
+            <param name="b"></param>
+            <param name="c"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.AssemblyMatch(System.Double,System.Double)">
+            <summary>
+            满足装配条件的方法
+            </summary>
+            <param name="za"></param>
+            <param name="zb"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmTwo.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmTwo.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="E:FrmReducerDesignerApplication.FrmTwo.OperateGetValue2">
+            <summary>
+            [2]定义一个事件
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.#ctor">
+            <summary>
+            初始化 构造方法
+            </summary>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmUnstandardized.sty3Para1">
+            <summary>
+            窗体3变量值
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.VerificationInput">
+            <summary>
+            验证输入数据-------------
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.VerificationIsDigital(System.String)">
+            <summary>
+            验证是否是数字---------
+            </summary>
+            <param name="value">验证内容</param>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.ConnectSw">
+            <summary>
+            连接Solidworks---------方法
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.FramMax">
+            <summary>
+            文档框最大化
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.ViewShow(System.String)">
+            <summary>
+            显示视图视角
+            </summary>
+            <param name="viewName">视角名称</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.NewPart">
+            <summary>
+            x新建零件
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.GenerateGear(System.Double,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            生成直齿轮
+            </summary>
+            <param name="gearModule">模数</param>
+            <param name="gearNum">齿数</param>
+            <param name="pressureAngl">压力角</param>
+            <param name="higthModule">顶高系数</param>
+            <param name="xiModule">顶隙系数</param>
+            <param name="shiftModule">变位系数</param>
+            <param name="gearWidth">齿宽</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.GenerateBanGear(System.Double,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            生成腹板式齿轮的方法
+            </summary>
+            <param name="gearModule"></param>
+            <param name="gearNum"></param>
+            <param name="pressureAngl"></param>
+            <param name="higthModule"></param>
+            <param name="xiModule"></param>
+            <param name="shiftModule"></param>
+            <param name="gearWidth"></param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.CreateHelix(System.Double,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            斜齿轮方法
+            </summary>
+            <param name="gearScale">模数</param>
+            <param name="gearNum">齿数</param>
+            <param name="pressureAngl">压力角</param>
+            <param name="higthScale">顶高系数</param>
+            <param name="xiScale">顶隙系数</param>
+            <param name="gearWidth">齿宽</param>
+            <param name="helixAngle">螺旋角</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.GenerateBanGearH(System.Double,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            腹板斜齿轮创建方法
+            </summary>
+            <param name="gearScale">模数</param>
+            <param name="gearNum">齿数</param>
+            <param name="pressureAngl">压力角</param>
+            <param name="higthScale">顶高系数</param>
+            <param name="xiScale">顶隙系数</param>
+            <param name="gearWidth">齿宽</param>
+            <param name="helixAngle">螺旋角</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.GenerateShaftHR">
+            <summary>
+            拉伸右端轴段
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.VerificationInputIn">
+            <summary>
+            验证输入数据内齿轮-------------
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.GenerateCircleGear(System.Double,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            生成内齿轮
+            </summary>
+            <param name="gearModule">模数</param>
+            <param name="gearNum">齿数</param>
+            <param name="diamMax">外圈直径</param>
+            <param name="pressureAngl">压力角</param>
+            <param name="higthModule">顶高系数</param>
+            <param name="xiModule">顶隙系数</param>
+            <param name="shiftModule">变位系数</param>
+            <param name="gearWidth">齿宽</param>
+            <param name="holeCenter">孔中心线直径</param>
+            <param name="holeDia">孔径</param>
+            <param name="holeNUM">孔个数</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.CreateKeyGear(System.Double,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            生成花键齿轴
+            </summary>
+            <param name="gearModule">模数</param>
+            <param name="gearNum">齿数</param>
+            <param name="pressureAngl">压力角</param>
+            <param name="higthModule">顶高系数</param>
+            <param name="xiModule">顶隙系数</param>
+            <param name="shiftModule">变位系数</param>
+            <param name="gearWidth">齿宽</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.VerificationDigital(System.String)">
+            <summary>
+            判断正整数
+            </summary>
+            <param name="num"></param>
+            <returns></returns>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.VerificationInputCarrier">
+            <summary>
+            判断其他数
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.CreateAPart(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Int32)">
+            <summary>
+            //生成一个零件
+            </summary>
+            <param name="ra">总直径</param>
+            <param name="r2">R2</param>
+            <param name="r3">R3</param>
+            <param name="rkeys"></param>
+            <param name="r4">内圆直径</param>
+            <param name="rc">中心线直径</param>
+            <param name="rh">孔径</param>
+            <param name="B1">总厚度</param>
+            <param name="B3">花键长度</param>
+            <param name="B4">B4宽度</param>
+            <param name="B5">键槽宽度</param>    
+            <param name="keyNum">花键数量</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.CreatePlanet(SolidWorks.Interop.sldworks.ModelDoc2,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            生成机座
+            </summary>
+            <param name="Part"></param>
+            <param name="r1"></param>
+            <param name="r2"></param>
+            <param name="fai3"></param>
+            <param name="fai4"></param>
+            <param name="fai5"></param>
+            <param name="faiHole"></param>
+            <param name="B"></param>
+            <returns></returns>
+        </member>
+        <member name="F:FrmReducerDesignerApplication.FrmUnstandardized.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.FrmUnstandardized.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.FrmUnstandardized.Temp_TB_name">
+            模版文件名,同时也是参数表名（数据库）
+        </member>
+        <member name="F:FrmReducerDesignerApplication.MachineForce.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.MachineForce.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.MachineForce.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:FrmReducerDesignerApplication.Program.Main">
+            <summary>
+            应用程序的主入口点。
+            </summary>
+        </member>
+        <member name="T:FrmReducerDesignerApplication.Properties.Resources">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Properties.Resources.ResourceManager">
+            <summary>
+              返回此类使用的、缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:FrmReducerDesignerApplication.Properties.Resources.Culture">
+            <summary>
+              为所有资源查找重写当前线程的 CurrentUICulture 属性，
+              方法是使用此强类型资源类。
+            </summary>
+        </member>
+    </members>
+</doc>

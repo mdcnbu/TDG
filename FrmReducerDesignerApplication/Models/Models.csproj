@@ -43,6 +43,7 @@
     <Compile Include="GearNums.cs" />
     <Compile Include="GearType.cs" />
     <Compile Include="HeatType.cs" />
+    <Compile Include="KeyValue.cs" />
     <Compile Include="MaterialId.cs" />
     <Compile Include="Materials.cs" />
     <Compile Include="Modules.cs" />

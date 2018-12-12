@@ -59,7 +59,6 @@
             this.chkBom = new System.Windows.Forms.CheckBox();
             this.chkIsometric = new System.Windows.Forms.CheckBox();
             this.chkStardView = new System.Windows.Forms.CheckBox();
-            this.rdoShadowFirst = new System.Windows.Forms.RadioButton();
             this.rdoShadowThree = new System.Windows.Forms.RadioButton();
             this.chkStardardScale = new System.Windows.Forms.CheckBox();
             this.btnStartDrawing = new System.Windows.Forms.Button();
@@ -69,6 +68,8 @@
             this.lblBar = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblViewStyle = new System.Windows.Forms.Label();
+            this.chkDwg = new System.Windows.Forms.CheckBox();
+            this.rdoShadowFirst = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -361,7 +362,7 @@
             // 
             this.chkBom.AutoSize = true;
             this.chkBom.BackColor = System.Drawing.SystemColors.Control;
-            this.chkBom.Location = new System.Drawing.Point(542, 404);
+            this.chkBom.Location = new System.Drawing.Point(536, 409);
             this.chkBom.Name = "chkBom";
             this.chkBom.Size = new System.Drawing.Size(84, 16);
             this.chkBom.TabIndex = 28;
@@ -372,7 +373,7 @@
             // 
             this.chkIsometric.AutoSize = true;
             this.chkIsometric.BackColor = System.Drawing.SystemColors.Control;
-            this.chkIsometric.Location = new System.Drawing.Point(542, 357);
+            this.chkIsometric.Location = new System.Drawing.Point(536, 363);
             this.chkIsometric.Name = "chkIsometric";
             this.chkIsometric.Size = new System.Drawing.Size(84, 16);
             this.chkIsometric.TabIndex = 29;
@@ -385,29 +386,17 @@
             this.chkStardView.BackColor = System.Drawing.SystemColors.Control;
             this.chkStardView.Checked = true;
             this.chkStardView.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkStardView.Location = new System.Drawing.Point(542, 335);
+            this.chkStardView.Location = new System.Drawing.Point(536, 340);
             this.chkStardView.Name = "chkStardView";
             this.chkStardView.Size = new System.Drawing.Size(84, 16);
             this.chkStardView.TabIndex = 30;
             this.chkStardView.Text = "标准三视图";
             this.chkStardView.UseVisualStyleBackColor = false;
             // 
-            // rdoShadowFirst
-            // 
-            this.rdoShadowFirst.AutoSize = true;
-            this.rdoShadowFirst.Checked = true;
-            this.rdoShadowFirst.Location = new System.Drawing.Point(542, 437);
-            this.rdoShadowFirst.Name = "rdoShadowFirst";
-            this.rdoShadowFirst.Size = new System.Drawing.Size(95, 16);
-            this.rdoShadowFirst.TabIndex = 31;
-            this.rdoShadowFirst.TabStop = true;
-            this.rdoShadowFirst.Text = "第一视角投影";
-            this.rdoShadowFirst.UseVisualStyleBackColor = true;
-            // 
             // rdoShadowThree
             // 
             this.rdoShadowThree.AutoSize = true;
-            this.rdoShadowThree.Location = new System.Drawing.Point(644, 437);
+            this.rdoShadowThree.Location = new System.Drawing.Point(647, 433);
             this.rdoShadowThree.Name = "rdoShadowThree";
             this.rdoShadowThree.Size = new System.Drawing.Size(95, 16);
             this.rdoShadowThree.TabIndex = 31;
@@ -417,7 +406,7 @@
             // chkStardardScale
             // 
             this.chkStardardScale.AutoSize = true;
-            this.chkStardardScale.Location = new System.Drawing.Point(542, 379);
+            this.chkStardardScale.Location = new System.Drawing.Point(536, 386);
             this.chkStardardScale.Name = "chkStardardScale";
             this.chkStardardScale.Size = new System.Drawing.Size(96, 16);
             this.chkStardardScale.TabIndex = 32;
@@ -478,9 +467,9 @@
             // 
             this.groupBox1.Controls.Add(this.rdoAddDimenAuto);
             this.groupBox1.Controls.Add(this.rdoAddDimenNo);
-            this.groupBox1.Location = new System.Drawing.Point(641, 335);
+            this.groupBox1.Location = new System.Drawing.Point(640, 340);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(102, 78);
+            this.groupBox1.Size = new System.Drawing.Size(102, 62);
             this.groupBox1.TabIndex = 37;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "尺寸标注";
@@ -495,6 +484,29 @@
             this.lblViewStyle.Text = "1";
             this.lblViewStyle.Visible = false;
             // 
+            // chkDwg
+            // 
+            this.chkDwg.AutoSize = true;
+            this.chkDwg.BackColor = System.Drawing.SystemColors.Control;
+            this.chkDwg.Location = new System.Drawing.Point(536, 432);
+            this.chkDwg.Name = "chkDwg";
+            this.chkDwg.Size = new System.Drawing.Size(108, 16);
+            this.chkDwg.TabIndex = 28;
+            this.chkDwg.Text = "另存为.dwg格式";
+            this.chkDwg.UseVisualStyleBackColor = false;
+            // 
+            // rdoShadowFirst
+            // 
+            this.rdoShadowFirst.AutoSize = true;
+            this.rdoShadowFirst.Checked = true;
+            this.rdoShadowFirst.Location = new System.Drawing.Point(647, 411);
+            this.rdoShadowFirst.Name = "rdoShadowFirst";
+            this.rdoShadowFirst.Size = new System.Drawing.Size(95, 16);
+            this.rdoShadowFirst.TabIndex = 31;
+            this.rdoShadowFirst.TabStop = true;
+            this.rdoShadowFirst.Text = "第一视角投影";
+            this.rdoShadowFirst.UseVisualStyleBackColor = true;
+            // 
             // FrmDrawings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -508,6 +520,7 @@
             this.Controls.Add(this.chkStardardScale);
             this.Controls.Add(this.rdoShadowThree);
             this.Controls.Add(this.rdoShadowFirst);
+            this.Controls.Add(this.chkDwg);
             this.Controls.Add(this.chkBom);
             this.Controls.Add(this.chkIsometric);
             this.Controls.Add(this.chkStardView);
@@ -564,7 +577,6 @@
         private System.Windows.Forms.CheckBox chkBom;
         private System.Windows.Forms.CheckBox chkIsometric;
         private System.Windows.Forms.CheckBox chkStardView;
-        private System.Windows.Forms.RadioButton rdoShadowFirst;
         private System.Windows.Forms.RadioButton rdoShadowThree;
         private System.Windows.Forms.CheckBox chkStardardScale;
         private System.Windows.Forms.Button btnStartDrawing;
@@ -580,5 +592,7 @@
         private System.Windows.Forms.Label lblBar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblViewStyle;
+        private System.Windows.Forms.CheckBox chkDwg;
+        private System.Windows.Forms.RadioButton rdoShadowFirst;
     }
 }

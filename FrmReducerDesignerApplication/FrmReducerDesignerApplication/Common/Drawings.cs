@@ -72,9 +72,13 @@ namespace FrmReducerDesignerApplication.Common
        /// 推荐的尺寸
        /// </summary>
         public bool addDimensionAuto { get; set; }
-  /// <summary>
-  /// 视图样式
-  /// </summary>
+       /// <summary>
+       /// 保存为.Dwg格式
+       /// </summary>
+        public bool IfDwg { get; set; }
+           /// <summary>
+          /// 视图样式
+          /// </summary>
        public int tag { get; set; }
         #endregion
         #region  委托公共属性
@@ -217,7 +221,7 @@ namespace FrmReducerDesignerApplication.Common
                 if (newPath != null)
                 {
                     savePaths = newPath.Substring(0, newPath.LastIndexOf("\\"));
-                }
+                }              
                 //新建工程图             
                 _swApp.SetUserPreferenceToggle((int)swUserPreferenceToggle_e.swAutomaticScaling3ViewDrawings, true);//自动缩放新工程图比例
                 if (standarView == false && isometric)//如果只生成等轴测视图
@@ -231,12 +235,22 @@ namespace FrmReducerDesignerApplication.Common
                     _swApp.CloseDoc(_swModelDoc.GetTitle());//
                     ModelDoc2 tempDoc = (ModelDoc2)__swDrawDoc;
                     bool ss0 = false;
-                    if (newPath != null)
+                    if (newPath != null && IfDwg)
                     {
                         ss0 = tempDoc.Extension.SaveAs(newPath, (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
                     }
+                    else if (newPath != null&&IfDwg==false)
+                    {
+                        ss0 = tempDoc.Extension.SaveAs(savePaths + "\\" + (_swModelDoc.GetTitle()).Substring(0, (_swModelDoc.GetTitle()).LastIndexOf(".")) + ".DWG", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
+                    }
+                    else if (newPath == null&&IfDwg)
+                    {
+                        ss0 = tempDoc.Extension.SaveAs(savePaths + "\\" + (_swModelDoc.GetTitle()).Substring(0, (_swModelDoc.GetTitle()).LastIndexOf(".")) + ".DWG", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
+                    }
                     else
+                    {
                         ss0 = tempDoc.Extension.SaveAs(savePaths + "\\" + (_swModelDoc.GetTitle()).Substring(0, (_swModelDoc.GetTitle()).LastIndexOf(".")) + ".slddrw", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
+                    }
 
                     bool isHidden = tempDoc.SetUserPreferenceToggle((int)swUserPreferenceToggle_e.swViewDisplayHideAllTypes, true); //隐藏所有类型
                     _swApp.CloseDoc(tempDoc.GetTitle());
@@ -473,23 +487,30 @@ namespace FrmReducerDesignerApplication.Common
                     _numSucess += 1;//转换成功的数量
                     sucessFile.Add(filePath);
                 }
-              
                 ModelDoc2 tempModelDoc = (ModelDoc2)__swDrawDoc;//获取到swDraw的父级（ModelDoc）   
                 _swApp.CloseDoc(_swModelDoc.GetTitle());
                 bool isHiden = tempModelDoc.SetUserPreferenceToggle((int)swUserPreferenceToggle_e.swViewDisplayHideAllTypes, true); //隐藏所有类型               
               
                 _swModelDoc.ForceRebuild3(false);
-                //string saveName = (_swModelDoc.GetTitle()).Substring(0, (_swModelDoc.GetTitle()).LastIndexOf("."));
+                string saveName = (_swModelDoc.GetTitle()).Substring(0, (_swModelDoc.GetTitle()).LastIndexOf("."));
                 bool ss;
-                if (newPath != null)
+                if (newPath != null&&IfDwg)
                 {
-                    ss = tempModelDoc.Extension.SaveAs(newPath, (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
+                    ss = tempModelDoc.Extension.SaveAs(savePaths + "\\" + (_swModelDoc.GetTitle()) + ".DWG", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
+                }
+                else if (newPath != null && IfDwg==false)
+                {
+                    ss = tempModelDoc.Extension.SaveAs(savePaths + "\\" + (_swModelDoc.GetTitle()) + ".slddrw", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
+
+                }
+                else if (newPath == null && IfDwg)
+                {
+                    ss = tempModelDoc.Extension.SaveAs(savePaths + "\\" + (_swModelDoc.GetTitle()) + ".DWG", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
                 }
                 else
                 {
                     ss = tempModelDoc.Extension.SaveAs(savePaths + "\\" + (_swModelDoc.GetTitle()) + ".slddrw", (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref errors, ref warnings);
-                }
-                //bool isSave = tempModelDoc.Extension.SaveAs(savePaths +"\\"+ nameEx, (int)swSaveAsVersion_e.swSaveAsCurrentVersion, (int)swSaveAsOptions_e.swSaveAsOptions_Silent, null, ref err, ref warn);
+                }             
                 _swApp.CloseDoc(tempModelDoc.GetTitle());//关闭转换完成的文件
             }
         }
@@ -508,6 +529,7 @@ namespace FrmReducerDesignerApplication.Common
             outLine = (double[])_swView.GetOutline();//获取图纸边界
             _swView = (IView)swDraw.CreateDrawViewFromModelView3(fileName, "*等轴测", (outLine[2] - outLine[0]) / 2.0, (outLine[3] - outLine[1]) / 1.5, 0);
         }
+        #region 自动添加尺寸
         /// <summary>
         /// 添加尺寸
         /// </summary>
@@ -532,7 +554,8 @@ namespace FrmReducerDesignerApplication.Common
 
             }
         }
-
+        #endregion
+        #region 改变视图样式
         /// <summary>
         /// 改变视图的显示样式
         /// </summary>
@@ -566,7 +589,8 @@ namespace FrmReducerDesignerApplication.Common
                 swView.SetDisplayMode3(false, (int)swDisplayMode_e.swSHADED, false, false);
             }
         }
-
+        #endregion
+        #region 比例计算
         /// <summary>
         /// 计算修改比列
         /// </summary>
@@ -814,5 +838,6 @@ namespace FrmReducerDesignerApplication.Common
             }
             return scale;
         }
+        #endregion
     }
 }
